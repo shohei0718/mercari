@@ -142,41 +142,42 @@ Things you may want to cover:
 - has_many :orders
 
 
-## category1テーブル
+## fisrt_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |id|||
-|category1|string|null:false|
+|first_category|string|null:false|
 
 ### Association
 - has_many :items
-- has_many :category2
+- has_many :second_categories
+- has_many :brands,through::brand_categories
+- has_many :brand_categories
 
-
-## category2テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|id|||
-|category1_id|reference|foreign_key:ture|
-|category2|string|null:false|
-
-### Association
-- belongs_to :category1
-- has_many :category3
-
-
-## category3テーブル
+## second_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |id|||
-|category2_id|reference|foreign_key:ture|
-|category3|string|null:false|
+|first_category_id|reference|foreign_key:ture|
+|second_category|string|null:false|
 
 ### Association
-- belongs_to :category2
+- belongs_to :first_category
+- has_many :third_categories
+
+
+## third_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|second_category_id|reference|foreign_key:ture|
+|third_category|string|null:false|
+
+### Association
+- belongs_to :second_category
 - has_many :sizes
 
 
@@ -185,11 +186,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id|||
-|category3|reference|foreign_key:ture|
+|third_category_id|reference|foreign_key:ture|
 |sizes|string|null:false|
 
 ### Association
-- belongs_to :category3
+- belongs_to :third_category
 
 
 ## brandsテーブル
@@ -198,11 +199,24 @@ Things you may want to cover:
 |------|----|-------|
 |id|||
 |brand|string|unique|
-|category1_id|reference|foreign_key:ture|
+|first_category_id|reference|foreign_key:ture|
 
 ### Association
-- belongs_to :category1
 - has_many :items
+- has_many :first_categories,through::brand_categories
+- has_many :brand_categories
+
+
+## brand_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|brand_id|reference|foreign_key:ture|
+|first_category_id|reference|foreign_key:ture|
+
+### Association
+- belongs_to :first_category
+- belongs_to :brand
 
 
 ## conditionsテーブル
