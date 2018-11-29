@@ -65,3 +65,4 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'jquery-slick-rails'
+gem 'devise'
