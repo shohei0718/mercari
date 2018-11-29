@@ -36,27 +36,65 @@ Things you may want to cover:
 |email|string|null:false,unique|
 |password|string|null:false|
 |telephone|integer|null:false,unique|
-|credit_card|integer|unique|
-|card_validity_year|integer||
-|card_validity_month|integer||
-|cvc|integer||
-|prefecture_id|reference|null:false, foreign_key: true|
+|prefecture_id|reference|foreign_key: true|
 |city|string|null:false|
 |adress|string|null:false|
 |building|string||
-|post_number|integer|null:false|
+|zip_code|integer|null:false|
 |introduction|text||
 |birth_year|integer|null:false|
 |birth_month|integer|null:false|
 |birth_day|integer|null:false|
 |birth_is_vaild|boolean(0)||
 |reset_password_token|string||
-|reset_password_sent_at|dyatime|
+|reset_password_sent_at|dyatime||
+|user_icon|text||
+|point_amount|integer||
+|profit_amount|integer||
+
 
 ### Association
 - has_many :items
 - has_many :orders
+- has_many :profits
+- has_many :points
+- has_many :messages
+- has_many :likes
+- has_many :flags
+- has_many :message_items,through::messages,source::item
+- has_many :like_items,through::likes,source::item
+- has_many :flag_items,through::flags,source::item
 - belongs_to :prefecture
+- belongs_to :rate
+
+
+## ratesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|rating|string||
+
+### Association
+- has_many :items
+- has_many :users
+
+
+## rate_countsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|rating_id|reference|foreign_key: true|
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+|message|text|null:false|
+|seller|boolean||
+
+
+### Association
+- has_many :items
+- has_many :users
 
 
 ## prefecturesテーブル
@@ -70,6 +108,88 @@ Things you may want to cover:
 - has_many :items
 - has_many :users
 
+
+## pointsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|amount|integer||
+|user_id|reference|foreign_key: true|
+|point_status_id|reference|foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
+## point_statusテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|point_status|string||
+
+### Association
+- has_many :points
+
+
+## profitsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|prpfit|integer||
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+|expiration_date|daytime||
+|profit_is_vaild|boolean||
+
+### Association
+- belongs_to :item
+- belongs_to :user
+
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|message|text||
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+|seller|boolean||
+|order_status_id|reference|foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :user
+- belongs_to :order_status
+
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :user
+
+
+## flagsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :user
 
 ## itemsテーブル
 
@@ -87,19 +207,27 @@ Things you may want to cover:
 |delivery_charge|reference|foreign_key:true|
 |prefecure_id|reference|foreign_key:true|
 |delivery_dates_id|reference|foreign_key:true|
-|sold_out|boolean||
+|order_status_id|reference|foreign_key:true|
 
 ### Association
 - has_many :item_images
-- has_one :order
+- has_many :messages
+- has_many :likes
+- has_many :flags
+- has_many :message_users,through::messages,source::user
+- has_many :like_users,through::likes,source::user
+- has_many :flag_users,through::flags,source::user
+- belongs_to :order
+- belongs_to :profit
 - belongs_to :prefecture
 - belongs_to :user
-- belongs_to :category1
+- belongs_to :first_category
 - belongs_to :brand
 - belongs_to :condition
 - belongs_to :delivery_charge
 - belongs_to :delivery_date
-
+- belongs_to :order_status
+- belongs_to :size
 
 ## item_imageテーブル
 
@@ -120,26 +248,24 @@ Things you may want to cover:
 |id|integer||
 |user_id|reference|null:false,foreign_key:ture|
 |item_id|reference|null:false,foreign_key:ture|
-|payment_id|reference|null:false,foreign_key:ture|
+|seller_id|reference|null:false,foreign_key:ture|
+|first_name_delivery|string|null:false|
+|first_name_kana_delivery|string|null:false|
+|last_name_delivery|string|null:false|
+|last_name_kana_delivery|string|null:false|
+|prefecture_id|reference|foreign_key: true|
+|city_delivery|string|null:false|
+|adress_delivery|string|null:false|
+|building_delivery|string||
+|zip_code_delivery|integer|null:false|
+|telephone_delivery|integer||
+|payment_method|integer||
+|user_point|boolean||
+|point|integer||
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :payment
-
-
-## paymentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|id|||
-|card_number|integer||
-|validity|integer||
-|cvc|integer||
-|card_name|string||
-
-### Association
-- has_many :orders
 
 
 ## fisrt_categoriesテーブル
@@ -151,9 +277,9 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :second_categories
 - has_many :brands,through::brand_categories
 - has_many :brand_categories
+- has_many :second_categories
 
 ## second_categoriesテーブル
 
@@ -161,10 +287,12 @@ Things you may want to cover:
 |------|----|-------|
 |id|||
 |first_category_id|reference|foreign_key:ture|
+|size_category_id|reference|foreign_key:ture|
 |second_category|string|null:false|
 
 ### Association
 - belongs_to :first_category
+- belongs_to :size_category
 - has_many :third_categories
 
 
@@ -178,7 +306,6 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :second_category
-- has_many :sizes
 
 
 ## sizesテーブル
@@ -186,11 +313,24 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id|||
-|third_category_id|reference|foreign_key:ture|
-|sizes|string|null:false|
+|size_category_id|reference|foreign_key:ture|
+|size|string|null:false|
 
 ### Association
-- belongs_to :third_category
+- belongs_to :size_category
+- has_many :items
+
+
+## size_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|size_category|string||
+
+### Association
+- has_many :second_categories
+- has_many :sizes
 
 
 ## brandsテーブル
@@ -247,6 +387,16 @@ Things you may want to cover:
 |------|----|-------|
 |id|||
 |date|string||
+
+### Association
+- has_many :items
+
+## order_statusesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|||
+|order_status|string||
 
 ### Association
 - has_many :items
