@@ -1,0 +1,35 @@
+.header-wrapper
+  %header
+    .logo-and-search.clearfix
+      =link_to root_path do
+        = image_tag("header-footer_images/mercari-coloful_logo.svg", class: "logo-and-search__logo left-float")
+      .search
+        %form.logo-and-search__search.right-float
+          %input{value:"", placeholder:"キーワードから探す" }
+          = link_to do
+            %i.fa.fa-search
+    .lists.clearfix
+      .lists__left.left-float
+        %ul
+          %li.left_btn
+            %h2
+              = link_to do
+                カテゴリーから探す
+          %li.left_btn
+            %h2
+              = link_to do
+                ブランドから探す
+      .lists__right.right-float
+        %ul
+          %li.right_btn
+            = link_to class: "right_btn" do
+              = image_tag("header-footer_images/member_photo.png", class: "member_photo left-float")
+              マイページ
+          %li.right_btn
+            = link_to class: "right_btn" do
+              %i.fa.fa-bell.icon
+              お知らせ
+          %li.right_btn
+            = link_to class: "right_btn" do
+              %i.fa.fa-check.icon
+              やることリスト

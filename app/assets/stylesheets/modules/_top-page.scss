@@ -1,3 +1,217 @@
+  .top-main-visual-1 {
+    background-image: url(header-footer_images/main-background-1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 390px;
+    .center-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 860px;
+      height: 100%;
+      margin: 0 auto;
+      color: #333333;
+      line-height: 1.2;
+      .left-img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        h2 {
+          font-size: 60px;
+          font-weight: 800;
+        }
+        p {
+          font-size: 18px;
+          margin: 16px 0 0;
+          line-height: 1.8;
+        }
+        .top-main-visual-store {
+          .imgs {
+            float: left;
+            margin: 22px 0 0 0;
+            li {
+              float: left;
+              img {
+                height: 51px;
+                width:  168px;
+                cursor: pointer;
+                &:hover {
+                  opacity: 0.7;
+                }
+              }
+              .app {
+                margin-right: 12px;
+              }
+            }
+          }
+        }
+      }
+      .right-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        img{
+          height: 100%;
+        }
+      }
+    }
+  }
+  .top-main-visual-2 {
+    background-image: url(header-footer_images/main-background-2.png);
+    background-size: cover;
+    background-position: center;
+    height: 390px;
+  }
+  .top-main-visual-3 {
+    background-image: url(header-footer_images/main-background-3.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 390px;
+  }
+button{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.slide-dots{
+  text-align: center;
+  li{
+    display: inline-block;
+    margin: 0 auto;
+    button{
+      position: relative;
+      text-indent: -9999px;
+      &:before{
+        content: '・';
+        font-size: 20px;
+        text-indent: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    &.slick-active{
+      button:before{
+        content: '・';
+      }
+    }
+  }
+}
+
+.pickup-container {
+  background-color: #F5F5F5;
+  text-align: center;
+  margin:0 auto;
+  padding-bottom: 40px;
+  .pickup-head {
+    font-size: 28px;
+    font-weight: 800;
+    color: #333333;
+    padding-top: 40px;
+  }
+  .item-boxs {
+    h3{
+      letter-spacing: 2px;
+      margin: 25px;
+      font-size: 22px;
+      font-weight: 800;
+      a {
+        text-decoration: none;
+        color: #0099E8;
+      }
+    }
+    ul {
+      margin:0 auto;
+      width: 932px;
+      .item-box {
+        float: left;
+        margin-left: 20px;
+        position: relative;
+        height:330px;
+        width:213px;
+        background-color: white;
+        text-align: left;
+        a {
+          text-decoration: none;
+          color: #333333;
+          img {
+            width:213px;
+            height:220px;
+            object-fit: cover;
+          }
+          .item-box-text {
+            position: absolute;
+            bottom:0;
+            width:181px;
+            height: 78px;
+            padding: 16px;
+            .text-box {
+              position: relative;
+              height: 3em;
+              line-height: 1.5;
+              overflow: hidden;
+              h4 {
+                font-size: 16px;
+                font-weight: 400;
+                word-wrap: break-word;
+              }
+              &::after {
+              display: block;
+              position: absolute;
+              content: '';
+              bottom: 0;
+              right: 0;
+              width: 50%;
+              height: 1.5em;
+              background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+              background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+              }
+            }
+            .price {
+              position: absolute;
+              bottom: 16px;
+              left: 16px;
+              font-size:20px;
+              font-weight: 400;
+            }
+            .price-tax {
+              position: absolute;
+              bottom: 9px;
+              left: 16px;
+              font-size:10px;
+            }
+            .nice {
+              position: absolute;
+              bottom: 16px;
+              right: 16px;
+              font-size:16px;
+            }
+          }
+        }
+      }
+    }
+    .view-all {
+      clear:both;
+      padding: 20px 0 30px;
+      margin:0 auto;
+      width: 932px;
+      text-align: right;
+      a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #0099E8;
+      }
+    }
+  }
+}
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

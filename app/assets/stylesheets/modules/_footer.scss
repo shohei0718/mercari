@@ -1,0 +1,159 @@
+.footer-dl-area{
+  background-image: url(header-footer_images/footer-background.jpg);
+  background-size: cover;
+  background-position: center;
+  &__contents {
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 1.2;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    .left-img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 35px;
+        margin: 10px 0 0;
+      }
+      .app-banner-icon {
+        height: 68px;
+        margin: 20px 0 0;
+        overflow: hidden;
+        &__icons-box {
+          float: left;
+          margin: 0;
+          padding: 0;
+          .mercari-icon {
+            height: 68px;
+            width:  68px;
+          }
+        }
+        .imgs {
+          float: left;
+          margin: 14px 0 0 24px;
+          li {
+            float: left;
+            img {
+              height: 40px;
+              width:  133px;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+            .google {
+              margin: 0 0 0 16px;
+            }
+          }
+        }
+      }
+    }
+    .right-img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      img{
+        width: 300px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+.fotter {
+  padding: 60px 0;
+  background: #212121;
+  text-align: center;
+  color: #fff;
+  nav {
+    width: 1020px;
+    margin: 0 auto;
+    ul {
+      padding: 0 0 30px 0;
+      .fotter-cell {
+        display: inline-block;
+        width: 23%;
+        margin: 0 2% 0 0;
+        vertical-align: top;
+        box-sizing: border-box;
+        .fotter__header {
+          font-size: 16px;
+          font-weight: bold;
+          padding: 0 0 12px 0;
+        }
+        ul {
+          background-repeat: no-repeat;
+          margin: 0;
+          padding: 0;
+          li {
+            line-height: 14px;
+            margin-top: 16px;
+            .foreign {
+              opacity: 0.2;
+            }
+            a {
+              font-size: 14px;
+              color: #fff;
+              text-decoration: none;
+              img {
+                width: 20px;
+                vertical-align: middle;
+
+              }
+            }
+          }
+        }
+      }
+      .country {
+        margin: 0;
+      }
+    }
+  }
+
+  &__icon {
+    padding-top: 40px;
+    img {
+      width: 124px;
+      height: 33px;
+    }
+  }
+  &__copyright {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+}
+
+.exhibit {
+  a{
+    width: 160px;
+    height: 160px;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    font-size: 22px;
+    border-radius: 50%;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    .text{
+      margin: 32px 0 0;
+      padding: 0;
+    }
+    i{
+      margin: 8px 0 0;
+      font-size: 54px;
+    }
+  }
+}
