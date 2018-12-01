@@ -3,17 +3,41 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
-      ## Database authenticatable
-      t.string :name,               null: false, unique: true
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
 
-      ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      t.string     :nickname,             null:false
+      t.string     :first_name,           null:false
+      t.string     :first_name_kana,      null:false
+      t.string     :last_name,            null:false
+      t.string     :last_name_kana,       null:false
+      t.string     :city,                 null:false
+      t.string     :address,              null:false
+      t.string     :building
 
-      ## Rememberable
-      t.datetime :remember_created_at
+      t.string     :email,                null: false, default: "",unique: true
+
+      t.string     :encrypted_password,   null: false, default: ""
+      t.string     :reset_password_token
+
+
+      t.integer    :telephone,           null:false, unique:true
+      t.integer    :zip_code,            null:false
+
+      t.integer    :birth_year,          null:false
+      t.integer    :birth_month,         null:false
+      t.integer    :birth_day,           null:false
+
+      t.integer    :point_amount
+      t.integer    :profit_amount
+
+      t.text       :user_icon
+      t.text       :introduction
+
+      t.datetime   :remember_created_at
+      t.datetime   :reset_password_sent_at
+
+      # t.references :prefecture,                   foreign_key: true
+      # t.references :payment_information,       foreign_key: true
+
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
