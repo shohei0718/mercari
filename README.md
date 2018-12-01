@@ -27,8 +27,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer||
-|name|string|null:false|
+|nickname|string|null:false|
 |first_name|string|null:false|
 |first_name_kana|string|null:false|
 |last_name|string|null:false|
@@ -45,20 +44,19 @@ Things you may want to cover:
 |birth_year|integer|null:false|
 |birth_month|integer|null:false|
 |birth_day|integer|null:false|
-|birth_is_vaild|boolean(0)||
 |reset_password_token|string||
 |reset_password_sent_at|dyatime||
 |user_icon|text||
 |point_amount|integer||
 |profit_amount|integer||
-
+|payment_information_id|reference|foreign_key: true|
 
 ### Association
 - has_many :items
 - has_many :orders
 - has_many :profits
 - has_many :points
-- has_many :messages
+- has_many :communicatiuons
 - has_many :likes
 - has_many :flags
 - has_many :message_items,through::messages,source::item
@@ -66,13 +64,13 @@ Things you may want to cover:
 - has_many :flag_items,through::flags,source::item
 - belongs_to :prefecture
 - belongs_to :rate
+- belongs_to :payment_information
 
 
 ## ratesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |rating|string||
 
 ### Association
@@ -84,12 +82,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |rating_id|reference|foreign_key: true|
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 |message|text|null:false|
-|seller|boolean||
+|seller_or_buyer|boolean||
 
 
 ### Association
@@ -101,7 +98,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |prefecture|string|null:false,unique|
 
 ### Association
@@ -113,20 +109,19 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |amount|integer||
 |user_id|reference|foreign_key: true|
 |point_status_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to :point_status
 
 
-## point_statusテーブル
+## point_statusesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |point_status|string||
 
 ### Association
@@ -137,8 +132,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
-|prpfit|integer||
+|profit|integer||
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 |expiration_date|daytime||
@@ -149,15 +143,14 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## messagesテーブル
+## communicationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |message|text||
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
-|seller|boolean||
+|seller_or_buyer|boolean||
 |order_status_id|reference|foreign_key: true|
 
 ### Association
@@ -170,7 +163,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 
@@ -183,7 +175,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 
@@ -195,23 +186,25 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer||
 |user_id|reference|null:false,foreign_key:ture|
 |name|string|null:false|
 |price|integer|null:false|
 |description|text|null:false|
-|category1_id|reference|foreign_key:true|
+|first_category_id|reference|foreign_key:true|
+|second_category_id|reference|foreign_key:true|
+|third_category_id|reference|foreign_key:true|
 |brand_id|reference|foreign_key:true|
 |size_id|reference|foreign_key:true|
 |condition_id|reference|foreign_key:true|
 |delivery_charge|reference|foreign_key:true|
 |prefecure_id|reference|foreign_key:true|
 |delivery_dates_id|reference|foreign_key:true|
+|delivery_ways_id|reference|foreign_key:true|
 |order_status_id|reference|foreign_key:true|
 
 ### Association
 - has_many :item_images
-- has_many :messages
+- has_many :communications
 - has_many :likes
 - has_many :flags
 - has_many :message_users,through::messages,source::user
@@ -222,18 +215,21 @@ Things you may want to cover:
 - belongs_to :prefecture
 - belongs_to :user
 - belongs_to :first_category
+- belongs_to :second_category
+- belongs_to :third_category
 - belongs_to :brand
 - belongs_to :condition
 - belongs_to :delivery_charge
 - belongs_to :delivery_date
 - belongs_to :order_status
 - belongs_to :size
+- belongs_to :delivery_way
+
 
 ## item_imageテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |image|text|null:false|
 |item_id|reference|null:false,foreign_key:true|
 
@@ -245,10 +241,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer||
 |user_id|reference|null:false,foreign_key:ture|
 |item_id|reference|null:false,foreign_key:ture|
-|seller_id|reference|null:false,foreign_key:ture|
 |first_name_delivery|string|null:false|
 |first_name_kana_delivery|string|null:false|
 |last_name_delivery|string|null:false|
@@ -266,13 +260,12 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-
+- has_many :rate_counts
 
 ## fisrt_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |first_category|string|null:false|
 
 ### Association
@@ -285,7 +278,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |first_category_id|reference|foreign_key:ture|
 |size_category_id|reference|foreign_key:ture|
 |second_category|string|null:false|
@@ -294,25 +286,25 @@ Things you may want to cover:
 - belongs_to :first_category
 - belongs_to :size_category
 - has_many :third_categories
+- has_many :users
 
 
 ## third_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |second_category_id|reference|foreign_key:ture|
 |third_category|string|null:false|
 
 ### Association
 - belongs_to :second_category
+- has_many :users
 
 
 ## sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |size_category_id|reference|foreign_key:ture|
 |size|string|null:false|
 
@@ -325,7 +317,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |size_category|string||
 
 ### Association
@@ -337,7 +328,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |brand|string|unique|
 |first_category_id|reference|foreign_key:ture|
 
@@ -363,7 +353,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |condition|string||
 
 ### Association
@@ -374,7 +363,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |charge|string||
 
 ### Association
@@ -385,8 +373,17 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |date|string||
+
+### Association
+- has_many :items
+
+
+## delivery_waysテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|way|string||
 
 ### Association
 - has_many :items
@@ -395,10 +392,22 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|||
 |order_status|string||
 
 ### Association
 - has_many :items
+- has_many :communications
 
 
+## payment_informationsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer||
+|vaild_year|integer||
+|valid_month|integer||
+|cvc|integer||
+|user_id|reference|null:false,foreign_key:ture|
+
+### Association
+- belongs_to :user
