@@ -1,0 +1,276 @@
+body {
+ background-color: #EEEEEE;
+ font-size: 14px;
+ color: #333;
+ margin: 0;
+ height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+ padding: 0;
+ margin: 0;
+}
+
+header {
+  width: 100%;
+  height:180px;
+  background-color: white;
+}
+
+.item-box {
+  background-color: white;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  height: 100%;
+  width: 670px;
+  margin: 40px auto 0;
+  padding: 24px 15px 40px 15px;
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__image {
+
+    img {
+      float: left;
+      width: 280px;
+      height: 280px;
+      min-width: 280px;
+      max-width: 280px;
+      min-height: 350px;
+      margin:20px 0 30px 20px;
+    }
+  }
+
+  &__detail {
+
+    float: right;
+    margin: 0 20px 30px 0;
+    min-height: 375px;
+    border-top: solid 1px #EEEEEE;
+    border-left: solid 1px #EEEEEE;
+    border-right: solid 1px #EEEEEE;
+
+    tr {
+      text-align: left;
+    }
+
+    th {
+      width: 100px;
+      padding-left: 5px;
+      font-weight: normal;
+      background-color: #EEEEEE;
+      border-bottom: solid 1px #EEEEEE;
+    }
+
+    td {
+      width: 200px;
+      padding-left: 5px;
+      border-bottom: solid 1px #EEEEEE;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__price {
+
+    clear: both;
+    text-align: center;
+  }
+
+  span {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  }
+
+  .item-price {
+    font-size: 50px;
+  }
+
+  .item-taxIn {
+    font-size: 10px;
+  }
+
+  .item-tax-include {
+    font-size: 16px;
+  }
+
+  .buying {
+    background-color: #ea352d;
+    display: block;
+    height: 60px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 100px;
+    text-decoration: none;
+  }
+
+  &__discription {
+    width: 600px;
+    margin: 50px auto 50px;
+    font-size: 18px;
+  }
+}
+
+
+
+.comment {
+  background-color: white;
+  width: 700px;
+  height: 280px;
+  margin: 10px auto;
+  padding-top:20px;
+
+  &__box {
+    width: 660px;
+    height: 280px;
+    margin: 0 auto;
+
+    p {
+      display: inline-block;
+      padding: 8px;
+      background-color: #FFFACD ;
+    }
+    .form {
+      background-color: white;
+      border: solid 1px gray;
+      border-radius: 5px;
+      margin-top: 5px;
+      width: 660px;
+      height: 100px;
+    }
+
+    .send {
+      background-color: #A9A9A9;
+      color: white;
+      margin-top: 5px;
+      font-size: 20px;
+      margin:10px auto;
+      text-align: center;
+      line-height: 80px;
+      width: 660px;
+      height: 80px;
+    }
+  }
+}
+
+
+.sns-media {
+  background-color: white;
+  margin: 10px auto;
+  padding: 32px 0 ;
+  width: 700px;
+  text-align: center;
+  font-size: 50px;
+
+  &__box {
+    background-color: gray;
+    width: auto;
+    height: 50px;
+    font-size: 0;
+  }
+}
+
+
+
+.other-item-box{
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  height: 800px;
+  width: 700px;
+  margin: 20px auto 0;
+  padding: 24px 0 40px 0;
+
+  h2{
+
+    a{
+      font-size: 20px;
+      text-decoration: none;
+      color: #0099e8;
+    }
+  }
+
+  .other-item-contents{
+    height: auto;
+    width:auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 10px;
+
+    &__box {
+      background-color: white;
+      width: 220px;
+      height: 330px;
+      float: left;
+      margin:0 0 20px 10px;
+
+      a {
+        text-decoration: none;
+
+        .photo {
+          background-color: white;
+          width: 220px;
+          height: 220px;
+
+          img {
+            width: 220px;
+            height: 220px;
+          }
+        }
+
+        .text {
+          width: 220px;
+          height: 110px;
+
+          h3 {
+            font-size: 16px;
+            text-align: center;
+            padding-bottom: 20px;
+          }
+
+          .price-box {
+            padding: 20px;
+
+            .price {
+              font-size: 16px;
+              font-weight: bold;
+              float: left;
+            }
+
+            i {
+              float: right;
+
+              span {
+                font-size: 16px;
+                font-weight: bold;
+              }
+            }
+
+            p {
+              font-size: 8px;
+              font-weight: lighter;
+              clear: both;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height:300px;
+  background-color: white;
+}
