@@ -1,0 +1,24 @@
+.sign-up
+  %h2 Sign up
+  = form_for @user,url:{action:"confirm"} do |f|
+    = devise_error_messages!
+    .field
+      = f.label :ニックネーム
+      %br/
+      = f.text_field :nickname
+    .field
+      = f.label :メールアドレス
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :パスワード
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :確認用パスワード
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+      = f.hidden_field :prefecture_id,:value => "48"
+    .actions
+      = f.submit "次へ進む"
+  / = render "devise/shared/links"

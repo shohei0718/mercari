@@ -1,0 +1,63 @@
+.sign-up
+  %h2 Sign up
+  = form_for @user,url:{action:"complete"} do |f|
+    = devise_error_messages!
+    .field
+      = f.hidden_field :nickname
+      - @user.nickname
+      = f.hidden_field :email
+      - @user.email
+      = f.hidden_field :password
+      - @user.password
+      = f.hidden_field :password_confirmation
+      - @user.password
+      = f.hidden_field :prefecture_id
+      - @user.prefecture_id
+    .field
+      = f.label :お名前
+      %br/
+      = f.text_field :last_name
+      %br/
+      = f.text_field :first_name
+    .field
+      = f.label :お名前カナ
+      %br/
+      = f.text_field :last_name_kana
+      %br/
+      = f.text_field :first_name_kana
+    .field
+      = f.label :郵便番号
+      %br/
+      = f.number_field :zip_code
+    .field
+      = f.label :都道府県
+      %br/
+      = f.select :prefecture_id,[[1],[2],[3],[4],[5],[6],[7],[8],[9],[10] ],  :prompt => "選択してください"
+    .field
+      = f.label :市町村
+      %br/
+      = f.text_field :city
+    .field
+      = f.label :番地
+      %br/
+      = f.text_field :address
+    .field
+      = f.label :建物
+      %br/
+      = f.text_field :building
+    .field
+      = f.label :電話
+      %br/
+      = f.text_field :telephone
+    .field
+      = f.label :生年月日
+      %br/
+      = f.select :birth_year,@year,:prompt => "選択してください"
+      年
+      = f.select :birth_month,@month,:prompt => "選択してください"
+      月
+      = f.select :birth_day,@day,:prompt => "選択してください"
+      日
+    .actions
+      = f.submit "Sign up"
+  / = render "devise/shared/links"
