@@ -1,0 +1,15 @@
+= render partial: "items/header"
+.default-container
+  %nav.bread-crumbs
+    %ul
+      %li
+        =link_to do
+          メルカリ
+        %i.fa.fa-angle-right
+      %li
+        %span  マイページ
+  %main.large-container.clearfix
+    .large-content
+      =render partial: "large-content"
+    =render partial: "mypage-left-side"
+= render partial: "items/footer"

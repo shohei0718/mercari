@@ -1,0 +1,58 @@
+%section.mypage-user-icon
+  = link_to do
+    %figure
+      = image_tag("header-footer_images/member_photo.png", size:"60x60", class: "user-icon")
+    %h2.bold
+      User Name
+    .mypage-number
+      %div
+        評価
+        %span.bold
+          0
+      %div
+        出品数
+        %span.bold
+          0
+
+
+%section.mypage-tab-container#mypage-notification-todo
+  %ul.mypage-tabs
+    %li.mypage-tab#tab-notification.active
+      %h3
+        %p
+          お知らせ
+    %li.mypage-tab#tab-todo
+      %h3
+        %p
+          やることリスト
+  .tab-content
+    %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+      %li.mypage-item-not-found.not-found-bold
+        お知らせがありません
+    %ul#mypage-tab-todos.mypage-item-list.tab-pane.not-active
+      %li.mypage-item-not-found.not-found-bold
+        現在、やることリストはありません
+
+
+
+
+
+%section.mypage-tab-container#mypage-transaction-now-old
+  %h2.mypage-tab-head
+    購入した商品
+  %ul.mypage-tabs
+    %li.mypage-tab.active#tab-transaction-now
+      %h3
+        %p
+          取引中
+    %li.mypage-tab#tab-transaction-old
+      %h3
+        %p
+          過去の取引
+  .tab-content
+    %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+      %li.mypage-item-not-found.not-found-bold
+        取引中の商品がありません
+    %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane.not-active
+      %li.mypage-item-not-found.not-found-bold
+        過去に取引した商品がありません
