@@ -4,3 +4,43 @@
 label{
   // text-align: left;
 }
+
+.right_btn--signed-out{
+  height:32px;
+  width:195px;
+  text-align: center;
+  line-height: 32px;
+  float:right
+}
+
+.right_btn--login{
+  height:32px;
+  width:78px;
+  background-color:#ea342d;
+  border-radius: 3px;
+  display: inline-block;
+  // float:left;
+}
+.top-login-btn{
+  color:white;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.right_btn--signup{
+  height:32px;
+  width:106px;
+  border:solid;
+  border-width:1px;
+  border-color:#009ae7;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 5px;
+  // float:right;
+}
+.top-signup-btn{
+  font-size: 14px;
+  color:#009ae7;
+  border-radius: 5px;
+  text-decoration: none;
+}
