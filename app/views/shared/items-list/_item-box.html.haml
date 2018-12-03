@@ -1,0 +1,15 @@
+.item-box
+  =link_to do
+    -# =image_tag item.item_images.image if item.item_images.image.present?
+    .item-box-text
+      .text-box
+        %h4
+          = item.name
+      .price
+        = converting_price(item.price)
+      .price-tax
+        (税込)
+      -# .nice
+      -#   %i.fa.fa-heart
+      -#   %span
+      -#     1
