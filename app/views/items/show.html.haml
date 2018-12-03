@@ -10,19 +10,15 @@
       %tr
         %th 出品者
         %td
-          = link_to href: "item_user" do
-            TECH::EXPERT 39期チームA
+          = link_to "item_user"
       %tr
         %th カテゴリー
         %td
-          = link_to href: "first-category" do
-            \筆記用具
+          = link_to "first-category"
           %br
-          = link_to href: "second-category" do
-            \→ペン
+          = link_to "\→second-category"
           %br
-          = link_to href: "third-category" do
-            \→万年筆
+          = link_to "\→third-category"
       %tr
         %th ブランド
         %td モンブラン
@@ -41,8 +37,7 @@
       %tr
         %th 配送元地域
         %td
-          = link_to href: "都道府県" do
-            大阪府
+          = link_to "都道府県"
       %tr
         %th 発送日の目安
         %td 1〜2日程度
@@ -53,8 +48,7 @@
       (税込)
     %span.item-tax-include
       \送料込み
-  = link_to  "購入画面に進む", class: "buying" do
-    購入画面に進む
+  = link_to "購入画面へ進む", root_path, class: "buying"
   .item-container__discription
     %p
     \値下げ50,000円→777円
@@ -122,8 +116,7 @@
   %i.fab.fa-pinterest-square
 .other-item-box
   %h2
-    = link_to href:"出品ユーザーのページへ遷移" do
-      Dogsさんの出品商品一覧
+    = link_to "出品ユーザーのページへ遷移"
   / ここから下のコードは後でeach文とrenderで書き換える。
   / その際に、表示の上限を6件で制限できるとベスト
   .other-item-contents
@@ -135,8 +128,9 @@
           %h3 柴犬
           .price-box
             .price¥100,000
-            = fa_icon "heart" do
-              %span 10
+            = fa_icon "heart"
+            %span
+              10
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -146,8 +140,9 @@
           %h3 ダックスフンド
           .price-box
             .price¥150,000
-            = fa_icon "heart" do
-              %span 8
+            = fa_icon "heart"
+            %span
+              8
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -157,8 +152,9 @@
           %h3 トイプードル
           .price-box
             .price¥200,000
-            = fa_icon "heart" do
-              %span 30
+            = fa_icon "heart"
+            %span
+              30
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -168,8 +164,9 @@
           %h3 ラブラドールレトリバー
           .price-box
             .price¥120,000
-            = fa_icon "heart" do
-              %span 20
+            = fa_icon "heart"
+            %span
+              20
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -179,8 +176,9 @@
           %h3 ジャックラッセルテリア
           .price-box
             .price¥180,000
-            = fa_icon "heart" do
-              %span 16
+            = fa_icon "heart"
+            %span
+              16
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -190,13 +188,13 @@
           %h3 ドーベルマン
           .price-box
             .price¥300,000
-            = fa_icon "heart" do
-              %span 26
+            = fa_icon "heart"
+            %span
+              26
             %p （税込）
 .other-item-box
   %h2
-    = link_to href: "出品ユーザーのページへ遷移" do
-      Dogsさんの出品商品一覧（2）
+    = link_to "出品ユーザーのページへ遷移"
   / ここから下のコードは後でeach文とrenderで書き換える。
   / その際に、表示の上限を6件で制限できるとベスト
   .other-item-contents
@@ -208,8 +206,9 @@
           %h3 柴犬
           .price-box
             .price¥100,000
-            = fa_icon "heart" do
-              %span 10
+            = fa_icon "heart"
+            %span
+              10
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -219,8 +218,9 @@
           %h3 ダックスフンド
           .price-box
             .price¥150,000
-            = fa_icon "heart" do
-              %span 8
+            = fa_icon "heart"
+            %span
+              8
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -230,8 +230,9 @@
           %h3 トイプードル
           .price-box
             .price¥200,000
-            = fa_icon "heart" do
-              %span 30
+            = fa_icon "heart"
+            %span
+              30
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -241,8 +242,9 @@
           %h3 ラブラドールレトリバー
           .price-box
             .price¥120,000
-            = fa_icon "heart" do
-              %span 20
+            = fa_icon "heart"
+            %span
+              20
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -252,8 +254,9 @@
           %h3 ジャックラッセルテリア
           .price-box
             .price¥180,000
-            = fa_icon "heart" do
-              %span 16
+            = fa_icon "heart"
+            %span
+              16
             %p （税込）
     .other-item-contents__box
       = link_to href: "商品ページへ" do
@@ -263,7 +266,8 @@
           %h3 ドーベルマン
           .price-box
             .price¥300,000
-            = fa_icon "heart" do
-              %span 26
+            = fa_icon "heart"
+            %span
+              26
             %p （税込）
 = render partial: "footer"
