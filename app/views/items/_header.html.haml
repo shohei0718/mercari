@@ -7,7 +7,7 @@
         %form.logo-and-search__search.right-float
           %input{value:"", placeholder:"キーワードから探す" }
           = link_to do
-            %i.fa.fa-search
+            = fa_icon "search"
     .lists.clearfix
       .lists__left.left-float
         %ul
@@ -27,9 +27,9 @@
               マイページ
           %li.right_btn
             = link_to class: "right_btn" do
-              %i.fa.fa-bell.icon
+              = fa_icon "bell", class: "icon"
               お知らせ
           %li.right_btn
             = link_to class: "right_btn" do
-              %i.fa.fa-check.icon
+              = fa_icon "check", class: "icon"
               やることリスト
