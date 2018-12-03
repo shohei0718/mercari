@@ -209,13 +209,11 @@ ActiveRecord::Schema.define(version: 20181201111308) do
     t.boolean  "seller_or_buyer"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "rating_id"
     t.integer  "rate_id"
     t.integer  "user_id"
     t.integer  "item_id"
     t.index ["item_id"], name: "index_rate_counts_on_item_id", using: :btree
     t.index ["rate_id"], name: "index_rate_counts_on_rate_id", using: :btree
-    t.index ["rating_id"], name: "index_rate_counts_on_rating_id", using: :btree
     t.index ["user_id"], name: "index_rate_counts_on_user_id", using: :btree
   end
 
