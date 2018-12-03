@@ -2,7 +2,7 @@
   %header
     .logo-and-search.clearfix
       =link_to root_path do
-        = image_tag("header-footer_images/mercari-coloful_logo.svg", class: "logo-and-search__logo left-float")
+        = image_tag "header-footer_images/mercari-coloful_logo.svg", class: "logo-and-search__logo left-float"
       .search
         %form.logo-and-search__search.right-float
           %input{value:"", placeholder:"キーワードから探す" }
@@ -23,7 +23,7 @@
         %ul
           %li.right_btn
             = link_to users_path, class: "right_btn" do
-              = image_tag("header-footer_images/member_photo.png", class: "member_photo left-float")
+              = image_tag "header-footer_images/member_photo.png", class: "member_photo left-float"
               マイページ
           %li.right_btn
             = link_to class: "right_btn" do
