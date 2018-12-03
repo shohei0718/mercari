@@ -1,3 +1,4 @@
+
 .item-container {
   background-color: white;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -230,11 +231,13 @@
 
             i {
               float: right;
-
-              span {
-                font-size: 16px;
-                font-weight: bold;
-              }
+            }
+            span {
+              font-size: 16px;
+              float: right;
+              position:relative;
+              left: 36px;
+              color: black;
             }
 
             p {
