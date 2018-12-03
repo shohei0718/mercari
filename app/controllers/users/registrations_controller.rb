@@ -7,13 +7,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @month = [*(1..12)]
     @day = [*(1..31)]
     if @user.valid?
-      render :action => 'confirm'
+      render action: 'confirm'
     else
-     render :action => 'new'
+     render action: 'new'
     end
+
   end
 
   def complete
-    render :action => 'complete'
+    render action: 'complete'
   end
+  # def after_sign_up_path_for(resource)
+  #   destroy_user_session
+  # end
+
+  # def after_inactive_sign_up_path_for(resource)
+  #   destroy_user_session
+  # end
 end
