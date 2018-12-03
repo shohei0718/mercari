@@ -1,5 +1,5 @@
   .top-main-visual-1 {
-    background-image: url(header-footer_images/main-background-1.jpg);
+    background-image: image-url("header-footer_images/main-background-1.jpg");
     background-size: cover;
     background-position: center;
     height: 390px;
@@ -58,13 +58,13 @@
     }
   }
   .top-main-visual-2 {
-    background-image: url(header-footer_images/main-background-2.png);
+    background-image: image-url("header-footer_images/main-background-2.png");
     background-size: cover;
     background-position: center;
     height: 390px;
   }
   .top-main-visual-3 {
-    background-image: url(header-footer_images/main-background-3.jpg);
+    background-image: image-url("header-footer_images/main-background-3.jpg");
     background-size: cover;
     background-position: center;
     height: 390px;
