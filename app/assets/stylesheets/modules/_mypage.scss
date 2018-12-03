@@ -179,7 +179,7 @@ body{
     }
     #mypage-transaction-now-old{
       margin: 40px 0;
-      .mypage-tab-head{
+      .mypage-tab__head{
         padding: 0 16px;
         background-color: white;
         font-size: 16px;
@@ -192,51 +192,51 @@ body{
     float: left;
     width: 280px;
     margin: 0 40px 0 0;
-    .mypage-nav-list{
+    .mypage-nav__list{
       margin-bottom: 40px;
       li{
         &:first-child{
           border: 0;
         }
-        .mypage-nav-list-item{
-          border-top: 1px solid $lightGray;
-          list-style:none;
-          position:relative;
-          display: block;
-          padding: 14px;
-          background-color: white;
-          color: black;
-          text-decoration: none;
-          font-size: 14px;
-          transition: 0.2s ease-in-out;
-          &:hover{
-            background-color: $lightGray;
-           .fa{
-              transform: translateX(5px) translateY(-50%);
-              color: black;
-              transition: 0.2s;
-            }
+      }
+      &__item{
+        border-top: 1px solid $lightGray;
+        list-style:none;
+        position:relative;
+        display: block;
+        padding: 14px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s ease-in-out;
+        &:hover{
+          background-color: $lightGray;
+         .fa{
+            transform: translateX(5px) translateY(-50%);
+            color: black;
+            transition: 0.2s;
           }
-          &.active{
-            background-color: $lightGray;
-            font-weight: 600;
-            .fa{
-              color: black;
-            }
-          }
+        }
+        &.active{
+          background-color: $lightGray;
+          font-weight: 600;
           .fa{
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            color: $darkGray;
-            transform: translate(0, -50%);
-            font-size: 24px;
-            font-weight: 600;
+            color: black;
           }
+        }
+        .fa{
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          color: $darkGray;
+          transform: translate(0, -50%);
+          font-size: 24px;
+          font-weight: 600;
         }
       }
     }
-    .mypage-nav-head{
+    .mypage-nav__head{
       font-weight: bold;
     }
   }
