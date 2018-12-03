@@ -1,4 +1,10 @@
-= render partial: "header"
+= render partial: "shared/header"
+
+.item{style: "height: 10px; background-color:black; clear:both;"}
+
+= render partial: "shared/items-list"
+
+.item{style: "height: 10px; background-color:black; clear:both;"}
 
 .mainwrapper
 .top-main-visuals
@@ -168,4 +174,4 @@
       =link_to do
         すべての商品を見る
 
-= render partial: "footer"
+= render partial: "shared/footer"
