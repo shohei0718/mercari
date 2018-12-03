@@ -1,19 +1,23 @@
+$backgroundColor: #f5f5f5;
+$lightGray: #eee;
+$darkGray: #ccc;
+
 body{
   min-height: 100%;
 }
 .default-container{
   position:relative;
-  background-color: #f5f5f5;
+  background-color: $backgroundColor;
   @include clearfix();
   .bread-crumbs{
     position: relative;
-    border-top: solid #eee;
+    border-top: solid $lightGray;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-    background-color: #fff;
+    background-color: white;
     border-style: solid;
     border-width: 1px 0 0 0 ;
     font-family: 'Source Sans Pro', Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ','Meiryo', sans-serif;
-    color: #333;
+    color: black;
     &:after{
       display: block;
       content: '';
@@ -38,7 +42,7 @@ body{
         font-size: 14px;
         line-height: 1.2;
         a{
-          color: #333;
+          color: black;
           text-decoration: none;
         }
         i.fa{
@@ -80,7 +84,7 @@ body{
           top: 50px;
           left: 0;
           right: 0;
-          color: #333;
+          color: black;
           text-align: center;
           text-decoration: none;
           figure{
@@ -95,10 +99,10 @@ body{
             font-weight: 600;
           }
           .mypage-number{
-            margin: 8px 0 0;
+            margin-top: 8px;
             font-size: 0;
             div+div{
-              margin: 0 0 0 16px;
+              margin-left: 16px;
             }
             div{
               font-size: 14px;
@@ -114,7 +118,7 @@ body{
         margin: 0;
         .mypage-tabs{
           border: 0;
-          background-color: #eee;
+          background-color: $lightGray;
           height: 74px;
           .mypage-tab{
             display: inline-block;
@@ -125,7 +129,7 @@ body{
             border-width: 0;
             height: 100%;
             &.active{
-              background-color: #fff;
+              background-color: white;
               p{
                 border-top: 2px solid #ea352d;
                 border-bottom: none;
@@ -141,7 +145,7 @@ body{
           p{
             position:relative;
             display: block;
-            color: #333;
+            color: black;
             font-size: 16px;
             line-height: 72px;
             font-weight: bold;
@@ -154,7 +158,7 @@ body{
         .mypage-item-list{
           border: 0;
           position: relative;
-          background-color: #ffffff;
+          background-color: white;
           .mypage-item-not-found{
             padding: 160px 0 60px;
             background-image: url(mypage_images/mercari-box-gray-icon.svg);
@@ -162,7 +166,7 @@ body{
             background-size: 78px 85px;
             background-repeat: no-repeat;
             text-align: center;
-            color: #ccc;
+            color: $darkGray;
             &.not-active{
               display: none;
             }
@@ -177,7 +181,7 @@ body{
       margin: 40px 0;
       .mypage-tab-head{
         padding: 0 16px;
-        background-color: #fafafa;
+        background-color: white;
         font-size: 16px;
         line-height: 72px;
         font-weight: 600;
@@ -195,18 +199,18 @@ body{
           border: 0;
         }
         .mypage-nav-list-item{
-          border-top: 1px solid #eee;
+          border-top: 1px solid $lightGray;
           list-style:none;
           position:relative;
           display: block;
           padding: 14px;
-          background-color: #fff;
-          color: #333;
+          background-color: white;
+          color: black;
           text-decoration: none;
           font-size: 14px;
           transition: 0.2s ease-in-out;
           &:hover{
-            background-color: #eee;
+            background-color: $lightGray;
            .fa{
               transform: translateX(5px) translateY(-50%);
               color: black;
@@ -214,7 +218,7 @@ body{
             }
           }
           &.active{
-            background-color:#eee;
+            background-color: $lightGray;
             font-weight: 600;
             .fa{
               color: black;
@@ -224,7 +228,7 @@ body{
             position: absolute;
             top: 50%;
             right: 15px;
-            color: #ccc;
+            color: $darkGray;
             transform: translate(0, -50%);
             font-size: 24px;
             font-weight: 600;
