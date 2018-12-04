@@ -1,0 +1,11 @@
+%section.payment_information-container
+  .content-title
+    %h2 クレジットカード情報入力
+    .form-content
+      .form#credit-information
+        = form_for @payment_information do |f|
+          = f.label 'カード番号', class: 'label'
+          %span 必須
+          %br/
+          = f.number_field :card_number
+

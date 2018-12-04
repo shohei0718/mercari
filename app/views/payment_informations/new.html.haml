@@ -8,9 +8,11 @@
         = fa_icon "angle-right"
       %li
         %span  マイページ
+      %li
+        = fa_icon "angle-right"
+        %span  カード情報入力
   %main.large-container.clearfix
     .large-content
-      =render partial: "large-content"
-    =render partial: "mypage-left-side"
+      =render partial: "input-information"
+    =render partial: "users/mypage-left-side"
 = render partial: "items/footer"
-
