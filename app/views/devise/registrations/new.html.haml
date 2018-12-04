@@ -1,24 +1,36 @@
-.sign-up
-  %h2 Sign up
-  = form_for @user,url:{action:"confirm"} do |f|
-    = devise_error_messages!
-    .field
-      = f.label :ニックネーム
-      %br/
-      = f.text_field :nickname
-    .field
-      = f.label :メールアドレス
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :パスワード
-      %br/
-      = f.password_field :password, autocomplete: "new-password"
-    .field
-      = f.label :確認用パスワード
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-      = f.hidden_field :prefecture_id,:value => "48"
-    .actions
-      = f.submit "次へ進む"
-  / = render "devise/shared/links"
+.signup-header
+.sign-up-main
+  .sign-up-main__info
+    会員情報入力
+  .sign-up-main__form
+    = form_for @user,url:{action:"confirm"} do |f|
+      = devise_error_messages!
+      .form_field1
+        = f.label :ニックネーム
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :nickname,placeholder:"例）メルカリたろう"
+      .form_field
+        = f.label :メールアドレス
+        %span.form-require
+          必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC・携帯どちらでも可"
+      .form_field
+        = f.label :パスワード
+        %span.form-require
+          必須
+        %br/
+        = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上"
+      .form_field
+        = f.label :確認用パスワード
+        %span.form-require
+          必須
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"6文字以上"
+        = f.hidden_field :prefecture_id,:value => "1"
+      .recapcha
+      .submit-btn
+        = f.submit "次へ進む",class:"next-btn"
+    / = render "devise/shared/links"

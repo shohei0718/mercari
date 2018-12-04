@@ -1,8 +1,10 @@
-.sign-up
-  %h2 Sign up
-  = form_for @user,url:{action:"complete"} do |f|
-    = devise_error_messages!
-    .field
+.signup-header
+.sign-up-main
+  .sign-up-main__info
+    個人情報入力
+  .sign-up-main__adress-form
+    = form_for @user,url:{action:"complete"} do |f|
+      = devise_error_messages!
       = f.hidden_field :nickname
       - @user.nickname
       = f.hidden_field :email
@@ -13,50 +15,75 @@
       - @user.password
       = f.hidden_field :prefecture_id
       - @user.prefecture_id
-    .field
-      = f.label :お名前
-      %br/
-      = f.text_field :last_name
-      %br/
-      = f.text_field :first_name
-    .field
-      = f.label :お名前カナ
-      %br/
-      = f.text_field :last_name_kana
-      %br/
-      = f.text_field :first_name_kana
-    .field
-      = f.label :郵便番号
-      %br/
-      = f.number_field :zip_code
-    .field
-      = f.label :都道府県
-      %br/
-      = f.select :prefecture_id,[[1],[2],[3],[4],[5],[6],[7],[8],[9],[10] ],  :prompt => "選択してください"
-    .field
-      = f.label :市町村
-      %br/
-      = f.text_field :city
-    .field
-      = f.label :番地
-      %br/
-      = f.text_field :address
-    .field
-      = f.label :建物
-      %br/
-      = f.text_field :building
-    .field
-      = f.label :電話
-      %br/
-      = f.text_field :telephone
-    .field
-      = f.label :生年月日
-      %br/
-      = f.select :birth_year,@year,:prompt => "選択してください"
-      年
-      = f.select :birth_month,@month,:prompt => "選択してください"
-      月
-      = f.select :birth_day,@day,:prompt => "選択してください"
-      日
-    .actions
-      = f.submit "Sign up"
+      .form_field1
+        = f.label :お名前
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :last_name,style:"margin-bottom:5px"
+        %br/
+        = f.text_field :first_name
+      .form_field2
+        = f.label :お名前カナ
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :last_name_kana,style:"margin-bottom:5px"
+        %br/
+        = f.text_field :first_name_kana
+      .form_field2
+        = f.label :郵便番号
+        %span.form-require
+          必須
+        %br/
+        = f.number_field :zip_code
+      .form_field
+        = f.label :都道府県
+        %span.form-require
+          必須
+        %br/
+        .form_prefecture
+          = f.collection_select :prefecture_id,Prefecture.all,:id,:prefecture
+      .form_field
+        = f.label :市町村
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :city
+      .form_field
+        = f.label :番地
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :address
+      .form_field
+        = f.label :建物
+        %br/
+        = f.text_field :building
+      .form_field
+        = f.label :電話
+        %br/
+        = f.number_field :telephone
+      .form_field3
+        = f.label :生年月日,class:"birth-info"
+        %span.form-require
+          必須
+        %br/
+        %ul
+          %li.formbirth
+            .form_field__birth
+              = f.select :birth_year,@year,prompt:"選択してください"
+            .birth
+              年
+          %li.formbirth
+            .form_field__birth
+              = f.select :birth_month,@month,prompt:"選択してください"
+            .birth
+              月
+          %li.formbirth
+            .form_field__birth
+              = f.select :birth_day,@day,prompt:"選択してください"
+            .birth
+              日
+      .submit-btn
+        = f.submit "登録完了",class:"next-btn"
