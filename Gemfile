@@ -67,4 +67,5 @@ gem "font-awesome-rails"
 gem 'jquery-slick-rails'
 gem 'devise'
 gem 'kaminari'
+gem 'pry-rails'
 

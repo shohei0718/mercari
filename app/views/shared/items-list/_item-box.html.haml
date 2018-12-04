@@ -1,6 +1,9 @@
 .item-box
   =link_to do
-    -# =image_tag item.item_images.image if item.item_images.image.present?
+    - @item_images.each do |image|
+      - if image.image.present?
+        - if image.item_id == item.id
+          = image_tag image.image
     .item-box-text
       .text-box
         %h4
