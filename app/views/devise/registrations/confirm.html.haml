@@ -1,4 +1,4 @@
-.signup-header
+= render 'layouts/sellheader'
 .sign-up-main
   .sign-up-main__info
     個人情報入力
@@ -61,7 +61,9 @@
         %br/
         = f.text_field :building
       .sign-up-main__adress-form__field
-        = f.label :電話
+        = f.label :電話番号
+        %span.form-require
+          必須
         %br/
         = f.number_field :telephone
       .sign-up-main__adress-form__field--birth
@@ -87,3 +89,4 @@
               日
       .submit-btn
         = f.submit "登録完了",class:"next-btn"
+= render 'layouts/sellfooter'

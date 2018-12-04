@@ -15,6 +15,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
-    render action: 'complete'
+  end
+  def after_sign_up_path_for(resource)
+    users_path
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    users_path
+  end
+
+  def post_params
+  params.require(:user).permit(:telephone)
   end
 end
