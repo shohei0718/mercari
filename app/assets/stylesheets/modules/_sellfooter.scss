@@ -1,0 +1,26 @@
+.footer {
+  text-align: center;
+  padding-top: 50px;
+  & li:first-child {
+    margin: 0;
+  }
+  li {
+    font-size: 12px;
+    display: inline-block;
+    width: 10%;
+  }
+  &__logo {
+  margin: 40px auto 0;
+    img {
+    vertical-align: middle;
+    }
+  }
+  small {
+    font-size: 12px;
+  }
+}
+a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
