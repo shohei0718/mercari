@@ -17,14 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def complete
   end
   def after_sign_up_path_for(resource)
-    users_path
+    root_path
   end
 
   def after_inactive_sign_up_path_for(resource)
-    users_path
-  end
-
-  def post_params
-  params.require(:user).permit(:telephone)
+    root_path
   end
 end
