@@ -2,12 +2,12 @@
   %header
     .logo-and-search.clearfix
       =link_to root_path do
-        = image_tag("header-footer_images/mercari-coloful_logo.svg", class: "logo-and-search__logo left-float")
+        = image_tag "header-footer_images/mercari-coloful_logo.svg", class: "logo-and-search__logo left-float"
       .search
         %form.logo-and-search__search.right-float
           %input{value:"", placeholder:"キーワードから探す" }
           = link_to do
-            %i.fa.fa-search
+            = fa_icon "search"
     .lists.clearfix
       .lists__left.left-float
         %ul
@@ -22,14 +22,14 @@
       .lists__right.right-float
         %ul
           %li.right_btn
-            = link_to class: "right_btn" do
-              = image_tag("header-footer_images/member_photo.png", class: "member_photo left-float")
+            = link_to users_path, class: "right_btn" do
+              = image_tag "header-footer_images/member_photo.png", class: "member_photo left-float"
               マイページ
           %li.right_btn
             = link_to class: "right_btn" do
-              %i.fa.fa-bell.icon
+              = fa_icon "bell", class: "icon"
               お知らせ
           %li.right_btn
             = link_to class: "right_btn" do
-              %i.fa.fa-check.icon
+              = fa_icon "check", class: "icon"
               やることリスト

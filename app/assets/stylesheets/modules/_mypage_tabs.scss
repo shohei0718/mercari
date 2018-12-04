@@ -1,0 +1,39 @@
+ul{
+  background-color: rgb(238,238,238);
+}
+  .mypage-tab-container-notification-todo{
+    margin: 0;
+    .mypage-tabs{
+      border: 0;
+      background-color: #eee;
+      height: 74px;
+      li{
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        width: 50%;
+        float: left;
+        height: 74px;
+        a{
+          text-decoration: none;
+        }
+        &.active{
+          background-color: #fff;
+          a{
+            border-top: 2px solid #ea352d;
+          }
+        }
+        h3{
+          font-size: 22px;
+        }
+      }
+      a{
+        position:relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: bold;
+      }
+    }
+  }
