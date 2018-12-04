@@ -33,27 +33,10 @@
         hogehogeの商品一覧
       .items-box-content.clearfix
         - @items.each do |item|
-          = render partial: 'shared/items-list/item-box', locals: {item:item}
+          = render partial: 'categorys/index_folder/item-box', locals: {item:item}
 
     .pager
       = paginate @items
-      .pager-num
-        %ul
-          %li
-            %ul.left-buttons
-              %li.button-cell
-              %li.button-cell
-          %li
-            %ul.main-buttons
-              %li.button-cell
-              %li.button-cell
-              %li.button-cell
-              %li.button-cell
-              %li.button-cell
-          %li
-            %ul.right-buttons
-              %li.button-cell
-              %li.button-cell
     .under-decoration
       .text-red
         hogehoge
