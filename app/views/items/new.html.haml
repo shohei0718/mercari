@@ -57,7 +57,6 @@
                         %option{value: "1027"} チケット
                         %option{value: "1318"} 自動車・オートバイ
                         %option{value: "10"} その他
-                      %i.icon-arrow-bottom
                 .form__group
                   %label
                     商品の状態
@@ -71,10 +70,9 @@
                       %option{value: "4"} やや傷や汚れあり
                       %option{value: "5"} 傷や汚れあり
                       %option{value: "6"} 全体的に状態が悪い
-                    %i.icon-arrow-bottom
             .sell__content.clearfix
               %h3.sell--sub__head 配送について
-              %a.form__question{href: "/jp/help_center/article/68/", target: "_blank"} ?
+              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
               .sell__form__box
                 .form__group
                   %label
@@ -141,7 +139,6 @@
                       %option{value: "46"} 鹿児島県
                       %option{value: "47"} 沖縄県
                       %option{value: "99"} 未定
-                    %i.icon-arrow-bottom
                 .form__group
                   %label
                     発送までの日数
@@ -152,10 +149,9 @@
                       %option{value: "1"} 1~2日で発送
                       %option{value: "2"} 2~3日で発送
                       %option{value: "3"} 4~7日で発送
-                    %i.icon-arrow-bottom
             .sell__content.clearfix
               %h3.sell--sub__head 販売価格(300〜9,999,999)
-              %a.form__question{href: "/jp/help_center/article/64/", target: "_blank"} ?
+              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
               .sell__form__box
                 %ul.sell__price
                   %li.form__group
@@ -166,7 +162,7 @@
                       .l-right.sell__price--input
                         ¥
                         %div#sellprice
-                          %input.input__default#input{placeholder: "例）300", value: ""}
+                          %input.input__default#input__price{placeholder: "例）300", value: ""}
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
@@ -177,19 +173,18 @@
             .sell__content.sell__btn__box
               %div
                 %p
-                  %a{href: "/jp/help_center/getting_started/prohibited_items/"} 禁止されている出品
+                  = link_to '禁止されている出品', "/jp/help_center/getting_started/prohibited_items/"
                   、
-                  %a{href: "/jp/help_center/getting_started/prohibited_conduct/"} 行為
-                  を必ずご確認ください。
+                  = link_to '行為を必ずご確認ください。', "/jp/help_center/getting_started/prohibited_conduct/"
                 %p
                   またブランド品でシリアルナンバー等がある場合はご記載ください。
-                  %a{href: "/jp/help_center/getting_started/counterfeit_goods/"} 偽ブランドの販売
+                  = link_to '偽ブランドの販売', "/jp/help_center/getting_started/counterfeit_goods/"
                   は犯罪であり処罰される可能性があります。
                 %p
                   また、出品をもちまして
-                  %a{href: "/jp/seller_terms/"} 加盟店規約
+                  = link_to '加盟店規約', "/jp/seller_terms/"
                   に同意したことになります。
               %button.btn__default.btn--red{type: "submit"}
                 出品する
-              %a.btn__default.btn--gray もどる
+              = link_to 'もどる', root_path, class: "btn--gray"
 = render 'layouts/sellfooter'

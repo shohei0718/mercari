@@ -243,6 +243,13 @@ label {
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
 }
 .btn__default {
   display: block;
