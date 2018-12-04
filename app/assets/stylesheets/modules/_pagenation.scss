@@ -1,0 +1,31 @@
+.button-cell {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 42px;
+}
+.most-left-button {
+  position: absolute;
+  left: 0;
+}
+.left-button {
+  position: absolute;
+  left: 47px;
+}
+.main-buttons {
+  position: absolute;
+  left: 37%;
+}
+.right-button {
+  position: absolute;
+  right: 47px;
+}
+.most-right-button {
+  position: absolute;
+  right: 0;
+}
+
