@@ -1,0 +1,177 @@
+.list-container {
+  background-color: #f5f5f5;
+  padding-bottom: 15px;
+  .full-width {
+    width: 1040px;
+    padding-top: 44px;
+    margin: 0 auto;
+    .parts-nav {
+      list-style: none;
+      float: left;
+      li {
+        line-height: 2;
+        float:left;
+        padding-right: 20px;
+        a {
+        text-decoration: none;
+        color: #0099E8;
+        }
+      }
+    }
+    .items-box-container {
+      clear:both;
+      .items-box-head {
+        padding-top: 20px;
+        margin: 24px 0 8px;
+        font-weight: 800;
+        font-size:22px;
+        line-height: 1.4;
+      }
+      .items-box-content {
+        width: 100%;
+        margin: 0 auto;
+        .item-box {
+          float: left;
+          position: relative;
+          height:298px;
+          width:188px;
+          margin: 0 20px 20px 0;
+          background-color: white;
+          text-align: left;
+          a {
+            text-decoration: none;
+            color: #333333;
+            img {
+              position:absolute;
+              width:188px;
+              height:188px;
+              object-fit: cover;
+            }
+            .item-box-text {
+              position: absolute;
+              bottom:0;
+              width:168px;
+              height: 90px;
+              padding: 10px;
+              .text-box {
+                position: relative;
+                height: 3em;
+                line-height: 1.5;
+                overflow: hidden;
+                h4 {
+                  font-size: 16px;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                }
+                &::after {
+                display: block;
+                position: absolute;
+                content: '';
+                bottom: 0;
+                right: 0;
+                width: 50%;
+                height: 1.5em;
+                background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+                background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+                }
+              }
+              .price {
+                position: absolute;
+                bottom: 16px;
+                left: 16px;
+                font-size:20px;
+                font-weight: 400;
+              }
+              .price-tax {
+                position: absolute;
+                bottom: 9px;
+                left: 16px;
+                font-size:10px;
+              }
+              .nice {
+                position: absolute;
+                bottom: 16px;
+                right: 16px;
+                font-size:16px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .pager {
+      clear:both;
+      position: relative;
+      top: 36px;
+      .pager-num {
+        ul {
+          li {
+            .left-buttons {
+              position: absolute;
+              left: 0;
+              .button-cell {
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 42px;
+              }
+            }
+            .main-buttons {
+              position: absolute;
+              left: 37%;
+              .button-cell {
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 42px;
+              }
+            }
+            .right-buttons {
+              position: absolute;
+              right: 0;
+              .button-cell {
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 42px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .under-decoration {
+      clear:both;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-top: 74px;
+      .text-red {
+        padding: 16px 8px;
+        text-align: center;
+        background-color: red;
+        color: white;
+        font-weight: 800;
+        font-size:22px;
+      }
+      .text-white {
+        background-color: white;
+        p {
+          padding: 30px;
+        }
+      }
+    }
+  }
+}
+

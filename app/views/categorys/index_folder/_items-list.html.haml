@@ -1,0 +1,45 @@
+.list-container
+  .full-width
+    %ul.parts-nav.clearfix
+      %li
+        = link_to do
+          fugafugaaaaaaaaaa
+      %li
+        = link_to do
+          fugafugaaaa
+      %li
+        = link_to do
+          fugafugaaaaaaaaaaaaaaaaaaaa
+      %li
+        = link_to do
+          fugafugaaaaaaaaaa
+      %li
+        = link_to do
+          fugafugaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      %li
+        = link_to do
+          fugafuga
+      %li
+        = link_to do
+          fugafugaaaaaaaaaaaaaaaaaa
+      %li
+        = link_to do
+          fugafuga
+      %li
+        = link_to do
+          fugafugaaaaaaaaaaaaaaaa
+    %section.items-box-container.clearfix
+      %h1.items-box-head
+        hogehogeの商品一覧
+      .items-box-content.clearfix
+        - @items.each do |item|
+          = render partial: 'categorys/index_folder/item-box', locals: {item:item}
+
+    .pager
+      = paginate @items
+    .under-decoration
+      .text-red
+        hogehoge
+      .text-white
+        %p
+          ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
