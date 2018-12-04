@@ -1,0 +1,247 @@
+$backgroundColor: #f5f5f5;
+$lightGray: #eee;
+$darkGray: #ccc;
+
+body{
+  min-height: 100%;
+}
+.default-container{
+  position:relative;
+  background-color: $backgroundColor;
+  @include clearfix();
+  .bread-crumbs{
+    position: relative;
+    border-top: solid $lightGray;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background-color: white;
+    border-style: solid;
+    border-width: 1px 0 0 0 ;
+    font-family: 'Source Sans Pro', Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ','Meiryo', sans-serif;
+    color: black;
+    &:after{
+      display: block;
+      content: '';
+      position: absolute;
+      top:0;
+      right: 0;
+      width: 24px;
+      height:100%;
+      background-image: linear-gradient(to right, rgba(255,255,255,0), rgb(255,255,255));
+    }
+    ul{
+      width: 1020px;
+      overflow: visible;
+      margin: 0 auto;
+      padding: 17px 0 16px;
+      white-space: normal;
+      font-size: 0;
+      list-style: none;
+      background-repeat: no-repeat;
+      li{
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.2;
+        a{
+          color: black;
+          text-decoration: none;
+        }
+        i.fa{
+          margin: 0 8px;
+          font-size: 20px;
+          color: #888;
+          display: inline-block;
+          font-weight:  400;
+          line-height: 15px;
+          transform: translateY(10%);
+        }
+        &:last-child{
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .large-container{
+    margin: 40px auto 0;
+    width: 1020px;
+    padding: 0 0 40px;
+    height: 100%;
+    .large-content{
+      float: right;
+      width: 700px;
+      figure{
+        margin: 0 auto;
+      }
+      .mypage-user-icon{
+        height: 160px;
+        position: relative;
+        padding:20px;
+        background-image:url(mypage_images/user-bg.jpg);
+        background-size: cover;
+        text-align: center;
+        a{
+          display: block;
+          position: absolute;
+          top: 50px;
+          left: 0;
+          right: 0;
+          color: black;
+          text-align: center;
+          text-decoration: none;
+          figure{
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+          }
+          .bold{
+            font-size: 14px;
+            font-weight: 600;
+          }
+          .mypage-number{
+            margin-top: 8px;
+            font-size: 0;
+            div+div{
+              margin-left: 16px;
+            }
+            div{
+              font-size: 14px;
+              display: inline-block;
+              .bold{
+                margin-left: 8px;
+              }
+            }
+          }
+        }
+      }
+      .mypage-tab-container{
+        margin: 0;
+        .mypage-tabs{
+          border: 0;
+          background-color: $lightGray;
+          height: 74px;
+          .mypage-tab{
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            width: 50%;
+            float: left;
+            border-width: 0;
+            height: 100%;
+            &.active{
+              background-color: white;
+              p{
+                border-top: 2px solid #ea352d;
+                border-bottom: none;
+              }
+            }
+            p{
+              text-decoration: none;
+            }
+            h3{
+              font-size: 22px;
+            }
+          }
+          p{
+            position:relative;
+            display: block;
+            color: black;
+            font-size: 16px;
+            line-height: 72px;
+            font-weight: bold;
+          }
+        }
+        .tab-content.tab-pane.active{
+          clear: both;
+          display: block;
+        }
+        .mypage-item-list{
+          border: 0;
+          position: relative;
+          background-color: white;
+          .mypage-item-not-found{
+            padding: 160px 0 60px;
+            background-image: url(mypage_images/mercari-box-gray-icon.svg);
+            background-position: center 40px;
+            background-size: 78px 85px;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: $darkGray;
+            &.not-active{
+              display: none;
+            }
+          }
+          .not-found-bold{
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    #mypage-transaction-now-old{
+      margin: 40px 0;
+      .mypage-tab__head{
+        padding: 0 16px;
+        background-color: white;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: 600;
+      }
+    }
+  }
+  .left-side{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    .mypage-nav__list{
+      margin-bottom: 40px;
+      li{
+        &:first-child{
+          border: 0;
+        }
+      }
+      &__item{
+        border-top: 1px solid $lightGray;
+        list-style:none;
+        position:relative;
+        display: block;
+        padding: 14px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s ease-in-out;
+        &:hover{
+          background-color: $lightGray;
+         .fa{
+            transform: translateX(5px) translateY(-50%);
+            color: black;
+            transition: 0.2s;
+          }
+        }
+        &.active{
+          background-color: $lightGray;
+          font-weight: 600;
+          .fa{
+            color: black;
+          }
+        }
+        .fa{
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          color: $darkGray;
+          transform: translate(0, -50%);
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+    }
+    .mypage-nav__head{
+      font-weight: bold;
+    }
+  }
+}
+
+.not-active{
+  display: none;
+}
