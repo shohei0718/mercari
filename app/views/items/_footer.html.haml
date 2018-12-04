@@ -8,14 +8,14 @@
         今すぐ無料ダウンロード！
       .app-banner-icon.clearfix
         %figure.app-banner-icon__icons-box
-          = image_tag "header-footer_images/mercari_icon.png", class: "mercari-icon"
+          = image_tag("header-footer_images/mercari_icon.png", class: "mercari-icon")
         %ul.imgs.clearfix
           %li
-            = image_tag "header-footer_images/app-store.svg", class: "imgs__store app"
+            = image_tag("header-footer_images/app-store.svg", class: "imgs__store app")
           %li
-            = image_tag "header-footer_images/google-play.svg", class: "imgs__store google"
+            = image_tag("header-footer_images/google-play.svg", class: "imgs__store google")
     .right-img
-      = image_tag "header-footer_images/download_content_pc.png", class: "download_content_pc"
+      = image_tag("header-footer_images/download_content_pc.png", class: "download_content_pc")
 .fotter
   %nav
     %ul
@@ -124,23 +124,23 @@
           %li
             .foreign
               = link_to "" do
-                =image_tag "header-footer_images/flag_us.png", class: "flag"
+                =image_tag("header-footer_images/flag_us.png", class: "flag")
                 United States
           %li
             .foreign
               = link_to "" do
-                =image_tag "header-footer_images/flag_uk.png", class: "flag"
+                =image_tag("header-footer_images/flag_uk.png", class: "flag")
                 United Kingdom
           %li
             = link_to "" do
-              =image_tag "header-footer_images/flag_jp.png", class: "flag"
+              =image_tag("header-footer_images/flag_jp.png", class: "flag")
               日本
   = link_to "", class: "fotter__icon" do
-    =image_tag "header-footer_images/mercari-white_logo.svg"
+    =image_tag("header-footer_images/mercari-white_logo.svg")
   %p.fotter__copyright © 2018 Mercari
 
 .exhibit
   =link_to do
     .text
       出品
-    = fa_icon "camera"
+    %i.fa.fa-camera
