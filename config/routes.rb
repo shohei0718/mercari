@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   resources :users, only: :index
+<<<<<<< HEAD
+>>>>>>> shohei0718/master
+=======
+  resources :categorys
 >>>>>>> shohei0718/master
 end
