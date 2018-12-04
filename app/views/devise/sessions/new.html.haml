@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
+.login-header
+
+.login-box
+  .login-box__no-account
+    アカウントをお持ちでない方はこちら
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+    .signup--box
+      =link_to "新規会員登録", new_user_registration_path,class: "signup-btn"
+  .login-box__from-sns
+    .login-box__from-sns__facebook
+      = fa_icon"facebook-square",class:"facebook-icon"
+      %span.facebook-text
+        Facebookでログイン
+    .login-box__from-sns__google
+      = fa_icon"google-plus",class:"google-icon"
+      %span.google-text
+        Googleでログイン
+  .login-box__form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-box__form__field
+        = f.email_field :email, autocomplete: "email",placeholder:"メールアドレス"
+      .login-box__form__field
+        = f.password_field :password, autocomplete: "current-password",placeholder:"パスワード"
+      .recaptcha--login
+        私はロボットではありません
+      .submit-btn
+        = f.submit "ログイン",class:"next-btn"
+

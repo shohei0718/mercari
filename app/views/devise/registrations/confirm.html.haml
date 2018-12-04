@@ -15,7 +15,7 @@
       - @user.password
       = f.hidden_field :prefecture_id
       - @user.prefecture_id
-      .form_field1
+      .sign-up-main__adress-form__field--top
         = f.label :お名前
         %span.form-require
           必須
@@ -23,7 +23,7 @@
         = f.text_field :last_name,style:"margin-bottom:5px"
         %br/
         = f.text_field :first_name
-      .form_field2
+      .sign-up-main__adress-form__field--name
         = f.label :お名前カナ
         %span.form-require
           必須
@@ -31,57 +31,57 @@
         = f.text_field :last_name_kana,style:"margin-bottom:5px"
         %br/
         = f.text_field :first_name_kana
-      .form_field2
+      .sign-up-main__adress-form__field--name
         = f.label :郵便番号
         %span.form-require
           必須
         %br/
         = f.number_field :zip_code
-      .form_field
+      .sign-up-main__adress-form__field
         = f.label :都道府県
         %span.form-require
           必須
         %br/
-        .form_prefecture
+        .form--prefecture
           = f.collection_select :prefecture_id,Prefecture.all,:id,:prefecture
-      .form_field
+      .sign-up-main__adress-form__field
         = f.label :市町村
         %span.form-require
           必須
         %br/
         = f.text_field :city
-      .form_field
+      .sign-up-main__adress-form__field
         = f.label :番地
         %span.form-require
           必須
         %br/
         = f.text_field :address
-      .form_field
+      .sign-up-main__adress-form__field
         = f.label :建物
         %br/
         = f.text_field :building
-      .form_field
+      .sign-up-main__adress-form__field
         = f.label :電話
         %br/
         = f.number_field :telephone
-      .form_field3
+      .sign-up-main__adress-form__field--birth
         = f.label :生年月日,class:"birth-info"
         %span.form-require
           必須
         %br/
-        %ul
-          %li.formbirth
-            .form_field__birth
+        %ul.birth--field
+          %li.birth--list
+            .birth--select
               = f.select :birth_year,@year,prompt:"選択してください"
             .birth
               年
-          %li.formbirth
-            .form_field__birth
+          %li.birth--list
+            .birth--select
               = f.select :birth_month,@month,prompt:"選択してください"
             .birth
               月
-          %li.formbirth
-            .form_field__birth
+          %li.birth--list
+            .birth--select
               = f.select :birth_day,@day,prompt:"選択してください"
             .birth
               日

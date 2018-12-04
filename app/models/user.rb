@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many   :like_items,       through: :likes,          source: :item
   has_many   :flag_items,       through: :flags,          source: :item
 
-  # belongs_to :payment_information
+  has_one :payment_information
   belongs_to :prefecture
-
 end
