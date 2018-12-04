@@ -1,0 +1,111 @@
+= render 'layouts/sellheader'
+%main#main
+  %section.container
+    #sell__container
+      %div
+        .sell__container__inner
+          %h2.sell__head 商品の情報を入力
+          = form_for @item, class: "sell__form" do |f|
+            .sell--upload__box
+              %h3.sell--upload__head
+                出品画像
+                %span.form--require 必須
+              %p 最大4枚までアップロードできます
+              .sell__dropbox__container.clearfix
+                .sell--upload__items
+                  %ul
+                = f.label :image, class: "sell--upload__drop__box" do
+                  .sell-upload-drop-file
+                    = f.file_field :image, style:"display:none;"
+                    %pre.visible__pc
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+            .sell__content
+              .form__group
+                %label
+                  商品名
+                  %span.form--require 必須
+                %div
+                  = f.text_field :name, class: "input__default", placeholder: "商品名（必須 40文字まで)"
+              .form__group
+                %label
+                  商品の説明
+                  %span.form--require 必須
+                = f.text_area :description, class: "textarea__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+            .sell__content.clearfix
+              %h3.sell--sub__head 商品の詳細
+              .sell__form__box
+                .form__group
+                  %label
+                    カテゴリー
+                    %span.form--require 必須
+                  %div
+                    .select--wrap
+                    = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, class: "select__default"
+                .form__group
+                  %label
+                    商品の状態
+                    %span.form--require 必須
+                  .select--wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+            .sell__content.clearfix
+              %h3.sell--sub__head 配送について
+              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
+              .sell__form__box
+                .form__group
+                  %label
+                    配送料の負担
+                    %span.form--require 必須
+                  .select--wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                .form__group
+                  %label
+                    発送元の地域
+                    %span.form--require 必須
+                  .select-wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                .form__group
+                  %label
+                    発送までの日数
+                    %span.form--require 必須
+                  .select--wrap
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+            .sell__content.clearfix
+              %h3.sell--sub__head 販売価格(300〜9,999,999)
+              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
+              .sell__form__box
+                %ul.sell__price
+                  %li.form__group
+                    .clearfix
+                      %label.l-left
+                        価格
+                        %span.form--require 必須
+                      .l-right.sell__price--input
+                        ¥
+                        %div#sellprice
+                          %input.input__default#input__price{placeholder: "例）300", value: ""}
+                  %li.clearfix
+                    .l-left
+                      販売手数料 (10%)
+                    .l-right#output -
+                  %li.clearfix.bold
+                    .l-left 販売利益
+                    .l-right#output2 -
+            .sell__content.sell__btn__box
+              %div
+                %p
+                  = link_to '禁止されている出品', "/jp/help_center/getting_started/prohibited_items/"
+                  、
+                  = link_to '行為を必ずご確認ください。', "/jp/help_center/getting_started/prohibited_conduct/"
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  = link_to '偽ブランドの販売', "/jp/help_center/getting_started/counterfeit_goods/"
+                  は犯罪であり処罰される可能性があります。
+                %p
+                  また、出品をもちまして
+                  = link_to '加盟店規約', "/jp/seller_terms/"
+                  に同意したことになります。
+              %button.btn__default.btn--red{type: "submit"}
+                出品する
+              = link_to 'もどる', root_path, class: "btn--gray"
+= render 'layouts/sellfooter'
