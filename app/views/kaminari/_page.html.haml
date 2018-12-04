@@ -6,5 +6,5 @@
 -#    total_pages:   total number of pages
 -#    per_page:      number of items to fetch per page
 -#    remote:        data-remote
-%span{class: "page#{' current' if page.current?}"}
-  = link_to page, url, {remote: remote, rel: page.rel, class: "button-cell"}
+%span.main-buttons{class: "page#{' current' if page.current?}"}
+  = link_to page, url, {remote: remote, rel: page.rel, class: "button-cell#{' current-page-button' if page.current?}"}

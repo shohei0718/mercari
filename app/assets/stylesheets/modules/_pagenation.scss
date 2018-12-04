@@ -7,25 +7,68 @@
   border: 1px solid #ccc;
   font-size: 14px;
   line-height: 42px;
+  text-decoration: none;
+  color: black;
+  &:hover{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 42px;
+    text-decoration: none;
+    color: black;
+  }
 }
 .most-left-button {
-  position: absolute;
+  position:absolute;
   left: 0;
+  text-align: center;
 }
 .left-button {
   position: absolute;
   left: 47px;
+  text-align: center;
 }
 .main-buttons {
-  position: absolute;
-  left: 37%;
+  position:relative;
+  left: 38%;
+  margin:0 auto;
+  text-align: center;
 }
 .right-button {
   position: absolute;
   right: 47px;
+  text-align: center;
 }
 .most-right-button {
-  position: absolute;
-  right: 0;
+  float:right;
+  text-align: center;
+}
+.current-page-button {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: red;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 42px;
+  text-decoration: none;
+  color: black;
+  &:hover{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: red;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 42px;
+    text-decoration: none;
+    color: black;
+  }
 }
 
