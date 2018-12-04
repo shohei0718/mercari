@@ -1,7 +1,7 @@
 .footer {
   text-align: center;
   padding-top: 50px;
-  li:first-child {
+  & li:first-child {
     margin: 0;
   }
   li {
