@@ -87,6 +87,8 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   devise
   erb2haml
   factory_bot_rails
+  faker
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.5)
