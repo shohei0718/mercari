@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users,controllers: {
  registrations: 'users/registrations'
 }
@@ -10,4 +11,10 @@ Rails.application.routes.draw do
    post 'users/sign_up/confirm' => 'users/registrations#confirm'
    post 'users/sign_up/complete' => 'users/registrations#complete'
   end
+=======
+  devise_for :users
+  root 'items#index'
+  resources :items
+  resources :users, only: :index
+>>>>>>> shohei0718/master
 end
