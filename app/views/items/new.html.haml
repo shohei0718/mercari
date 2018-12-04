@@ -41,13 +41,13 @@
                     %span.form--require 必須
                   %div
                     .select--wrap
-                      = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                    = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, class: "select__default"
                 .form__group
                   %label
                     商品の状態
                     %span.form--require 必須
                   .select--wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
             .sell__content.clearfix
               %h3.sell--sub__head 配送について
               = link_to '?', "/jp/help_center/article/68/", class: "form__question"
@@ -57,13 +57,13 @@
                     配送料の負担
                     %span.form--require 必須
                   .select--wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
                 .form__group
                   %label
                     発送元の地域
                     %span.form--require 必須
                   .select-wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
                 .form__group
                   %label
                     発送までの日数
