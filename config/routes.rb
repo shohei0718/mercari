@@ -10,3 +10,4 @@ Rails.application.routes.draw do
    post 'users/sign_up/confirm' => 'users/registrations#confirm'
    post 'users/sign_up/complete' => 'users/registrations#complete'
   end
+end
