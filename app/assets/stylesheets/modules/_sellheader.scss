@@ -1,0 +1,18 @@
+header {
+  height: 128px;
+  text-align: center;
+  h1 {
+    margin: 40px 0 0;
+    display: inline-block;
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+}

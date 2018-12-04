@@ -1,0 +1,195 @@
+= render 'layouts/sellheader'
+%main#main
+  %section.container
+    #sell__container
+      %div
+        .sell__container__inner
+          %h2.sell__head 商品の情報を入力
+          %form.sell__form
+            .sell--upload__box
+              %h3.sell--upload__head
+                出品画像
+                %span.form--require 必須
+              %p 最大4枚までアップロードできます
+              .sell__dropbox__container.clearfix
+                .sell--upload__items
+                  %ul
+                .sell--upload__drop__box
+                  / = form_tag(items_path, class: 'dropzone', id: 'upload-dropzone') do
+                  /   .fallback
+                  /     = file_field_tag('attachment[file]')
+                  %pre.visible__pc
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+            .sell__content
+              .form__group
+                %label
+                  商品名
+                  %span.form--require 必須
+                %div
+                  %input.input__default#input{placeholder: "商品名（必須 40文字まで)", value: ""}
+              .form__group
+                %label
+                  商品の説明
+                  %span.form--require 必須
+                %textarea.textarea__default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+            .sell__content.clearfix
+              %h3.sell--sub__head 商品の詳細
+              .sell__form__box
+                .form__group
+                  %label
+                    カテゴリー
+                    %span.form--require 必須
+                  %div
+                    .select--wrap
+                      %select.select__default
+                        %option{value: ""} ---
+                        %option{value: "1"} レディース
+                        %option{value: "2"} メンズ
+                        %option{value: "3"} ベビー・キッズ
+                        %option{value: "4"} インテリア・住まい・小物
+                        %option{value: "5"} 本・音楽・ゲーム
+                        %option{value: "1328"} おもちゃ・ホビー・グッズ
+                        %option{value: "6"} コスメ・香水・美容
+                        %option{value: "7"} 家電・スマホ・カメラ
+                        %option{value: "8"} スポーツ・レジャー
+                        %option{value: "9"} ハンドメイド
+                        %option{value: "1027"} チケット
+                        %option{value: "1318"} 自動車・オートバイ
+                        %option{value: "10"} その他
+                      %i.icon-arrow-bottom
+                .form__group
+                  %label
+                    商品の状態
+                    %span.form--require 必須
+                  .select--wrap
+                    %select.select__default
+                      %option{value: ""} ---
+                      %option{value: "1"} 新品、未使用
+                      %option{value: "2"} 未使用に近い
+                      %option{value: "3"} 目立った傷や汚れなし
+                      %option{value: "4"} やや傷や汚れあり
+                      %option{value: "5"} 傷や汚れあり
+                      %option{value: "6"} 全体的に状態が悪い
+                    %i.icon-arrow-bottom
+            .sell__content.clearfix
+              %h3.sell--sub__head 配送について
+              %a.form__question{href: "/jp/help_center/article/68/", target: "_blank"} ?
+              .sell__form__box
+                .form__group
+                  %label
+                    配送料の負担
+                    %span.form--require 必須
+                  .select--wrap
+                    %select.select__default
+                      %option{value: ""} ---
+                      %option{value: "2"} 送料込み(出品者負担)
+                      %option{value: "1"} 着払い(購入者負担)
+                    %i.icon-arrow-bottom
+                .form__group
+                  %label
+                    発送元の地域
+                    %span.form--require 必須
+                  .select-wrap
+                    %select.select__default
+                      %option{value: ""} ---
+                      %option{value: "1"} 北海道
+                      %option{value: "2"} 青森県
+                      %option{value: "3"} 岩手県
+                      %option{value: "4"} 宮城県
+                      %option{value: "5"} 秋田県
+                      %option{value: "6"} 山形県
+                      %option{value: "7"} 福島県
+                      %option{value: "8"} 茨城県
+                      %option{value: "9"} 栃木県
+                      %option{value: "10"} 群馬県
+                      %option{value: "11"} 埼玉県
+                      %option{value: "12"} 千葉県
+                      %option{value: "13"} 東京都
+                      %option{value: "14"} 神奈川県
+                      %option{value: "15"} 新潟県
+                      %option{value: "16"} 富山県
+                      %option{value: "17"} 石川県
+                      %option{value: "18"} 福井県
+                      %option{value: "19"} 山梨県
+                      %option{value: "20"} 長野県
+                      %option{value: "21"} 岐阜県
+                      %option{value: "22"} 静岡県
+                      %option{value: "23"} 愛知県
+                      %option{value: "24"} 三重県
+                      %option{value: "25"} 滋賀県
+                      %option{value: "26"} 京都府
+                      %option{value: "27"} 大阪府
+                      %option{value: "28"} 兵庫県
+                      %option{value: "29"} 奈良県
+                      %option{value: "30"} 和歌山県
+                      %option{value: "31"} 鳥取県
+                      %option{value: "32"} 島根県
+                      %option{value: "33"} 岡山県
+                      %option{value: "34"} 広島県
+                      %option{value: "35"} 山口県
+                      %option{value: "36"} 徳島県
+                      %option{value: "37"} 香川県
+                      %option{value: "38"} 愛媛県
+                      %option{value: "39"} 高知県
+                      %option{value: "40"} 福岡県
+                      %option{value: "41"} 佐賀県
+                      %option{value: "42"} 長崎県
+                      %option{value: "43"} 熊本県
+                      %option{value: "44"} 大分県
+                      %option{value: "45"} 宮崎県
+                      %option{value: "46"} 鹿児島県
+                      %option{value: "47"} 沖縄県
+                      %option{value: "99"} 未定
+                    %i.icon-arrow-bottom
+                .form__group
+                  %label
+                    発送までの日数
+                    %span.form--require 必須
+                  .select--wrap
+                    %select.select__default
+                      %option{value: ""} ---
+                      %option{value: "1"} 1~2日で発送
+                      %option{value: "2"} 2~3日で発送
+                      %option{value: "3"} 4~7日で発送
+                    %i.icon-arrow-bottom
+            .sell__content.clearfix
+              %h3.sell--sub__head 販売価格(300〜9,999,999)
+              %a.form__question{href: "/jp/help_center/article/64/", target: "_blank"} ?
+              .sell__form__box
+                %ul.sell__price
+                  %li.form__group
+                    .clearfix
+                      %label.l-left
+                        価格
+                        %span.form--require 必須
+                      .l-right.sell__price--input
+                        ¥
+                        %div#sellprice
+                          %input.input__default#input{placeholder: "例）300", value: ""}
+                  %li.clearfix
+                    .l-left
+                      販売手数料 (10%)
+                    .l-right#output -
+                  %li.clearfix.bold
+                    .l-left 販売利益
+                    .l-right#output2 -
+            .sell__content.sell__btn__box
+              %div
+                %p
+                  %a{href: "/jp/help_center/getting_started/prohibited_items/"} 禁止されている出品
+                  、
+                  %a{href: "/jp/help_center/getting_started/prohibited_conduct/"} 行為
+                  を必ずご確認ください。
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  %a{href: "/jp/help_center/getting_started/counterfeit_goods/"} 偽ブランドの販売
+                  は犯罪であり処罰される可能性があります。
+                %p
+                  また、出品をもちまして
+                  %a{href: "/jp/seller_terms/"} 加盟店規約
+                  に同意したことになります。
+              %button.btn__default.btn--red{type: "submit"}
+                出品する
+              %a.btn__default.btn--gray もどる
+= render 'layouts/sellfooter'
