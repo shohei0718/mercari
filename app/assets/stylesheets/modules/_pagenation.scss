@@ -21,6 +21,19 @@
     text-decoration: none;
     color: black;
   }
+  &__red{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 42px;
+    text-decoration: none;
+    color: black;
+    background: red;
+  }
 }
 .most-left-button {
   position:absolute;
@@ -46,29 +59,5 @@
 .most-right-button {
   float:right;
   text-align: center;
-}
-.current-page-button {
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  background: red;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  line-height: 42px;
-  text-decoration: none;
-  color: black;
-  &:hover{
-    display: inline-block;
-    width: 44px;
-    height: 44px;
-    border-radius: 4px;
-    background: red;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    line-height: 42px;
-    text-decoration: none;
-    color: black;
-  }
 }
 
