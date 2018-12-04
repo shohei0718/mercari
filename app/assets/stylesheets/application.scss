@@ -3,9 +3,11 @@
 @import "./mixins/clearfix";
 @import "./config/slick";
 @import "./config/slick-theme";
+@import "./modules/pagenation";
 @import "./modules/header";
 @import "./modules/footer";
 @import "./modules/top-page";
+@import "./modules/items-list";
 @import "./modules/mypage";
 @import "./modules/show";
 @import "./modules/sellheader";
