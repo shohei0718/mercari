@@ -7,7 +7,7 @@
           = f.label 'カード番号', class: 'label'
           %span 必須
           %br/
-          = f.number_field :card_number,class: 'number',max:1000000000000000
+          = f.number_field :card_number,class: 'number',id: 'card_num',max:1000000000000000
           %ul#cards
             %li
             =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2073939140", class: "card-images"
@@ -29,12 +29,12 @@
             %p 月
 
           .select-valid
-            = f.select :valid_month,[*18..23],prompt:"選択してください",class: 'valid_month'
+            = f.select :valid_year,[*18..23],prompt:"選択してください",class: 'valid_month'
             %p 年
 
           = f.label 'セキュリティコード', class: 'label'
           %span 必須
-          = f.number_field :cvc, placeholder:'　カード背面4桁もしくは3桁の番号',class: 'number',max:9999
+          = f.number_field :cvc, placeholder:'　カード背面4桁もしくは3桁の番号',class: 'number',id: 'security_num',max:9999
           .submit-box
             =f.submit '追加する', class: 'submit'
 

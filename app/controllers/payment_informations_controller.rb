@@ -12,9 +12,8 @@ class PaymentInformationsController < ApplicationController
     # binding.pry
     @payment_information = PaymentInformation.create(payment_information_params)
 
-    redirect_to :back
+    redirect_to action: :index
 
-    # あとで入れる,(card_number: payment_information_params[:card_number], valid_year: payment_information_params[:valid_year],valid_month: payment_information_params[:valid_month],cvc: payment_information_params[:cvc],user_id: current_user.id)
 
   end
 
@@ -27,7 +26,7 @@ class PaymentInformationsController < ApplicationController
   private
 
   def payment_information_params
-    params.permit(:card_number, :valid_year, :valid_month, :cvc)
+    params.require(:payment_information).permit(:card_number, :valid_year, :valid_month, :cvc).merge(user_id:current_user.id)
 
   end
 
