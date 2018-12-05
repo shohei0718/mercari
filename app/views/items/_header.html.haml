@@ -20,16 +20,24 @@
               = link_to do
                 ブランドから探す
       .lists__right.right-float
-        %ul
-          %li.right_btn
-            = link_to class: "right_btn" do
-              = image_tag("header-footer_images/member_photo.png", class: "member_photo left-float")
-              マイページ
-          %li.right_btn
-            = link_to class: "right_btn" do
-              %i.fa.fa-bell.icon
-              お知らせ
-          %li.right_btn
-            = link_to class: "right_btn" do
-              %i.fa.fa-check.icon
-              やることリスト
+        -if user_signed_in?
+          %ul
+            %li.right_btn
+              = link_to users_path,class: "right_btn" do
+                = image_tag("header-footer_images/member_photo.png", class: "member_photo left-float")
+                マイページ
+            %li.right_btn
+              = link_to class: "right_btn" do
+                %i.fa.fa-bell.icon
+                お知らせ
+            %li.right_btn
+              = link_to class: "right_btn" do
+                %i.fa.fa-check.icon
+                やることリスト
+        -else
+          %ul.right_btn--signed-out
+            %li.right_btn--login
+              =link_to "ログイン", new_user_session_path, class: 'top-login-btn'
+            %li.right_btn--signup
+              =link_to "新規会員登録", new_user_registration_path, class: 'top-signup-btn'
+
