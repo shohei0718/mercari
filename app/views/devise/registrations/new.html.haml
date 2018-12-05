@@ -3,7 +3,7 @@
   .sign-up-main__info
     会員情報入力
   .sign-up-main__form
-    = form_for @user,url:{action:"confirm"} do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .sign-up-main__form__field--top
         = f.label :ニックネーム
@@ -29,9 +29,80 @@
           必須
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"6文字以上"
-        = f.hidden_field :prefecture_id,:value => "1"
+      .sign-up-main__form__field
+        = f.label :お名前
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :last_name,style:"margin-bottom:5px"
+        %br/
+        = f.text_field :first_name
+      .sign-up-main__form__field--name
+        = f.label :お名前カナ
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :last_name_kana,style:"margin-bottom:5px"
+        %br/
+        = f.text_field :first_name_kana
+      .sign-up-main__form__field--name
+        = f.label :郵便番号
+        %span.form-require
+          必須
+        %br/
+        = f.number_field :zip_code
+      .sign-up-main__form__field
+        = f.label :都道府県
+        %span.form-require
+          必須
+        %br/
+        .form--prefecture
+          = f.collection_select :prefecture_id,Prefecture.all,:id,:prefecture,prompt:"選択してください"
+      .sign-up-main__form__field
+        = f.label :市町村
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :city
+      .sign-up-main__form__field
+        = f.label :番地
+        %span.form-require
+          必須
+        %br/
+        = f.text_field :address
+      .sign-up-main__form__field
+        = f.label :建物
+        %br/
+        = f.text_field :building
+      .sign-up-main__form__field
+        = f.label :電話番号
+        %span.form-require
+          必須
+        %br/
+        = f.number_field :telephone
+      .sign-up-main__form__field--birth
+        = f.label :生年月日,class:"birth-info"
+        %span.form-require
+          必須
+        %br/
+        %ul.birth--field
+          %li.birth--list
+            .birth--select
+              = f.select :birth_year,[*(1900..2018)],prompt:"選択してください"
+            .birth
+              年
+          %li.birth--list
+            .birth--select
+              = f.select :birth_month,[*(1..12)],prompt:"選択してください"
+            .birth
+              月
+          %li.birth--list
+            .birth--select
+              = f.select :birth_day,[*(1..31)],prompt:"選択してください"
+            .birth
+              日
       .recapcha
         私はロボットではありません、が入ります
       .submit-btn
-        = f.submit "次へ進む",class:"next-btn"
+        = f.submit "登録完了",class:"next-btn"
 = render 'layouts/sellfooter'

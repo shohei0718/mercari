@@ -18,7 +18,7 @@
   }
 
   .form--prefecture{
-    width: 304px;
+    width: 320px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -104,9 +104,10 @@
     border-width:1px;
   }
   &__form{
-    height:700px;
+    height:1800px;
     background-color: white;
     padding-top:64px;
+    margin-bottom: 1px;
     &__field--top{
       height:70px;
       width:320px;
@@ -121,21 +122,6 @@
       margin:0 auto;
       text-align: left;
       margin-top: 40px;
-      font-weight: 600;
-      font-size:14px;
-    }
-  }
-
-  &__adress-form{
-    height:1200px;
-    background-color: white;
-    padding-top:64px;
-
-    &__field--top{
-      height:70px;
-      width:320px;
-      margin:0 auto;
-      text-align: left;
       font-weight: 600;
       font-size:14px;
     }
@@ -145,15 +131,6 @@
       margin:0 auto;
       text-align: left;
       margin-top: 100px;
-      font-weight: 600;
-      font-size:14px;
-    }
-    &__field{
-      height:70px;
-      width:320px;
-      margin:0 auto;
-      text-align: left;
-      margin-top: 40px;
       font-weight: 600;
       font-size:14px;
     }
