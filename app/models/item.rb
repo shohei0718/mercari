@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, :user_id, :price, :text, presence: true
+  validates :name, :price, :text, presence: true
 
   has_many   :item_images
   has_many   :communications
