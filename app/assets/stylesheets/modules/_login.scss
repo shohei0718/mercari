@@ -108,3 +108,30 @@
     }
   }
 }
+
+.logout-box{
+  width:700px;
+  height:179px;
+  background-color: white;
+  float:right;
+  position: relative;
+
+  &__btn{
+    height:50px;
+    width:320px;
+    color:white;
+    font-size:14px;
+    text-align: center;
+    line-height: 50px;
+    background-color:#ea352c;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  .logout-btn{
+    color:white;
+  }
+}
