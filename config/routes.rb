@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :items
   resources :users, only: :index
   resources :categorys
-
+  get "logout" => 'users#logout'
 end
