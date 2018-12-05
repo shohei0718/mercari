@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :payment_informations, only: [:index, :new, :create]
   resources :users, only: :index
   resources :categorys
-
+  get "logout" => 'users#logout'
 end
