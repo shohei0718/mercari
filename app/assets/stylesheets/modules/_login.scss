@@ -1,0 +1,110 @@
+.login-header{
+    height:128px;
+  }
+.login-box{
+  background-color: white;
+  margin: 0 auto;
+  width: 456px;
+  height:730px;
+
+  &__no-account{
+    width:456px;
+    height:109px;
+    border-bottom: solid;
+    border-color:#f5f5f5;
+    border-width:1px;
+    text-align: center;
+    font-size: 14px;
+    padding-top:35px;
+    .signup--box{
+      height:42px;
+      width:328px;
+      margin:  5px auto 15px;
+      background-color: #0099e8;
+      line-height: 43px;
+      text-align: center;
+      .signup-btn{
+        color:white;
+        text-decoration: none;
+        font-size:14px;
+      }
+    }
+  }
+  &__from-sns{
+    width:456px;
+    height:160px;
+    &__facebook{
+      height:50px;
+      width:328px;
+      margin: 32px auto 16px;
+      background-color:#375285;
+      color:white;
+      position: relative;
+      .facebook-icon{
+        font-size:20px;
+        color:white;
+        line-height:50px;
+        position: absolute;
+        left:5%;
+      }
+      .facebook-text{
+        font-size:14px;
+        line-height:50px;
+        position: absolute;
+        left:30%;
+      }
+    }
+    &__google{
+      height:50px;
+      width:328px;
+      margin: 0 auto;
+      background-color:#dc4f41;
+      position: relative;
+      color:white;
+      .google-icon{
+        font-size:20px;
+        color:white;
+        line-height:50px;
+        position: absolute;
+        left:5%;
+      }
+      .google-text{
+        font-size:14px;
+        line-height:50px;
+        position: absolute;
+        left:32%;
+      }
+    }
+  }
+  &__form{
+    width:456px;
+    height:386px;
+    &__field{
+      margin: 0 auto;
+      height:70px;
+      width:320px;
+      input[type="password"] {
+        width: 304px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding:10px 0 8px 16px;
+        font-size: 16px;
+      }
+      input[type="email"] {
+        width: 304px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding:10px 0 8px 16px;
+        font-size: 16px;
+      }
+    }
+    .recaptcha--login{
+      height:75px;
+      width:300px;
+      background-color: gray;
+      margin: 5px auto 3px;
+    }
+  }
+}
