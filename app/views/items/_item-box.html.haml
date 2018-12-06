@@ -1,0 +1,18 @@
+%li.item-box
+  =link_to item_path(:id) do
+    - @item_images.each do |image|
+      - if image.image.present?
+        - if image.item_id == item.id
+          = image_tag image.image
+    .item-box-text
+      .text-box
+        %h4
+          = item.name
+      .price
+        = converting_price(item.price)
+      .price-tax
+        (税込)
+      -# .nice
+      -#   = fa_icon "heart"
+      -#   %span
+      -#     1
