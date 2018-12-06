@@ -1,5 +1,5 @@
 %li.item-box
-  =link_to item_path do
+  =link_to item_path(:id) do
     - @item_images.each do |image|
       - if image.image.present?
         - if image.item_id == item.id
