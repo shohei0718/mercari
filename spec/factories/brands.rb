@@ -1,9 +1,8 @@
 FactoryBot.define do
 
   factory :brand do
-    id                { "1" }
     brand             { "shaneru" }
-    association :first_category,  factory: :first_category
+    initialize_with   { Brand.find_or_create_by(id: 1,brand: 'shaneru')}
   end
 
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :delivery_way do
-    id                { "1" }
     way               { "way"}
+    initialize_with   { DeliveryWay.find_or_create_by(id: 1,way: 'way')}
   end
 
 end

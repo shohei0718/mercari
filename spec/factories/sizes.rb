@@ -1,9 +1,9 @@
 FactoryBot.define do
 
   factory :size do
-    id                { "1" }
     size              { "l"}
-    associtation { :size_category }, factory: :size_category
+    association :size_category, factory: :size_category
+    initialize_with   { Size.find_or_create_by(id: 1,size: 'l')}
   end
 
 end

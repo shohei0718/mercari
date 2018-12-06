@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :prefecture do
-    id                { "1" }
-    prefecture        { "hokkaido" }
+    prefecture        { "北海道" }
+    initialize_with   { Prefecture.find_or_create_by(id: 1,prefecture: '北海道')}
   end
 
 end

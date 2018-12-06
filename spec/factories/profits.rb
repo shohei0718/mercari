@@ -1,7 +1,6 @@
 FactoryBot.define do
 
-  factory :profits do
-    id                        { "1" }
+  factory :profit do
     profit                    {"a"}
     expiration_date           {"1"}
     profit_is_valid           {"a"}

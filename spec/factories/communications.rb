@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :communication do
-    id                { "1" }
     message           { "hello" }
     association :user,          factory: :user
     association :item,          factory: :item
