@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :item_image do
-    image             { "aaaaaa" }
+    image             { Faker::Avatar.image }
     association :item,  factory: :item
   end
 

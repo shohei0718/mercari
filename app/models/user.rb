@@ -14,10 +14,13 @@ class User < ApplicationRecord
   has_many   :communications
   has_many   :likes
   has_many   :flags
+  has_many   :rate_counts
   has_many   :message_items,    through: :communications, source: :item
   has_many   :like_items,       through: :likes,          source: :item
   has_many   :flag_items,       through: :flags,          source: :item
+  has_many   :rating_items,     through: :rate_counts,     source: :item
 
-  has_one :payment_information
+  has_one    :payment_information
+
   belongs_to :prefecture
 end

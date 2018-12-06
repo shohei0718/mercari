@@ -9,19 +9,11 @@ FactoryBot.define do
     city                    { "city" }
     address                 { "address" }
     building                { "building" }
-<<<<<<< HEAD
-    email                   { "karioki@gmail.com" }
-    encrypted_password      { "123456a" }
-    reset_password_token    { "123456a" }
-    telephone               { "0000" }
-    zip_code                { "1234567" }
-=======
     email                   { Faker::Internet.email }
     encrypted_password      { Faker::Internet.password }
     reset_password_token    { Faker::Internet.password }
     telephone               { "0000" }
-    zip_code                { "0000" }
->>>>>>> shohei0718/master
+    zip_code                { "1234567" }
     birth_year              { "2000" }
     birth_month             { "1" }
     birth_day               { "1" }
@@ -30,16 +22,9 @@ FactoryBot.define do
     introduction            { "introduction" }
     remember_created_at     { "1" }
     reset_password_sent_at  { "0000" }
-<<<<<<< HEAD
-    password                { "00000000" }
-    password_confirmation   { "00000000" }
-    association :prefecture,           factory: :prefecture
-=======
     password                { "111111" }
     password_confirmation   { "111111" }
     association :prefecture,           factory: :prefecture
-    # association :payment_information,  factory: :payment_information
->>>>>>> shohei0718/master
   end
 
 end
