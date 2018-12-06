@@ -15,7 +15,6 @@ FactoryBot.define do
     user_point                {"1"}
     association :user,  factory: :user
     association :item,  factory: :item
-
     association :prefecture, factory: :prefecture
   end
 
