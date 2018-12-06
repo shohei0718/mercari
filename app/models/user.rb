@@ -21,6 +21,5 @@ class User < ApplicationRecord
   has_many   :rating_items,     through: :rate_counts,     source: :item
 
   has_one    :payment_information
-
   belongs_to :prefecture
 end

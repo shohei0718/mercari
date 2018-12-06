@@ -1,7 +1,10 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 <<<<<<< HEAD
+<<<<<<< HEAD
 require 'capybara/rspec'
+=======
+>>>>>>> shohei0718/master
 =======
 >>>>>>> shohei0718/master
 ENV['RAILS_ENV'] ||= 'test'
@@ -35,13 +38,10 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-<<<<<<< HEAD
 
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
-=======
->>>>>>> shohei0718/master
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

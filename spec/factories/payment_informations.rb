@@ -5,6 +5,7 @@ FactoryBot.define do
     valid_year                {"1"}
     cvc                       {"1"}
     association :user,  factory: :user
+
   end
 
 end
