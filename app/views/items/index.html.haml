@@ -32,144 +32,19 @@
       = link_to do
         レディース新着アイテム
     %ul
+      - @items.each do |item|
+        = render partial: 'items/item-box', locals: {item:item}
+    .view-all
+      =link_to do
+        すべての商品を見る
+  %section.item-boxs
+    %h3
+      = link_to do
+        レディース新着アイテム
+    %ul
       %li.item-box
         =link_to "/items/1" do
           = image_tag "http://img05.shop-pro.jp/PA01016/706/product/16801459_o1.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-    .view-all
-      =link_to do
-        すべての商品を見る
-  %section.item-boxs
-    %h3
-      = link_to do
-        レディース新着アイテム
-    %ul
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
-          .item-box-text
-            .text-box
-              %h4
-                ああああああああああああああああああああああ
-            .price
-              ¥10,000
-            .price-tax
-              (税込)
-            .nice
-              = fa_icon "heart"
-              %span
-                1
-    .view-all
-      =link_to do
-        すべての商品を見る
-  %section.item-boxs
-    %h3
-      = link_to do
-        レディース新着アイテム
-    %ul
-      %li.item-box
-        =link_to do
-          = image_tag "仮置き用.jpg"
           .item-box-text
             .text-box
               %h4
