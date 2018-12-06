@@ -1,5 +1,5 @@
 class RateCount < ApplicationRecord
-  has_many   :items
-  has_many   :users
+  belongs_to :item
+  belongs_to :user
   belongs_to :rate
 end
