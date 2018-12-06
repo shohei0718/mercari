@@ -6,14 +6,17 @@ class PaymentInformationsController < ApplicationController
   def new
     @payment_information = PaymentInformation.new
 
+      respond_to do |format|
+        format.html
+        format.json
+      end
   end
 
   def create
     # binding.pry
     @payment_information = PaymentInformation.create(payment_information_params)
 
-    redirect_to action: :index
-
+    # redirect_to action: :index
 
   end
 

@@ -34,7 +34,7 @@
 
           = f.label 'セキュリティコード', class: 'label'
           %span 必須
-          = f.number_field :cvc, placeholder:'　カード背面4桁もしくは3桁の番号',class: 'number',id: 'security_num',max:9999
+          = f.text_field :cvc, placeholder:'　カード背面4桁もしくは3桁の番号',class: 'number',id: 'security_num',minumum:3, maximum:4
           .submit-box
             =f.submit '追加する', class: 'submit'
 
