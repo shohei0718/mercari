@@ -1,5 +1,5 @@
-.item-box
-  =link_to "/items/#{item.id}" do
+%li.item-box
+  =link_to item_path(:id) do
     - @item_images.each do |image|
       - if image.image.present?
         - if image.item_id == item.id
@@ -13,6 +13,6 @@
       .price-tax
         (税込)
       -# .nice
-      -#   %i.fa.fa-heart
+      -#   = fa_icon "heart"
       -#   %span
       -#     1

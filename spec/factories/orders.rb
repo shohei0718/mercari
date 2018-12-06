@@ -15,7 +15,11 @@ FactoryBot.define do
     user_point                {"1"}
     association :user,  factory: :user
     association :item,  factory: :item
+<<<<<<< HEAD
     # association :prefecture, factory: :prefecture
+=======
+    association :prefecture, factory: :prefecture
+>>>>>>> shohei0718/master
   end
 
 end
