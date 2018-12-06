@@ -7,6 +7,9 @@ class Item < ApplicationRecord
   has_many   :message_users,  through: :communications,   source: :user
   has_many   :like_users,     through: :likes,            source: :user
   has_many   :flag_users,     through: :flags,            source: :user
+  accepts_nested_attributes_for :item_images
+
+  validates :name, :price, :description presence: true
 
   belongs_to :order
   belongs_to :profit
