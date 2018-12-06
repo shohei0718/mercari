@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   has_many   :flag_users,     through: :flags,            source: :user
 
   belongs_to :order
+  has_one :order
+  has_one :profits
   belongs_to :profit
   belongs_to :prefecture
   belongs_to :user

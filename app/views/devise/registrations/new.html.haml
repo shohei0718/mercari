@@ -50,7 +50,7 @@
         %span.form-require
           必須
         %br/
-        = f.number_field :zip_code
+        = f.number_field :zip_code,maxlength:7
       .sign-up-main__form__field
         = f.label :都道府県
         %span.form-require
