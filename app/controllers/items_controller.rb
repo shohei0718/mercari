@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!, except: :index
+
   def index
     @items = Item.includes(:item_images).limit(4).order("created_at DESC")
     @item_images =ItemImage.all
@@ -7,22 +10,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @item = current_user.items.new
-      @item.item_images.build
-    else
-      redirect_to new_user_session_path
-    end
+    @item = current_user.items.new
+    @item.item_images.build
   end
 
   def create
-    if user_signed_in?
-      @item = current_user.items.new(item_params)
-      if @item.save
-        redirect_to root_path
-      else
-        render :new, item_images: @item.item_images.build
-      end
+    @item = current_user.items.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new, item_images: @item.item_images.build
     end
   end
 
