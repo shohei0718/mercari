@@ -17,8 +17,9 @@
                     %u
                   = fi.label :image, class: "sell--upload__drop__box" do
                     .sell-upload-drop-file
-                      = fi.file_field :image, multiple: true, style:"display:none;"
-                      %pre.visible__pc
+                      = fi.file_field :image, multiple: true, style:"display:none;", class: "file"
+                      %pre
+                        #preview
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
             .sell__content
