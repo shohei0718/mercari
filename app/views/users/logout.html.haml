@@ -1,13 +1,8 @@
 = render partial: "items/header"
+.breads
+  - breadcrumb :logout
+  = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
 .default-container
-  %nav.bread-crumbs
-    %ul
-      %li
-        =link_to root_path do
-          メルカリ
-        = fa_icon "angle-right"
-      %li
-        %span  マイページ
   %main.large-container.clearfix
     .large-content
       .logout-box
