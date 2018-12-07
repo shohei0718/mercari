@@ -1,0 +1,77 @@
+.edit-profile-box{
+  height:568px;
+  width:700px;
+  float: right;
+  background-color: white;
+  &__head{
+    height: 50px;
+    text-align: center;
+    line-height:50px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  &__user-info{
+    background-image:url(edit-back.png);
+    height:156px;
+    width:700px;
+    position: relative;
+    &__box{
+      position: absolute;
+      width:700px;
+      height:60px;
+      top:70px;
+      &__icon{
+        position: absolute;
+        left:210px;
+        top:0;
+        bottom:0;
+        img{
+          border-radius: 60px;
+          height:60px;
+          width:60px;
+        }
+      }
+      input{
+        width:200px;
+        height:30px;
+        position: absolute;
+        left:275px;
+        border-radius: 3px;
+        border:none;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+        margin: 6px 0 6px 0;
+        font-family:Yugothic;
+        font-weight: 400;
+        outline: 0;
+      }
+    }
+  }
+  &__message{
+    height:322px;
+    width:700px;
+    padding:40px 0 0 0;
+    textarea{
+      width: 646px;
+      height: 194px;
+      line-height: 26px;
+      font-size:16px;
+      font-family: Source Sans Pro,Yugothic;
+      margin:0 17px 0 17px;
+      padding: 10px 10px 10px 10px;
+      outline: 0;
+    }
+  }
+  &__update-btn{
+    width: 668px;
+    height: 50px;
+    background-color:#ea352c;
+    text-align: center;
+    font-size: 14px;
+    color:white;
+    font-family: Source Sans Pro,Yugothic;
+    line-height: 50px;
+    margin:  0 auto;
+    margin-top:16px;
+  }
+}
