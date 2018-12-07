@@ -76,3 +76,5 @@ gem 'kaminari'
 gem 'pry-rails'
 gem 'gretel'
 
+gem 'carrierwave'
+gem 'mini_magick'
