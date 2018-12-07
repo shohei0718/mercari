@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :nickname,:first_name,:first_name_kana,:last_name,:last_name_kana,:city,:address,:zip_code,:telephone,:birth_year,:birth_month,:birth_day,presence: true
   validates :zip_code,length: { maximum:7 }
   validates :zip_code,length: { minimum:7 }
-
+  validates :telephone ,numericality:true
   has_many   :items
   has_many   :orders
   has_many   :profits

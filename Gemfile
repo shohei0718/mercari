@@ -65,6 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'unicorn'
+  gem 'fog-aws'
 end
 
 gem 'haml-rails'
@@ -74,8 +75,8 @@ gem 'jquery-slick-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
-
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails'
 

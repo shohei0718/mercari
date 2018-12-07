@@ -267,8 +267,13 @@ ActiveRecord::Schema.define(version: 20181206062153) do
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
+<<<<<<< HEAD
     t.integer  "telephone"
     t.integer  "zip_code",                                          null: false
+=======
+    t.text     "telephone",              limit: 65535
+    t.text     "zip_code",               limit: 65535,              null: false
+>>>>>>> shohei0718/master
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
     t.integer  "birth_day",                                         null: false
@@ -281,9 +286,7 @@ ActiveRecord::Schema.define(version: 20181206062153) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.integer  "prefecture_id"
-    t.integer  "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["payment_information_id"], name: "index_users_on_payment_information_id", using: :btree
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -326,6 +329,5 @@ ActiveRecord::Schema.define(version: 20181206062153) do
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"
   add_foreign_key "third_categories", "second_categories"
-  add_foreign_key "users", "payment_informations"
   add_foreign_key "users", "prefectures"
 end
