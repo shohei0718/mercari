@@ -1,10 +1,8 @@
-
 .edit-profile-box{
   height:568px;
   width:700px;
   float: right;
   background-color: white;
-
   &__head{
     height: 50px;
     text-align: center;
@@ -12,32 +10,27 @@
     font-size: 24px;
     font-weight: 700;
   }
-
   &__user-info{
     background-image:url(edit-back.png);
     height:156px;
     width:700px;
     position: relative;
-
     &__box{
       position: absolute;
       width:700px;
       height:60px;
       top:70px;
-
       &__icon{
         position: absolute;
         left:210px;
         top:0;
         bottom:0;
-
         img{
           border-radius: 60px;
           height:60px;
           width:60px;
         }
       }
-
       input{
         width:200px;
         height:30px;
@@ -54,12 +47,10 @@
       }
     }
   }
-
   &__message{
     height:322px;
     width:700px;
     padding:40px 0 0 0;
-
     textarea{
       width: 646px;
       height: 194px;
@@ -71,7 +62,6 @@
       outline: 0;
     }
   }
-
   &__update-btn{
     width: 668px;
     height: 50px;
