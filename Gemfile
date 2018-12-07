@@ -74,4 +74,5 @@ gem 'jquery-slick-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
-
+gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails'
