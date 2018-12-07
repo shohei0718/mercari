@@ -18,6 +18,6 @@ class User < ApplicationRecord
   has_many   :flag_items,       through: :flags,          source: :item
   has_many   :rating_items,     through: :rate_counts,     source: :item
 
-  has_one    :payment_information
+  has_many   :payment_information
   belongs_to :prefecture
 end

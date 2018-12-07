@@ -1,22 +1,32 @@
 class PaymentInformationsController < ApplicationController
 
   def index
+    @payment_informations = PaymentInformation.includes(:user)
   end
 
   def new
     @payment_information = PaymentInformation.new
 
-      respond_to do |format|
-        format.html
-        format.json
-      end
   end
 
   def create
     # binding.pry
     @payment_information = PaymentInformation.create(payment_information_params)
 
-    # redirect_to action: :index
+    if @payment_information.save
+      redirect_to action: :index
+    else
+      render :new
+    end
+
+  end
+
+  def destroy
+    # binding.pry
+    @user = User.find(params[:user_id])
+    PaymentInformation.find(params[:id]).destroy if @user == current_user
+
+    redirect_to action: :index
 
   end
 

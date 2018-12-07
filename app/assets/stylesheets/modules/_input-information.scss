@@ -11,8 +11,15 @@
 
   .form-content {
     background-color: white;
-    height: 700px;
+    height: 750px;
     margin-top: 2px;
+
+    .alert.alert-warning {
+
+      ul {
+        color: red;
+      }
+    }
 
     #credit-information {
       width: 300px;
@@ -54,8 +61,13 @@
       }
 
       select {
+        width: 50%;
         height: 50px;
         margin-top: 20px;
+      }
+
+      .field_with_errors{
+        display: contents;
       }
 
       p {
