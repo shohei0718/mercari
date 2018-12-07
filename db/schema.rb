@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(version: 20181206062153) do
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "prefecture", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -257,23 +257,18 @@ ActiveRecord::Schema.define(version: 20181206062153) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                                          null: false
-    t.string   "first_name",                           default: "", null: false
-    t.string   "first_name_kana",                      default: "", null: false
-    t.string   "last_name",                            default: "", null: false
-    t.string   "last_name_kana",                       default: "", null: false
-    t.string   "city",                                 default: "", null: false
-    t.string   "address",                              default: "", null: false
-    t.string   "building",                             default: ""
+    t.string   "first_name",                                        null: false
+    t.string   "first_name_kana",                                   null: false
+    t.string   "last_name",                                         null: false
+    t.string   "last_name_kana",                                    null: false
+    t.string   "city",                                              null: false
+    t.string   "address",                                           null: false
+    t.string   "building"
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
-<<<<<<< HEAD
-    t.integer  "telephone"
-    t.integer  "zip_code",                                          null: false
-=======
     t.text     "telephone",              limit: 65535
     t.text     "zip_code",               limit: 65535,              null: false
->>>>>>> shohei0718/master
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
     t.integer  "birth_day",                                         null: false
