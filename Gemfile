@@ -74,11 +74,7 @@ gem 'jquery-slick-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
-<<<<<<< HEAD
 gem 'gretel'
-
-=======
->>>>>>> shohei0718/master
 gem 'carrierwave'
 gem 'mini_magick'
 gem "recaptcha", require: "recaptcha/rails"
