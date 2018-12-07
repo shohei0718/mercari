@@ -1,0 +1,120 @@
+.single-main{
+  height:800px;
+  background-color:#f5f5f5;
+}
+.buy-head{
+  width:700px;
+  height:97px;
+  background-color: white;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 97px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.bold{
+  font-weight:600;
+}
+.buy-item{
+  width:700px;
+  height:466px;
+  background-color: white;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: #f5f5f5;
+  border-width: 0.5px;
+  color:#333333;
+  &__image{
+  text-align: center;
+    img{
+      max-height: 150px;
+      width: auto;
+    }
+  }
+  &__name{
+  margin: 8px 0 0 ;
+  font-size:16px;
+  line-height:1.5;
+  text-align: center;
+  }
+  &__box{
+  width:320px;
+  height:232px;
+  margin: 0 auto;
+  }
+  &__price{
+  margin-top: 11px;
+  font-size:28px;
+  height:42px;
+  text-align: center;
+  }
+  &__shipping-fee{
+  font-size:14px;
+  font-weight: 400;
+  margin:0 0 0 8px;
+  text-align: center;
+  }
+  &__cell{
+  font-size:28px;
+  line-height: 28px;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 16px;
+  }
+  &__price-cell{
+  font-size:28px;
+  line-height: 28px;
+  font-weight: 600;
+  float: right;
+  }
+  &__btn{
+  height:50px;
+  background-color:#ea352c;
+  line-height:50px;
+  text-align: center;
+  margin-top:33px;
+  color:white;
+  font-size: 14px;
+  font-weight:bold;
+  }
+  &__toggle{
+  height:48px;
+  background-color:#cccccc;
+  margin-top: 13px;
+  margin-bottom: 12px;
+  text-align:center;
+  line-height: 48px;
+  font-size: 14px;
+  color:#333333;
+  }
+}
+
+.buy-user-info{
+  width:320px;
+  height:144px;
+  background-color: white;
+  margin: 0 auto;
+  padding:24px 190px 0px 190px;
+  font-weight: 700;
+
+  &__zipcode{
+  font-size:14px;
+  color:#333333;
+  margin-top: 10px;
+  }
+  &__adress{
+  font-size:14px;
+  color:#333333;
+  font-weight: 400;
+  }
+  &__change-btn{
+  font-size:14px;
+  color:#0099e8;
+  float: right;
+  font-weight: 400;
+  }
+}
+
