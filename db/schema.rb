@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(version: 20181206062153) do
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "prefecture", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -257,17 +257,17 @@ ActiveRecord::Schema.define(version: 20181206062153) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                                          null: false
-    t.string   "first_name",                                        null: false
-    t.string   "first_name_kana",                                   null: false
-    t.string   "last_name",                                         null: false
-    t.string   "last_name_kana",                                    null: false
-    t.string   "city",                                              null: false
-    t.string   "address",                                           null: false
-    t.string   "building"
+    t.string   "first_name",                           default: "", null: false
+    t.string   "first_name_kana",                      default: "", null: false
+    t.string   "last_name",                            default: "", null: false
+    t.string   "last_name_kana",                       default: "", null: false
+    t.string   "city",                                 default: "", null: false
+    t.string   "address",                              default: "", null: false
+    t.string   "building",                             default: ""
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
-    t.integer  "telephone",                                         null: false
+    t.integer  "telephone"
     t.integer  "zip_code",                                          null: false
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
@@ -281,7 +281,9 @@ ActiveRecord::Schema.define(version: 20181206062153) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.integer  "prefecture_id"
+    t.integer  "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["payment_information_id"], name: "index_users_on_payment_information_id", using: :btree
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -324,5 +326,6 @@ ActiveRecord::Schema.define(version: 20181206062153) do
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"
   add_foreign_key "third_categories", "second_categories"
+  add_foreign_key "users", "payment_informations"
   add_foreign_key "users", "prefectures"
 end
