@@ -1,5 +1,51 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
+end
+
+crumb :categories do
+  link 'カテゴリー一覧', root_path
+  parent :root
+end
+
+# crumb :first_category do |first_category|
+#   link "first_category.first_category", first_categories_path
+#   parent :categories
+# end
+
+crumb :category do
+  link 'カテゴリー', categorys_path
+  parent :categories
+end
+
+crumb :item_show do |item|
+  link 'item.name', item_path
+  parent :root
+end
+
+#以下マイページ関連
+crumb :mypage do
+  link "マイページ", users_path
+  parent :root
+end
+
+crumb :honnninnjouhou do
+  link "本人情報の登録", root_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", root_path
+  parent :mypage
+end
+
+crumb :card do
+  link "支払い方法", root_path
+  parent :mypage
+end
+
+crumb :profile do
+  link "プロフィール", root_path
+  parent :mypage
 end
 
 # crumb :projects do
