@@ -47,6 +47,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rubocop-rspec'
+  gem 'capybara'
   gem "rails-controller-testing"
 end
 
@@ -74,3 +75,5 @@ gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
 
+gem 'carrierwave'
+gem 'mini_magick'

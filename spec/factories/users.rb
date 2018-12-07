@@ -13,7 +13,7 @@ FactoryBot.define do
     encrypted_password      { Faker::Internet.password }
     reset_password_token    { Faker::Internet.password }
     telephone               { "0000" }
-    zip_code                { "0000" }
+    zip_code                { "1234567" }
     birth_year              { "2000" }
     birth_month             { "1" }
     birth_day               { "1" }
@@ -25,7 +25,6 @@ FactoryBot.define do
     password                { "111111" }
     password_confirmation   { "111111" }
     association :prefecture,           factory: :prefecture
-    # association :payment_information,  factory: :payment_information
   end
 
 end
