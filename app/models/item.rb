@@ -1,13 +1,16 @@
 class Item < ApplicationRecord
+  validates :name, :price, :description, presence: true
 
   has_many   :item_images
   accepts_nested_attributes_for :item_images
   has_many   :communications
   has_many   :likes
   has_many   :flags
+  has_many   :rate_counts
   has_many   :message_users,  through: :communications,   source: :user
   has_many   :like_users,     through: :likes,            source: :user
   has_many   :flag_users,     through: :flags,            source: :user
+  has_many   :rating_users,     through: :rate_counts,            source: :user
 
   validates :name, :price, :description, presence: true
   validates :item_images, presence: true, length:{minimum: 1}
@@ -15,6 +18,7 @@ class Item < ApplicationRecord
 
   has_one :order
   has_one :profit
+
   belongs_to :prefecture
   belongs_to :user
 
