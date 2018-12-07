@@ -1,4 +1,10 @@
 = render partial: "items/header"
+-# .breads
+-#   - breadcrumb :first_category, @first_category
+-#   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
+.breads
+  - breadcrumb :category
+  = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
 
 = render partial: "categorys/index_folder/items-list"
 

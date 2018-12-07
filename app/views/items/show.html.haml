@@ -1,5 +1,7 @@
 = render partial: "header"
-
+.breads
+  - breadcrumb :item_show, @item
+  = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
 .default-container
   %section.item-container
     %h1 【万年筆】モンブラン〜元値1本50,000円のペンです！！
@@ -89,7 +91,6 @@
       %br
       \追記
       \サイズ確認用を別出品画面にてご確認ください。
-<<<<<<< HEAD
 .comment
   .comment__box
     %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -260,7 +261,6 @@
             %span
               26
             %p （税込）
-=======
       %br
       %br
       \リピート・アフター・ミー
