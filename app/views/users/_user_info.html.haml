@@ -1,0 +1,56 @@
+= render partial: "items/header"
+.breads
+  - breadcrumb :user_info
+  = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-angle-right')}"
+.default-container
+  %main.large-container.clearfix
+    .large-content
+      %section.l-chapter-container
+        %h2.l-chapter-head
+          本人情報の登録
+        %p.text-center
+          お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+        .l-single-inner
+          .address-info
+            .info-head
+              住所
+            %span
+              必須
+            .address-text
+              %p
+                〒000-0000
+              %p
+                aaaaaaaaaaaaa
+              %p
+                山田太郎
+              = link_to "編集"
+          .birth-info
+            .info-head
+              生年月日
+            %span
+              必須
+            .birth-select-wrap
+              = form_for :user do |f|
+                = f.date_select :birth_year, {start_year: 1900, end_year: 2018,use_month_numbers: true, default: {year: 2010, month: 1, day: 1}}
+                .select-wrap
+                  .select-box
+                %p
+                  年
+                .select-wrap
+                  .select-box
+                %p
+                  月
+                .select-wrap
+                  .select-box
+                %p
+                  日
+          .form-info-text
+            %p
+              ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+          .update-box
+            = link_to "登録する", user_path, method: :put, class:"update-box-btn"
+          .info-text-right
+            %p
+              = link_to "本人情報の登録について＞"
+    = render partial: "mypage-left-side"
+= render partial: "items/footer"

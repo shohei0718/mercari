@@ -19,8 +19,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string     :reset_password_token
 
 
-      t.integer    :telephone,           null:false, unique:true
-      t.integer    :zip_code,            null:false
+      t.text    :telephone,           unique:true
+      t.text    :zip_code,            null:false
 
       t.integer    :birth_year,          null:false
       t.integer    :birth_month,         null:false
