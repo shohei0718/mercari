@@ -1,18 +1,20 @@
 class Item < ApplicationRecord
 
   has_many   :item_images
+  accepts_nested_attributes_for :item_images
   has_many   :communications
   has_many   :likes
   has_many   :flags
   has_many   :message_users,  through: :communications,   source: :user
   has_many   :like_users,     through: :likes,            source: :user
   has_many   :flag_users,     through: :flags,            source: :user
-  accepts_nested_attributes_for :item_images
 
-  validates :name, :price, :description presence: true
+  validates :name, :price, :description, presence: true
+  validates :item_images, presence: true, length:{minimum: 1}
+  validates :item_images, presence: true, length:{maximum: 4}
 
-  belongs_to :order
-  belongs_to :profit
+  has_one :order
+  has_one :profit
   belongs_to :prefecture
   belongs_to :user
 
@@ -20,7 +22,7 @@ class Item < ApplicationRecord
   belongs_to :second_category
   belongs_to :third_category
 
-  belongs_to :brand
+  belongs_to :brand, optional: true
   belongs_to :condition
   belongs_to :delivery_charge
   belongs_to :delivery_date
