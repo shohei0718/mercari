@@ -7,11 +7,6 @@ crumb :categories do
   parent :root
 end
 
-# crumb :first_category do |first_category|
-#   link "first_category.first_category", first_categories_path
-#   parent :categories
-# end
-
 crumb :category do
   link 'カテゴリー', categorys_path
   parent :categories
@@ -53,6 +48,13 @@ crumb :profile do
   parent :mypage
 end
 
+# 以下、今後html.hamlに記載
+
+# crumb :first_category do |first_category|
+#   link "first_category.first_category", first_categories_path
+#   parent :categories
+# end
+
 # .breads
 #   - breadcrumb :pay_info
 #   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
@@ -61,23 +63,3 @@ end
 #   - breadcrumbs :card_info
 #   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
 
-# 以下使い方
-
-# crumb :projects do
-#   link "Projects", projects_path
-# end
-
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
-
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
-
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
