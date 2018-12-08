@@ -3,6 +3,7 @@
 @import "./mixins/clearfix";
 @import "./config/slick";
 @import "./config/slick-theme";
+@import "./config/breadcrumb";
 @import "./modules/pagenation";
 @import "./modules/header";
 @import "./modules/footer";
@@ -18,6 +19,7 @@
 @import "./modules/sellfooter";
 @import "./modules/signup";
 @import "./modules/login";
+// @import "./modules/user_info";
 @import "./modules/edit-profile";
 @import "./modules/order-confirm";
 /*

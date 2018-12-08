@@ -1,5 +1,6 @@
 body {
 font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+background-color: white;
 }
 
 .left-float {
@@ -9,11 +10,12 @@ font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, 
 .right-float {
   float: right;
 }
-
+.header-wrap {
+  background-color: white;
 header {
   background-color: white;
   padding-top: 8px;
-  height: 92px;
+  height: 82px;
   width: 1020px;
   margin: 0 auto;
   .logo-and-search {
@@ -93,6 +95,7 @@ header {
         }
       }
         .right_btn {
+          position: relative;
           display: inline-block;
           font-size: 14px;
           font-weight: 400;
@@ -108,4 +111,5 @@ header {
       }
     }
   }
+}
 }
