@@ -1,4 +1,7 @@
 = render partial: "items/header"
+.breads
+  - breadcrumb :profile
+  = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-caret-right')}"
 .default-container
   %nav.bread-crumbs
     %ul
