@@ -24,29 +24,44 @@ end
 
 #以下マイページ関連
 crumb :mypage do
-  link "マイページ", users_path
+  link "マイページ", root_path
   parent :root
 end
 
-crumb :honnninnjouhou do
+crumb :user_info do
   link "本人情報の登録", root_path
   parent :mypage
 end
 
 crumb :logout do
-  link "ログアウト", root_path
+  link "ログアウト", logout_path
   parent :mypage
 end
 
-crumb :card do
+crumb :pay_info do
   link "支払い方法", root_path
   parent :mypage
+end
+
+crumb :card_info do
+  link "クレジットカード情報入力", root_path
+  parent :pay_info
 end
 
 crumb :profile do
   link "プロフィール", root_path
   parent :mypage
 end
+
+# .breads
+#   - breadcrumb :pay_info
+#   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
+
+# .breads
+#   - breadcrumbs :card_info
+#   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
+
+# 以下使い方
 
 # crumb :projects do
 #   link "Projects", projects_path
@@ -66,9 +81,3 @@ end
 #   link issue.title, issue_path(issue)
 #   parent :project_issues, issue.project
 # end
-
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
