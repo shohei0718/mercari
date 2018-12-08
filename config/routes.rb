@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: :index
   resources :categorys
   get "logout" => 'users#logout'
+  get "order-confirm" => 'items#order-confirm'
+  get "edit-profile" => 'users#edit-profile'
+
 end
