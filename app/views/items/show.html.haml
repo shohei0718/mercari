@@ -1,4 +1,7 @@
 = render partial: "header"
+.breads
+  - breadcrumb :item_show, @item
+  = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
 .default-container
   %section.item-container
     %h1 #{@item.name}
@@ -57,176 +60,201 @@
     = link_to "購入画面へ進む", root_path, class: "buying"
     .item-container__discription
       %p
+<<<<<<< HEAD
       \#{@item.description}
 
-  .comment
-    .comment__box
-      %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      .form
-      .send コメントする
-  / 変数が定義でき次第に下記のようにフォームを作成していく
-  /     = form_for @comments do |f|
-  /       =f.text_field :comment, class: 'form-content'
-  /       =f.submit 'コメントする', class: 'form-submit'
-  .sns-media
-    %i.fab.fa-facebook-square
-    %i.fab.fa-twitter-square
-    %i.fab.fa-line
-    %i.fab.fa-pinterest-square
-  .other-item-box
-    %h2
-      = link_to "出品ユーザーのページへ遷移"
-    / ここから下のコードは後でeach文とrenderで書き換える。
-    / その際に、表示の上限を6件で制限できるとベスト
-    .other-item-contents
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/1200px-Taka_Shiba.jpg"
-          .text
-            %h3 柴犬
-            .price-box
-              .price¥100,000
-              = fa_icon "heart"
-              %span
-                10
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "http://www.joker.co.jp/contents/zukan/images/dacs.jpg"
-          .text
-            %h3 ダックスフンド
-            .price-box
-              .price¥150,000
-              = fa_icon "heart"
-              %span
-                8
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            =image_tag "https://i2.wp.com/inuinublog.com/wp-content/uploads/2017/12/poodle_1513345699.jpg?fit=728%2C468&ssl=1"
-          .text
-            %h3 トイプードル
-            .price-box
-              .price¥200,000
-              = fa_icon "heart"
-              %span
-                30
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag"https://photo1.ganref.jp/photo/0/940c0a43486ddf37420f38e8d0873f68/thumb5.jpg"
-          .text
-            %h3 ラブラドールレトリバー
-            .price-box
-              .price¥120,000
-              = fa_icon "heart"
-              %span
-                20
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag"http://image.news.livedoor.com/newsimage/7/6/76f9a_1534_4474c9435e4fbc5c2e6db83a06ece969.jpg"
-          .text
-            %h3 ジャックラッセルテリア
-            .price-box
-              .price¥180,000
-              = fa_icon "heart"
-              %span
-                16
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag"https://image.pet-home.jp/user_file/2018/03/06/1325373_th320.jpg"
-          .text
-            %h3 ドーベルマン
-            .price-box
-              .price¥300,000
-              = fa_icon "heart"
-              %span
-                26
-              %p （税込）
-  .other-item-box
-    %h2
-      = link_to "出品ユーザーのページへ遷移"
-    / ここから下のコードは後でeach文とrenderで書き換える。
-    / その際に、表示の上限を6件で制限できるとベスト
-    .other-item-contents
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/1200px-Taka_Shiba.jpg"
-          .text
-            %h3 柴犬
-            .price-box
-              .price¥100,000
-              = fa_icon "heart"
-              %span
-                10
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag"http://www.joker.co.jp/contents/zukan/images/dacs.jpg"
-          .text
-            %h3 ダックスフンド
-            .price-box
-              .price¥150,000
-              = fa_icon "heart"
-              %span
-                8
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "https://i2.wp.com/inuinublog.com/wp-content/uploads/2017/12/poodle_1513345699.jpg?fit=728%2C468&ssl=1"
-          .text
-            %h3 トイプードル
-            .price-box
-              .price¥200,000
-              = fa_icon "heart"
-              %span
-                30
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag"https://photo1.ganref.jp/photo/0/940c0a43486ddf37420f38e8d0873f68/thumb5.jpg"
-          .text
-            %h3 ラブラドールレトリバー
-            .price-box
-              .price¥120,000
-              = fa_icon "heart"
-              %span
-                20
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "http://image.news.livedoor.com/newsimage/7/6/76f9a_1534_4474c9435e4fbc5c2e6db83a06ece969.jpg"
-          .text
-            %h3 ジャックラッセルテリア
-            .price-box
-              .price¥180,000
-              = fa_icon "heart"
-              %span
-                16
-              %p （税込）
-      .other-item-contents__box
-        = link_to href: "商品ページへ" do
-          .photo
-            = image_tag "https://image.pet-home.jp/user_file/2018/03/06/1325373_th320.jpg"
-          .text
-            %h3 ドーベルマン
-            .price-box
-              .price¥300,000
-              = fa_icon "heart"
-              %span
-                26
-              %p （税込）
+=======
+      \値下げ50,000円→10,000円
+      %br
+      %br
+      \モンブランの万年筆
+      \黒色（実物は画像より少し明るく見えます）
+      777、ラッキーセブンの破格プライスです。
+      %br
+      %br
+      \傷、汚れありますが、お手入れすればまだまだお使いいただけると思います。
+      \ビンテージ風で、とてもカワイイ形なので、気にいってくださる方がいればお譲りします。
+      \中古品にご理解いただける方に。神経質な方はご遠慮ください。
+      %br
+      %br
+      \気になる箇所があれば画像アップいたしますので、お気軽にどうぞ。
+      %br
+      %br
+      \値下げしました。
+      \価格を下げるために宅急便コンパクトにて、少し押し込む形での発送となりますのでご了承ください。
+      %br
+      %br
+      \追記
+      \サイズ確認用を別出品画面にてご確認ください。
+
+.comment
+  .comment__box
+    %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .form
+    .send コメントする
+/ 変数が定義でき次第に下記のようにフォームを作成していく
+/     = form_for @comments do |f|
+/       =f.text_field :comment, class: 'form-content'
+/       =f.submit 'コメントする', class: 'form-submit'
+.sns-media
+  %i.fab.fa-facebook-square
+  %i.fab.fa-twitter-square
+  %i.fab.fa-line
+  %i.fab.fa-pinterest-square
+.other-item-box
+  %h2
+    = link_to "出品ユーザーのページへ遷移"
+  / ここから下のコードは後でeach文とrenderで書き換える。
+  / その際に、表示の上限を6件で制限できるとベスト
+  .other-item-contents
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/1200px-Taka_Shiba.jpg"
+        .text
+          %h3 柴犬
+          .price-box
+            .price¥100,000
+            = fa_icon "heart"
+            %span
+              10
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "http://www.joker.co.jp/contents/zukan/images/dacs.jpg"
+        .text
+          %h3 ダックスフンド
+          .price-box
+            .price¥150,000
+            = fa_icon "heart"
+            %span
+              8
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          =image_tag "https://i2.wp.com/inuinublog.com/wp-content/uploads/2017/12/poodle_1513345699.jpg?fit=728%2C468&ssl=1"
+        .text
+          %h3 トイプードル
+          .price-box
+            .price¥200,000
+            = fa_icon "heart"
+            %span
+              30
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag"https://photo1.ganref.jp/photo/0/940c0a43486ddf37420f38e8d0873f68/thumb5.jpg"
+        .text
+          %h3 ラブラドールレトリバー
+          .price-box
+            .price¥120,000
+            = fa_icon "heart"
+            %span
+              20
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag"http://image.news.livedoor.com/newsimage/7/6/76f9a_1534_4474c9435e4fbc5c2e6db83a06ece969.jpg"
+        .text
+          %h3 ジャックラッセルテリア
+          .price-box
+            .price¥180,000
+            = fa_icon "heart"
+            %span
+              16
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag"https://image.pet-home.jp/user_file/2018/03/06/1325373_th320.jpg"
+        .text
+          %h3 ドーベルマン
+          .price-box
+            .price¥300,000
+            = fa_icon "heart"
+            %span
+              26
+            %p （税込）
+.other-item-box
+  %h2
+    = link_to "出品ユーザーのページへ遷移"
+  / ここから下のコードは後でeach文とrenderで書き換える。
+  / その際に、表示の上限を6件で制限できるとベスト
+  .other-item-contents
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/1200px-Taka_Shiba.jpg"
+        .text
+          %h3 柴犬
+          .price-box
+            .price¥100,000
+            = fa_icon "heart"
+            %span
+              10
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag"http://www.joker.co.jp/contents/zukan/images/dacs.jpg"
+        .text
+          %h3 ダックスフンド
+          .price-box
+            .price¥150,000
+            = fa_icon "heart"
+            %span
+              8
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "https://i2.wp.com/inuinublog.com/wp-content/uploads/2017/12/poodle_1513345699.jpg?fit=728%2C468&ssl=1"
+        .text
+          %h3 トイプードル
+          .price-box
+            .price¥200,000
+            = fa_icon "heart"
+            %span
+              30
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag"https://photo1.ganref.jp/photo/0/940c0a43486ddf37420f38e8d0873f68/thumb5.jpg"
+        .text
+          %h3 ラブラドールレトリバー
+          .price-box
+            .price¥120,000
+            = fa_icon "heart"
+            %span
+              20
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "http://image.news.livedoor.com/newsimage/7/6/76f9a_1534_4474c9435e4fbc5c2e6db83a06ece969.jpg"
+        .text
+          %h3 ジャックラッセルテリア
+          .price-box
+            .price¥180,000
+            = fa_icon "heart"
+            %span
+              16
+            %p （税込）
+    .other-item-contents__box
+      = link_to href: "商品ページへ" do
+        .photo
+          = image_tag "https://image.pet-home.jp/user_file/2018/03/06/1325373_th320.jpg"
+        .text
+          %h3 ドーベルマン
+          .price-box
+            .price¥300,000
+            = fa_icon "heart"
+            %span
+              26
+            %p （税込）
 = render partial: "footer"
