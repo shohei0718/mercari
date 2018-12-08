@@ -20,8 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # render :new, item_images: @item.item_images.build
-      redirect_to logout_path
+      render :new, item_images: @item.item_images.build
     end
   end
 
