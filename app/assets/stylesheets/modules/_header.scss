@@ -10,7 +10,7 @@ background-color: white;
 .right-float {
   float: right;
 }
-.header-wrappe {
+.header-wrap {
   background-color: white;
 header {
   background-color: white;
@@ -95,6 +95,7 @@ header {
         }
       }
         .right_btn {
+          position: relative;
           display: inline-block;
           font-size: 14px;
           font-weight: 400;
