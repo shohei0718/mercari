@@ -1,5 +1,5 @@
 %li.item-box
-  =link_to item_path(:id) do
+  =link_to "/items/#{item.id}" do
     - @item_images.each do |image|
       - if image.image.present?
         - if image.item_id == item.id

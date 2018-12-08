@@ -6,7 +6,12 @@ class ItemsController < ApplicationController
     @items = Item.includes(:item_images).limit(4).order("created_at DESC")
     @item_images =ItemImage.all
   end
+
   def show
+    @item = Item.find(params[:id])
+    @item_image = ItemImage.find(params[:id])
+    @item_images = @item.item_images(@item.id)
+    # binding.pry
   end
 
   def new
@@ -21,6 +26,7 @@ class ItemsController < ApplicationController
     else
       render :new, item_images: @item.item_images.build
     end
+    # binding.pry
   end
 
   def edit
