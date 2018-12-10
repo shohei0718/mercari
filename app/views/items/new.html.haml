@@ -17,7 +17,7 @@
                     %u
                   = fi.label :image, class: "sell--upload__drop__box" do
                     .sell-upload-drop-file
-                      = fi.file_field :image, multiple: true, style:"display:none;", class: "file"
+                      = fi.file_field :image,style:"display:none;"
                       %pre
                         #preview
                         ドラッグアンドドロップ
@@ -43,62 +43,48 @@
                     %span.form--require 必須
                   %div
                     .select--wrap
-                    .select__default
-                      = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category
-                  %div
-                    .select--wrap
-                    .select__default
-                      = f.collection_select :second_category_id, SecondCategory.all, :id, :second_category
-                  %div
-                    .select--wrap
-                    .select__default
-                      = f.collection_select :third_category_id, ThirdCategory.all, :id,:third_category
+                      = f.select :first_category_id, options_from_collection_for_select( @first, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
+                    #second-select
+                    #third-select
                 .form__group
                   %label
                     商品のサイズ
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :size_id, Size.all, :id, :size, class: "select__default"
+                  = f.collection_select :size_id, Size.all, :id, :size,{prompt: '---'}, class: "select__default"
                 .form__group
                   %label
                     ブランド
                     %span 任意
-                  .select--wrap
                   = f.text_field :brand_id, class: "input__default"
                 .form__group
                   %label
                     商品の状態
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :condition_id, Condition.all, :id, :condition, class: "select__default"
+                  = f.collection_select :condition_id, Condition.all, :id, :condition,{prompt: '---'}, class: "select__default"
             .sell__content.clearfix
               %h3.sell--sub__head 配送について
-              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
+              = link_to '?', "/jp/help_center/article/68/",class: "form__question"
               .sell__form__box
                 .form__group
                   %label
                     配送料の負担
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :charge, class: "select__default"
+                  = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :charge, {prompt: '---'},class: "select__default"
                 .form__group
                   %label
                     配送方法
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :way, class: "select__default"
+                  = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :way, {prompt: '---'},class: "select__default"
                 .form__group
                   %label
                     発送元の地域
                     %span.form--require 必須
-                  .select-wrap
-                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,{prompt: '---'}, class: "select__default"
                 .form__group
                   %label
                     発送までの日数
                     %span.form--require 必須
-                  .select--wrap
-                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date, class: "select__default"
+                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date,{prompt: '---'}, class: "select__default"
             .sell__content.clearfix
               %h3.sell--sub__head 販売価格(300〜9,999,999)
               = link_to '?', "/jp/help_center/article/68/", class: "form__question"

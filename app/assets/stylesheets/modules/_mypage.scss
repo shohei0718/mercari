@@ -75,7 +75,7 @@ body{
         height: 160px;
         position: relative;
         padding:20px;
-        background-image:url(mypage_images/user-bg.jpg);
+        background-image:image-url("mypage_images/user-bg.jpg");
         background-size: cover;
         text-align: center;
         a{
@@ -179,7 +179,7 @@ body{
     }
     #mypage-transaction-now-old{
       margin: 40px 0;
-      .mypage-tab__head{
+      .mypage-tab-head{
         padding: 0 16px;
         background-color: white;
         font-size: 16px;
