@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
   end
 
-  def edit_profile
+  def edit
   end
 
   def user_info
