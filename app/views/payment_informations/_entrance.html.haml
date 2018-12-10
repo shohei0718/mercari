@@ -1,0 +1,20 @@
+%section.payment_information-container
+.content-title
+  %h2 支払い方法
+  .menu
+    .menu__title
+      %h3 クレジットカード一覧
+      .card-information
+        - @payment_informations.each do |payment_information|
+          .card-number カード番号
+          = payment_information.card_number
+          .valid 有効期限
+          = payment_information.valid_year
+          .slush /
+          = payment_information.valid_month
+          .delete-button
+
+    .menu__add
+      =link_to 'クレジットカードを追加する', "/users/#{current_user.id}/payment_informations/new"
+  .information
+    =link_to '支払いについて', "/users/#{current_user.id}/payment_informations/new"

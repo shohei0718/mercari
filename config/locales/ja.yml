@@ -1,0 +1,6 @@
+ja:
+  attributes:
+    card_number:  カード番号
+    valid_year :  有効期限の年
+    valid_month:  有効期限の月
+    cvc        :  セキュリティコード

@@ -1,0 +1,41 @@
+%section.payment_information-container
+  .content-title
+    %h2 クレジットカード情報入力
+    .form-content
+      .form#credit-information
+        = form_for @payment_information,url: "/users/#{current_user.id}/payment_informations/", method: :post do |f|
+          - if @payment_information.errors.any?
+            = render 'layouts/error_messages', model: f.object
+          = f.label 'カード番号', class: 'label'
+          %span 必須
+          %br/
+          = f.text_field :card_number,class: 'number',id: 'card_num'
+          %ul#cards
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2073939140", class: "card-images"
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2073939140", class: "card-images"
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2073939140", class: "card-images"
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2073939140", class: "card-images"
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2073939140", class: "card-images"
+            %li
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2073939140", class: "card-images"
+
+          = f.label '有効期限', class: 'label'
+          %span 必須
+          .selectbox
+            = f.select :valid_month,[*(1..12)],prompt:"選択してください",class: 'valid_month'
+            %p 月
+
+          .select-valid
+            = f.select :valid_year,[*18..23],prompt:"選択してください",class: 'valid_month'
+            %p 年
+
+          = f.label 'セキュリティコード', class: 'label'
+          %span 必須
+          = f.text_field :cvc, placeholder:'　カード背面4桁もしくは3桁の番号',class: 'number',id: 'security_num',minumum:3, maximum:4
+          .submit-box
+            =f.submit '追加する', class: 'submit'
