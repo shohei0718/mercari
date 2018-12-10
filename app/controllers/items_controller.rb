@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_images = @item.item_images(@item.id)
-    # binding.pry
   end
 
   def new
