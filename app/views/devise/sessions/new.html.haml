@@ -20,8 +20,6 @@
         = f.email_field :email, autocomplete: "email",placeholder:"メールアドレス"
       .login-box__form__field
         = f.password_field :password, autocomplete: "current-password",placeholder:"パスワード"
-      .recaptcha--login
-        私はロボットではありません
       .submit-btn
         = f.submit "ログイン",class:"next-btn"
 = render 'layouts/sellfooter'

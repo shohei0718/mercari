@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
+  before_action :move_to_index
+
   def index
   end
 
-  def new
-    @user = User.new
-  end
 
   def show
-    @user = User.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+
   end
 end

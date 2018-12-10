@@ -50,7 +50,7 @@
         %span.form-require
           必須
         %br/
-        = f.number_field :zip_code
+        = f.number_field :zip_code,maxlength:7
       .sign-up-main__form__field
         = f.label :都道府県
         %span.form-require
@@ -101,8 +101,6 @@
               = f.select :birth_day,[*(1..31)],prompt:"選択してください"
             .birth
               日
-      .recapcha
-        私はロボットではありません、が入ります
       .submit-btn
         = f.submit "登録完了",class:"next-btn"
 = render 'layouts/sellfooter'

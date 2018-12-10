@@ -47,6 +47,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rubocop-rspec'
+  gem 'capybara'
   gem "rails-controller-testing"
 end
 
@@ -64,6 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'unicorn'
+  gem 'fog-aws'
 end
 
 gem 'haml-rails'
@@ -73,5 +75,10 @@ gem 'jquery-slick-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
-gem 'rails-i18n'
+
+gem 'gretel'
+gem 'carrierwave'
+gem 'mini_magick'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails'
 

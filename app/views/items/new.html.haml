@@ -11,15 +11,17 @@
                 出品画像
                 %span.form--require 必須
               %p 最大4枚までアップロードできます
-              .sell__dropbox__container.clearfix
-                .sell--upload__items
-                  %ul
-                = f.label :image, class: "sell--upload__drop__box" do
-                  .sell-upload-drop-file
-                    = f.file_field :image, style:"display:none;"
-                    %pre.visible__pc
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+              = f.fields_for :item_images do |fi|
+                .sell__dropbox__container.clearfix
+                  .sell--upload__items
+                    %u
+                  = fi.label :image, class: "sell--upload__drop__box" do
+                    .sell-upload-drop-file
+                      = fi.file_field :image,style:"display:none;"
+                      %pre
+                        #preview
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
             .sell__content
               .form__group
                 %label
@@ -41,35 +43,48 @@
                     %span.form--require 必須
                   %div
                     .select--wrap
-                    = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, class: "select__default"
+                      = f.select :first_category_id, options_from_collection_for_select( @first, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
+                    #second-select
+                    #third-select
+                .form__group
+                  %label
+                    商品のサイズ
+                    %span.form--require 必須
+                  = f.collection_select :size_id, Size.all, :id, :size,{prompt: '---'}, class: "select__default"
+                .form__group
+                  %label
+                    ブランド
+                    %span 任意
+                  = f.text_field :brand_id, class: "input__default"
                 .form__group
                   %label
                     商品の状態
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :condition_id, Condition.all, :id, :condition,{prompt: '---'}, class: "select__default"
             .sell__content.clearfix
               %h3.sell--sub__head 配送について
-              = link_to '?', "/jp/help_center/article/68/", class: "form__question"
+              = link_to '?', "/jp/help_center/article/68/",class: "form__question"
               .sell__form__box
                 .form__group
                   %label
                     配送料の負担
                     %span.form--require 必須
-                  .select--wrap
-                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :charge, {prompt: '---'},class: "select__default"
+                .form__group
+                  %label
+                    配送方法
+                    %span.form--require 必須
+                  = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :way, {prompt: '---'},class: "select__default"
                 .form__group
                   %label
                     発送元の地域
                     %span.form--require 必須
-                  .select-wrap
-                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,{prompt: '---'}, class: "select__default"
                 .form__group
                   %label
                     発送までの日数
                     %span.form--require 必須
-                  .select--wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, class: "select__default"
+                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date,{prompt: '---'}, class: "select__default"
             .sell__content.clearfix
               %h3.sell--sub__head 販売価格(300〜9,999,999)
               = link_to '?', "/jp/help_center/article/68/", class: "form__question"
@@ -83,7 +98,7 @@
                       .l-right.sell__price--input
                         ¥
                         %div#sellprice
-                          %input.input__default#input__price{placeholder: "例）300", value: ""}
+                          =f.number_field :price, class: "input__default", id: "input__price", placeholder: "例）300", value: ""
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
@@ -91,6 +106,7 @@
                   %li.clearfix.bold
                     .l-left 販売利益
                     .l-right#output2 -
+            = f.number_field :order_status_id, value: "1", type: "hidden"
             .sell__content.sell__btn__box
               %div
                 %p

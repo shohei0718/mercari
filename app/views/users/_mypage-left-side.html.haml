@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        =link_to "/users/#{current_user.id}" ,method: :get, class: "mypage-nav__list__item active" do
+        =link_to "/users/#{current_user.id}", class: "mypage-nav__list__item active" do
           マイページ
           = fa_icon "angle-right"
       %li
