@@ -72,7 +72,7 @@
       設定
     %ul.mypage-nav__list
       %li
-        =link_to root_path, class: "mypage-nav__list__item" do
+        =link_to users_edit_profile_path(current_user.id), class: "mypage-nav__list__item" do
           プロフィール
           = fa_icon "angle-right"
       %li
@@ -88,7 +88,7 @@
           メール/パスワード
           = fa_icon "angle-right"
       %li
-        =link_to root_path, class: "mypage-nav__list__item" do
+        =link_to users_user_info_path(current_user.id), class: "mypage-nav__list__item" do
           本人情報
           = fa_icon "angle-right"
       %li
