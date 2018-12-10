@@ -5,7 +5,6 @@
     .menu__title
       %h3 クレジットカード一覧
       .card-information
-        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2073939140", class: "card-images"
         - @payment_informations.each do |payment_information|
           .card-number カード番号
           = payment_information.card_number
