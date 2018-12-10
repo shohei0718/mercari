@@ -3,7 +3,8 @@ FactoryBot.define do
   factory :item do
     name                { "バッグ" }
     price               { "99999" }
-    description         { "バッグーーーーーーーーーーーーーーーーーーーーーーーーーーーー" }
+    description         { "バッグーーーーーーーーーーーーーーーーーー" }
+
     created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
     updated_at          { "2018-05-05 00:00:00" }
     association :prefecture,      factory: :prefecture
@@ -18,6 +19,6 @@ FactoryBot.define do
     association :delivery_date,   factory: :delivery_date
     association :order_status,    factory: :order_status
     association :delivery_way,    factory: :delivery_way
-  end
 
+  end
 end
