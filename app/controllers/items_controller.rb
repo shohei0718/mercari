@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index,:show]
 
   def index
     @items = Item.includes(:item_images).limit(4).order("created_at DESC")
@@ -17,8 +17,9 @@ class ItemsController < ApplicationController
   def new
     @item = current_user.items.new
     @item.item_images.build
+    @first = FirstCategory.all
+    @second = SecondCategory.all
   end
-
   def create
     @item = current_user.items.new(item_params)
     if @item.save
@@ -36,6 +37,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def secondcategory
+    @secondcategory = SecondCategory.where(first_category_id: params[:item][:first_category_id])
+  end
+  def thirdcategory
+    @thirdcategory = ThirdCategory.where(second_category_id: params[:item][:second_category_id])
   end
 
   private
