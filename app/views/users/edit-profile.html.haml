@@ -20,9 +20,9 @@
           .edit-profile-box__user-info__box
             .edit-profile-box__user-info__box__icon
               = image_tag('aaa.jpg')
-            %input.name{:placeholder => "名前が入ります", :type => "text",:color => "black",:value => "たいが"}
+            %input.name{:placeholder => "名前を入力", :type => "text",:color => "black",:value => current_user.nickname}
         .edit-profile-box__message
-          %textarea.profile-box{:placeholder => "もう疲れました、まじまんじ", :type => "text",:color => "black",:value => "たいが"}
+          %textarea.profile-box{:placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", :type => "text",:color => "black",:value => "たいが"}
           .edit-profile-box__update-btn
             変更する
     = render partial: "mypage-left-side"

@@ -3,7 +3,9 @@
     %figure
       = image_tag "header-footer_images/member_photo.png", size:"60x60", class: "user-icon"
     %h2.bold
-      User Name
+
+      = current_user.nickname
+
     .mypage-number
       %div
         評価
@@ -38,7 +40,7 @@
 
 
 %section.mypage-tab-container#mypage-transaction-now-old
-  %h2.mypage-tab-head
+  .mypage-tab-head
     購入した商品
   %ul.mypage-tabs
     %li.mypage-tab.active#tab-transaction-now
