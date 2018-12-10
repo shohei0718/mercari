@@ -1,0 +1,24 @@
+= render partial: "items/header"
+.breads
+  - breadcrumb :profile
+  = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-caret-right')}"
+.default-container
+  %main.large-container.clearfix
+    .large-content
+    = form_for(current_user) do |f|
+      .edit-profile-box
+        .edit-profile-box__head
+          プロフィール
+        .edit-profile-box__user-info
+          .edit-profile-box__user-info__box
+            .edit-profile-box__user-info__box__icon
+              - if current_user.user_icon.present?
+                = image_tag current_user.user_icon
+              - else
+                = image_tag "header-footer_images/member_photo.png"
+            = f.text_field :nickname, placeholder: "名前を入力", color: "black"
+        .edit-profile-box__message
+          = f.text_area :introduction, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", color: "black"
+          = f.submit "変更する", class: "edit-profile-box__update-btn"
+    = render partial: "mypage-left-side"
+= render partial: "items/footer"
