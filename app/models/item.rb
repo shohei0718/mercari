@@ -31,5 +31,4 @@ class Item < ApplicationRecord
   belongs_to :delivery_way
   belongs_to :order_status
   belongs_to :size
-
 end
