@@ -1,0 +1,91 @@
+.content-title {
+
+  h2 {
+    background: white;
+    color: #333;
+    font-size:24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .form-content {
+    background-color: white;
+    height: 750px;
+    margin-top: 2px;
+
+    .alert.alert-warning {
+
+      ul {
+        color: red;
+      }
+    }
+
+    #credit-information {
+      width: 300px;
+      height: 500px;
+      padding: 50px;
+      margin: 2px auto 0;
+      font-size: 14px;
+
+      .label {
+        font-weight: bold;
+        margin-top: 30px;
+      }
+
+      span {
+        display: inline-block;
+        padding: 1px;
+        background-color: red;
+        color: white;
+        border-radius: 3px;
+        margin-left: 10px;
+      }
+
+      .number {
+        margin-top: 5px;
+        height: 40px;
+        width: 320px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      ul {
+
+        img.card-images {
+          margin-right: 10px;
+          float: left;
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      select {
+        width: 50%;
+        height: 50px;
+        margin-top: 20px;
+      }
+
+      .field_with_errors{
+        display: contents;
+      }
+
+      p {
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      .submit {
+        padding: 15px 40px;
+        width: 320px;
+        background-color: red;
+        color: white;
+        margin: 50px auto;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}
+
