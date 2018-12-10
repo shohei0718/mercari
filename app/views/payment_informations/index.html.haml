@@ -1,0 +1,18 @@
+= render partial: "items/header"
+.default-container
+  %nav.bread-crumbs
+    %ul
+      %li
+        =link_to root_path do
+          メルカリ
+        = fa_icon "angle-right"
+      %li
+        %span  マイページ
+      %li
+        = fa_icon "angle-right"
+        %span  カード情報
+  %main.large-container.clearfix
+    .large-content
+      =render partial: "entrance"
+    =render partial: "users/mypage-left-side"
+= render partial: "items/footer"
