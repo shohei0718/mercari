@@ -21,6 +21,12 @@ describe ItemsController, type: :controller do
       expect(response).to have_http_status "200"
     end
 
+    it "array of items ordered by created_at DESC" do
+      items = create_list(:item, 3)
+      get :index
+      expect(assigns(:items)).to match(items.sort{|a, b| b.created_at <=> a.created_at })
+    end
+
     it "array of items ordered limit under 4" do
       items = create_list(:item, 10)
       get :index
