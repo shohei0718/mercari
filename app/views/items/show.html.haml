@@ -4,39 +4,30 @@
   = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
 .default-container
   %section.item-container
-    %h1 【万年筆】モンブラン〜元値1本50,000円のペンです！！
+    %h1 #{@item.name}
     .item-container__main-content
     .item-container__image
-      = image_tag "http://img05.shop-pro.jp/PA01016/706/product/16801459_o1.jpg", alt: "モンブラン", id: "main-box"
+      = image_tag "#{@item_images[0]&.image}", alt: "", id: "main-box"
 
       %ul.image-slide
-
-        %li
-          =image_tag "http://img05.shop-pro.jp/PA01016/706/product/16801459_o1.jpg",alt:"モンブラン", class: "slide-box"
-
-        %li
-          =image_tag "http://digital-camera.jp/wp-content/uploads/2017/05/IMG_5809.jpg",alt:"モンブラン", class: "slide-box"
-
-        %li
-          =image_tag "http://www.kenbanusagi.com/wp-content/uploads/2014/04/140408montblanc1.jpg",alt:"モンブラン", class: "slide-box"
-
-        %li
-          =image_tag "https://blogimg.goo.ne.jp/user_image/66/87/1150ba18f82639c141fde7e4aa2183f2.jpg",alt:"モンブラン", class: "slide-box"
+        - @item_images.each do|item|
+          %li
+            =image_tag "#{item.image}",alt:"", class: "slide-box"
 
     %table.item-container__detail
       %tbody
         %tr
           %th 出品者
           %td
-            = link_to "item_user"
+            = link_to "#{@item.user.nickname}"
         %tr
           %th カテゴリー
           %td
-            = link_to "first-category"
+            = link_to "#{@item.first_category.first_category}"
             %br
-            = link_to "\→second-category"
+            = link_to "\→#{@item.second_category.second_category}"
             %br
-            = link_to "\→third-category"
+            = link_to "\→#{@item.third_category.third_category}"
         %tr
           %th ブランド
           %td モンブラン
@@ -45,23 +36,23 @@
           %td
         %tr
           %th 商品の状態
-          %td 新品
+          %td #{@item.condition.condition}
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者負担）
+          %td #{@item.delivery_charge.charge}
         %tr
           %th 配送の方法
-          %td 未定
+          %td #{@item.delivery_way.way}
         %tr
           %th 配送元地域
           %td
-            = link_to "都道府県"
+            = link_to "#{@item.prefecture.prefecture}"
         %tr
           %th 発送日の目安
-          %td 1〜2日程度
+          %td #{@item.delivery_date.date}
     .item-container__price
       %span.item-price
-        \¥10,000
+        \ #{@item.price}
       %span.item-taxIn
         (税込)
       %span.item-tax-include
@@ -69,28 +60,7 @@
       = link_to "購入画面へ進む", root_path, class: "buying"
     .item-container__discription
       %p
-      \値下げ50,000円→10,000円
-      %br
-      %br
-      \モンブランの万年筆
-      \黒色（実物は画像より少し明るく見えます）
-      777、ラッキーセブンの破格プライスです。
-      %br
-      %br
-      \傷、汚れありますが、お手入れすればまだまだお使いいただけると思います。
-      \ビンテージ風で、とてもカワイイ形なので、気にいってくださる方がいればお譲りします。
-      \中古品にご理解いただける方に。神経質な方はご遠慮ください。
-      %br
-      %br
-      \気になる箇所があれば画像アップいたしますので、お気軽にどうぞ。
-      %br
-      %br
-      \値下げしました。
-      \価格を下げるために宅急便コンパクトにて、少し押し込む形での発送となりますのでご了承ください。
-      %br
-      %br
-      \追記
-      \サイズ確認用を別出品画面にてご確認ください。
+      \#{@item.description}
 
   .comment
     .comment__box

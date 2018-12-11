@@ -8,11 +8,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @item_images = @item.item_images(@item.id)
   end
 
   def new
     @item = current_user.items.new
-    @item.item_images.build
+    4.times {@item.item_images.build}
     @first = FirstCategory.all
     @second = SecondCategory.all
   end
@@ -23,6 +25,7 @@ class ItemsController < ApplicationController
     else
       render :new, item_images: @item.item_images.build
     end
+    # binding.pry
   end
 
   def edit
