@@ -57,7 +57,8 @@
         (税込)
       %span.item-tax-include
         \送料込み
-      = link_to "購入画面へ進む", root_path, class: "buying"
+      = form_tag(action: :pay, method: :post) do
+        %script.payjp-button{"data-key" => "pk_test_00ff76d8e072d9b17859bd34", :src => "https://checkout.pay.jp", :type => "text/javascript"}
     .item-container__discription
       %p
       \#{@item.description}

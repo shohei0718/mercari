@@ -4,30 +4,30 @@
     購入を確定しますか？
   .buy-item
     .buy-item__image
-      = image_tag('aaa.jpg')
+      = image_tag("#{@item_images[0]&.image}")
     .buy-item__name.bold
-      貴重！【相澤仁美】雑誌付録DVD 4枚
+      = "#{@item.name}"
     %form.buy-item__box
       .buy-item__price.bold
-        ¥ 1,370
+        ="¥#{@item.price}"
         %span.buy-item__shipping-fee
-          送料込み
+        ="#{@delivery_way.way}"
       .buy-item__toggle
         ポイントはありません
       .buy-item__cell
         支払い金額
         %span.buy-item__price-cell
-          ¥ 1,370
+          ="¥#{@item.price}"
       .buy-item__btn
-        購入する
+
   .buy-user-info
     .buy-user-info__delivery 配送先
     .buy-user_info__zipcode
-      〒123-4567
+      ="〒#{@user.zip_code}"
     .buy-user-info__adress
-      大阪府ほげほげ市1-2-3
+      ="#{@user.prefecture.prefecture + @user.city + @user.address + @user.building}"
       %br
-      ほげほげお
+      ="#{@user.nickname}"
     %a.buy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
