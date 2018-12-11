@@ -10,19 +10,19 @@ describe Item do
     it "is invalid without a name" do
       item = build(:item, name: nil)
       item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
     it "is invalid without a price" do
       item = build(:item, price: nil)
       item.valid?
-      expect(item.errors[:price]).to include("can't be blank")
+      expect(item.errors[:price]).to include("を入力してください")
     end
 
     it "is invalid without a description" do
       item = build(:item, description: nil)
       item.valid?
-      expect(item.errors[:description]).to include("can't be blank")
+      expect(item.errors[:description]).to include("を入力してください")
     end
 
   end
