@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
     else
       render :new, item_images: @item.item_images.build
     end
-    # binding.pry
   end
 
   def edit
