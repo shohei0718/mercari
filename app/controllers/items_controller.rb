@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     @first = FirstCategory.all
     @second = SecondCategory.all
   end
+
   def create
     @item = current_user.items.new(item_params)
     if @item.save
@@ -25,7 +26,7 @@ class ItemsController < ApplicationController
     else
       render :new, item_images: @item.item_images.build
     end
-    # binding.pry
+
   end
 
   def edit
