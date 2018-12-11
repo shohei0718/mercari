@@ -17,8 +17,13 @@ describe CategorysController, type: :controller do
       expect(assigns(:items)).to match(items.sort{|a, b| b.created_at <=> a.created_at })
     end
 
-    it "array pf item_images" do
-      item_images = create_list(:item_image, 3)
+    it "array of item_images" do
+      item_images = []
+      items = create_list(:item, 3)
+      items.each do |item|
+        item_images.push(item.item_images)
+        item_images.flatten!
+      end
       get :index
       expect(assigns(:item_images)).to match(item_images)
     end
