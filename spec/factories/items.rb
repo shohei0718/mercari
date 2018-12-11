@@ -3,7 +3,8 @@ FactoryBot.define do
   factory :item do
     name                { "バッグ" }
     price               { "99999" }
-    description         { "バッグーーーーーーーーーーーーーーーーーーーーーーーーーーーー" }
+    description         { "バッグーーーーーーーーーーーーーーーーーー" }
+
     created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
     updated_at          { "2018-05-05 00:00:00" }
     association :prefecture,      factory: :prefecture
@@ -22,5 +23,5 @@ FactoryBot.define do
       item.item_images << build(:item_image, item: item)
     end
   end
-
 end
+

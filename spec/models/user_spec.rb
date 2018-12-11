@@ -120,7 +120,7 @@ describe User do
     it "is invalid with a zip_code that has less than 6 characters " do
       user = build(:user, zip_code: "123456")
       user.valid?
-      expect(user.errors[:zip_code][0]).to include("は7文字以上で入力してください")
+      expect(user.errors[:zip_code][0]).to include("7文字以上で入力してください")
     end
 
 

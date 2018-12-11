@@ -11,48 +11,46 @@
         %p.text-center
           お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
         .l-single-inner
-          = form_for(current_user) do |f|
-            .address-info
-              .info-head
-                住所
-              %span
-                必須
-              .address-text
-                %p
-                  #{converting_zip_code(current_user.zip_code)}
-                %p
-                  #{current_user.prefecture.prefecture}#{current_user.city}#{current_user.address}
-                %p
-                  #{current_user.first_name}#{current_user.last_name}
-                = link_to "編集"
-            .birth-info
-              .info-head
-                生年月日
-              %span
-                必須
-              .birth-select-wrap
+          .address-info
+            .info-head
+              住所
+            %span
+              必須
+            .address-text
+              %p
+                〒000-0000
+              %p
+                aaaaaaaaaaaaa
+              %p
+                山田太郎
+              = link_to "編集"
+          .birth-info
+            .info-head
+              生年月日
+            %span
+              必須
+            .birth-select-wrap
+              = form_for :user do |f|
+                = f.date_select :birth_year, {start_year: 1900, end_year: 2018,use_month_numbers: true, default: {year: 2010, month: 1, day: 1}}
                 .select-wrap
                   .select-box
-                    = f.select :birth_year,[*(1900..2018)]
                 %p
                   年
                 .select-wrap
                   .select-box
-                    = f.select :birth_month,[*(1..12)]
                 %p
                   月
                 .select-wrap
                   .select-box
-                    = f.select :birth_day,[*(1..31)]
                 %p
                   日
-            .form-info-text
-              %p
-                ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-            .update-box
-              = f.submit "登録する", class:"update-box-btn"
-            .info-text-right
-              %p
-                = link_to "本人情報の登録について＞"
+          .form-info-text
+            %p
+              ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+          .update-box
+            = link_to "登録する", user_path(@user), method: :put, class:"update-box-btn"
+          .info-text-right
+            %p
+              = link_to "本人情報の登録について＞"
     = render partial: "mypage-left-side"
 = render partial: "items/footer"
