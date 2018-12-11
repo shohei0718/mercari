@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
-
-  has_many   :item_images
+  has_many   :item_images, inverse_of: :item
   accepts_nested_attributes_for :item_images
   has_many   :communications
   has_many   :likes
@@ -12,6 +11,8 @@ class Item < ApplicationRecord
   has_many   :rating_users,   through: :rate_counts,            source: :user
 
   validates :name, :price, :description, presence: true
+  validates :item_images, presence: true, length:{minimum: 1}
+  validates :item_images, presence: true, length:{maximum: 4}
 
   has_one :order
   has_one :profit

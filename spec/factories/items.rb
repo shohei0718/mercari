@@ -19,7 +19,9 @@ FactoryBot.define do
     association :delivery_date,   factory: :delivery_date
     association :order_status,    factory: :order_status
     association :delivery_way,    factory: :delivery_way
-
+    after(:build) do |item|
+      item.item_images << build(:item_image, item: item)
+    end
   end
 end
 
