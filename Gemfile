@@ -41,7 +41,7 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails'
+  gem 'capistrano3-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
@@ -81,5 +81,3 @@ gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "recaptcha", require: "recaptcha/rails"
-gem 'dotenv-rails'
-
