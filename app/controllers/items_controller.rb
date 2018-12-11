@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = current_user.items.new
-    @item.item_images.build
+    4.times {@item.item_images.build}
     @first = FirstCategory.all
     @second = SecondCategory.all
   end

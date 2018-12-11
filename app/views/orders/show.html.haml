@@ -19,7 +19,7 @@
         %span.buy-item__price-cell
           ="¥ #{@item.price}"
       .buy-item__form
-        = form_tag action: :pay, method: :post do
+        = form_tag controller: :orders,action: :pay, method: :post do
           %script.payjp-button{"data-key" => "pk_test_00ff76d8e072d9b17859bd34",src: "https://checkout.pay.jp", type: "text/javascript", "data-text" => "購入する", "data-submit-text" => "完了" }
   .buy-user-info
     .buy-user-info__delivery 配送先

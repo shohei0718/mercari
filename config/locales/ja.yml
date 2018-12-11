@@ -1,6 +1,19 @@
 ja:
   attributes:
-    card_number:  カード番号
-    valid_year :  有効期限の年
-    valid_month:  有効期限の月
-    cvc        :  セキュリティコード
+    card_number            : カード番号
+    valid_year             : 有効期限の年
+    valid_month            : 有効期限の月
+    cvc                    : セキュリティコード
+    nickname               : ニックネーム
+    first_name             : 名字
+    first_name_kana        : 名字(カナ)
+    last_name              : 名前
+    last_name_kana         : 名前(カナ)
+    city                   : 市町村
+    address                : 番地
+    zip_code               : 郵便番号
+    telephone              : 電話番号
+    birth_year             : 生年月日
+    birth_month            : 生年月日
+    birth_day              : 生年月日
+    prefecture             : 都道府県
