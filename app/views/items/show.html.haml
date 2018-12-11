@@ -57,7 +57,7 @@
         (税込)
       %span.item-tax-include
         \送料込み
-      = link_to "購入画面へ進む", root_path, class: "buying"
+      = link_to "購入画面へ進む", "/users/#{current_user.id}/orders/#{params[:id]}", class: "buying"
     .item-container__discription
       %p
       \#{@item.description}

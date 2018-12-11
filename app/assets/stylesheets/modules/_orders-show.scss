@@ -12,9 +12,11 @@
   font-size: 22px;
   font-weight: 700;
 }
+
 .bold{
   font-weight:600;
 }
+
 .buy-item{
   width:700px;
   height:466px;
@@ -26,6 +28,7 @@
   border-color: #f5f5f5;
   border-width: 0.5px;
   color:#333333;
+
   &__image{
   text-align: center;
     img{
@@ -33,28 +36,33 @@
       width: auto;
     }
   }
+
   &__name{
   margin: 8px 0 0 ;
   font-size:16px;
   line-height:1.5;
   text-align: center;
   }
+
   &__box{
   width:320px;
   height:232px;
   margin: 0 auto;
   }
+
   &__price{
   margin-top: 11px;
   font-size:28px;
   height:42px;
   text-align: center;
+
   }
   &__shipping-fee{
   font-size:14px;
   font-weight: 400;
   margin:0 0 0 8px;
   text-align: center;
+
   }
   &__cell{
   font-size:28px;
@@ -63,12 +71,27 @@
   text-align: left;
   margin-top: 15px;
   margin-bottom: 16px;
+
+  #payjp_checkout_box {
+
+    input[type="button"] {
+      height:50px;
+      width: 320px;
+    }
+  }
+
+  // .payjp-button {
+  //   height:50px;
+  //   width: 320px;
+  // }
+
   }
   &__price-cell{
   font-size:28px;
   line-height: 28px;
   font-weight: 600;
   float: right;
+
   }
   &__btn{
   height:50px;
@@ -79,6 +102,7 @@
   color:white;
   font-size: 14px;
   font-weight:bold;
+
   }
   &__toggle{
   height:48px;
@@ -91,6 +115,7 @@
   color:#333333;
   }
 }
+
 .buy-user-info{
   width:320px;
   height:144px;
@@ -104,11 +129,13 @@
   color:#333333;
   margin-top: 10px;
   }
+
   &__adress{
   font-size:14px;
   color:#333333;
   font-weight: 400;
   }
+
   &__change-btn{
   font-size:14px;
   color:#0099e8;
