@@ -23,8 +23,13 @@ describe ItemsController, type: :controller do
       expect(assigns(:items).count <= 4).to eq true
     end
 
-    it "array pf item_images" do
-      item_images = create_list(:item_image, 5)
+    it "array of item_images" do
+      item_images = []
+      items = create_list(:item, 3)
+      items.each do |item|
+        item_images.push(item.item_images)
+        item_images.flatten!
+      end
       get :index
       expect(assigns(:item_images)).to match(item_images)
     end
