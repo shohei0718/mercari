@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @item_images = @item.item_images(@item.id)
   end
 
   def new
@@ -23,6 +25,7 @@ class ItemsController < ApplicationController
     else
       render :new, item_images: @item.item_images.build
     end
+    # binding.pry
   end
 
   def edit
