@@ -38,10 +38,3 @@ $(document).ready(function () {
     });
   }
 });
-
-// $(document).ready(function () {
-//   $('.file').on("click",function() {
-//             return confirm("Are you sure to submit?");
-//   });
-// });
-
