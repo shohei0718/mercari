@@ -6,7 +6,6 @@ class ItemImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  # storage :fog
   case Rails.env
   when 'production'
     storage :fog
