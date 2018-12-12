@@ -10,6 +10,16 @@ describe ItemsController, type: :controller do
   end
 
   describe 'GET #index' do
+    # 正常なレスポンスか？
+    it "responds successfully" do
+      get :index
+      expect(response).to be_success
+    end
+    # 200レスポンスが返ってきているか？
+    it "returns a 200 response" do
+      get :index
+      expect(response).to have_http_status "200"
+    end
 
     it "array of items ordered by created_at DESC" do
       items = create_list(:item, 3)
@@ -23,8 +33,13 @@ describe ItemsController, type: :controller do
       expect(assigns(:items).count <= 4).to eq true
     end
 
-    it "array pf item_images" do
-      item_images = create_list(:item_image, 5)
+    it "array of item_images" do
+      item_images = []
+      items = create_list(:item, 3)
+      items.each do |item|
+        item_images.push(item.item_images)
+        item_images.flatten!
+      end
       get :index
       expect(assigns(:item_images)).to match(item_images)
     end
@@ -35,4 +50,23 @@ describe ItemsController, type: :controller do
     end
 
   end
+
+
+  describe 'GET#show' do
+    let(:item) { create(:item)}
+    before {get :show, params: {id: item.id}, session: {} }
+
+    it "returns a 200 response" do
+      expect(response).to have_http_status "200"
+    end
+
+    it "assigns @item" do
+      expect(assigns(:item)).to eq item
+    end
+
+    it "renders the :show template" do
+      expect(response).to render_template :show
+    end
+  end
+
 end

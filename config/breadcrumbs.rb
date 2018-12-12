@@ -13,7 +13,7 @@ crumb :category do
 end
 
 crumb :item_show do |item|
-  link 'item.name', item_path
+  link item.name, items_path(item.id)
   parent :root
 end
 

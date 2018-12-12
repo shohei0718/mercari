@@ -45,42 +45,7 @@
       margin: 40px 0 0;
       .birth-select-wrap {
         position: relative;
-        #user_birth_year_1i {
-          position: absolute;
-          border: none;
-          background-color: white;
-          font-size: 16px;
-          font-weight: 100;
-          width: 137px;
-          height: 46px;
-          top: 9px;
-          left: 1px;
-          z-index: 100;
-        }
-        #user_birth_year_2i {
-          position: absolute;
-          border: none;
-          background-color: white;
-          font-size: 16px;
-          font-weight: 100;
-          width: 137px;
-          height: 46px;
-          top: 9px;
-          left: 171px;
-          z-index: 100;
-        }
-        #user_birth_year_3i {
-          position: absolute;
-          border: none;
-          background-color: white;
-          font-size: 16px;
-          font-weight: 100;
-          width: 137px;
-          height: 46px;
-          top: 9px;
-          left: 341px;
-          z-index: 100;
-        }
+
         .select-wrap {
           position: relative;
           float: left;
@@ -92,9 +57,35 @@
           .select-box {
             position: relative;
             display: inline-block;
-            line-height: 48px;
             width: 100%;
             height: 100%;
+            #user_birth_year {
+              position: relative;
+              display: inline-block;
+              line-height: 48px;
+              width: 100%;
+              height: 100%;
+              background-color: white;
+              border: none;
+            }
+            #user_birth_month {
+              position: relative;
+              display: inline-block;
+              line-height: 48px;
+              width: 100%;
+              height: 100%;
+              background-color: white;
+              border: none;
+            }
+            #user_birth_day {
+              position: relative;
+              display: inline-block;
+              line-height: 48px;
+              width: 100%;
+              height: 100%;
+              background-color: white;
+              border: none;
+            }
           }
         }
         p {

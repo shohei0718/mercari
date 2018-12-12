@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users, only: :show
   resources :items
-
-  resources :users, only: :show do
+  resources :users, only: [:show, :edit, :update] do
     resources :payment_informations, only: [:index, :new, :create, :destroy]
   end
 
@@ -15,5 +14,5 @@ Rails.application.routes.draw do
   resources :categorys
   get "logout" => 'users#logout'
   get "order-confirm" => 'items#order-confirm'
-  get "edit-profile" => 'users#edit-profile'
+  get "users/user_info/:id" => 'users#user_info', as: 'users_user_info'
 end
