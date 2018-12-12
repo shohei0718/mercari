@@ -1,0 +1,45 @@
+%section.mypage-tab-container-2#mypage-transaction-now-old
+  .mypage-tab-head
+    出品した商品
+  %ul.mypage-tabs
+    %li.mypage-tab.active#tab-transaction-1
+      %h3
+        %p
+          出品中
+    %li.mypage-tab#tab-transaction-2
+      %h3
+        %p
+          取引中
+    %li.mypage-tab#tab-transaction-3
+      %h3
+        %p
+          売却済み
+  .tab-content
+    %ul#mypage-tab-transaction-1.mypage-item-list.tab-pane.active
+      -# - if @items.present?
+      %li
+        = link_to "",class: "mypage-item-link" do
+          .figure
+            = image_tag("header-footer_images/member_photo.png")
+          .mypage-item-body
+            .mypage-item-text
+              富士の麗水
+            .mypage-item-info
+              %i.fa.fa-heart.icon
+              .listing-item-count
+                0
+              %i.fa.fa-comment-alt.icon
+              .listing-item-count
+                0
+              .mypage-item-status
+                出品中
+          %i.fa.fa-angle-right.icon
+      -# - else
+      -#   %li.mypage-item-not-found.not-found-bold
+      -#     出品中の商品がありません
+    %ul#mypage-tab-transaction-2.mypage-item-list.tab-pane.not-active
+      %li.mypage-item-not-found.not-found-bold
+        取引中の商品がありません
+    %ul#mypage-tab-transaction-3.mypage-item-list.tab-pane.not-active
+      %li.mypage-item-not-found.not-found-bold
+        売却済みの商品がありません

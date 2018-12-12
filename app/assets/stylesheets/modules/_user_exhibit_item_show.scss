@@ -1,0 +1,42 @@
+.listing-item-change-box {
+  margin: 24px auto;
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  background-color: white;
+  width:668px;
+  .item-info-red {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    margin: 16px 0 16px 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    a {
+      text-decoration: none;
+    }
+  }
+  p {
+    text-align: center;
+  }
+  .item-info-gray {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    margin: 16px 0 16px 0;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    a {
+      text-decoration: none;
+    }
+  }
+}
