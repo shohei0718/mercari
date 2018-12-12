@@ -58,12 +58,10 @@ class ItemsController < ApplicationController
     end
 
   def pay
-    @item = Item.find(id: 1)
-
     Payjp.api_key = 'sk_test_c5be69e2d1ccf9815f894a2d'
 
     charge = Payjp::Charge.create(
-      amount: "#{@item.price}",
+      amount: 3000,
       card: params['payjp-token'],
       currency: 'jpy',
     )
