@@ -19,7 +19,7 @@ end
 
 #以下マイページ関連
 crumb :mypage do
-  link "マイページ", root_path
+  link "マイページ", user_path(current_user.id)
   parent :root
 end
 
@@ -49,7 +49,7 @@ crumb :profile do
 end
 
 crumb :exhibit_items do
-  link "出品した商品-出品中", root_path
+  link "出品した商品-出品中", user_exhibitation_products_path(current_user.id)
   parent :mypage
 end
 
