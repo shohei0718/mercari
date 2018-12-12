@@ -68,7 +68,7 @@
       or
     = link_to "", class: "item-info-gray" do
       出品を一旦停止する
-    = link_to "この商品を削除する", item_path, method: :delete, class: "item-info-gray"
+    = link_to "この商品を削除する", item_path, method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' }, class: "item-info-gray"
   .comment
     .comment__box
       %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
