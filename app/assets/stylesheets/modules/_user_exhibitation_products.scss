@@ -1,0 +1,66 @@
+.mypage-tab-container-2{
+  margin: 0;
+  .mypage-tab-head {
+    background-color: #f5f5f5;
+    opacity: 0.8;
+  }
+  .mypage-tabs{
+    border: 0;
+    background-color: #eee;
+    height: 74px;
+    .mypage-tab{
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      width: 33%;
+      float: left;
+      border-width: 0;
+      height: 100%;
+      &.active{
+        background-color: white;
+        p{
+          border-top: 2px solid #ea352d;
+          border-bottom: none;
+        }
+      }
+      p{
+        text-decoration: none;
+      }
+      h3{
+        font-size: 22px;
+      }
+    }
+    p{
+      position:relative;
+      display: block;
+      color: black;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+    }
+  }
+  .tab-content.tab-pane.active{
+    clear: both;
+    display: block;
+  }
+  .mypage-item-list{
+    border: 0;
+    position: relative;
+    background-color: white;
+    .mypage-item-not-found{
+      padding: 160px 0 60px;
+      background-image: url(mypage_images/mercari-box-gray-icon.svg);
+      background-position: center 40px;
+      background-size: 78px 85px;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: #ccc;
+      &.not-active{
+        display: none;
+      }
+    }
+    .not-found-bold{
+      font-weight: 600;
+    }
+  }
+}
