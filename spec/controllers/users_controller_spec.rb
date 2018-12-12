@@ -36,4 +36,65 @@ describe UsersController, type: :controller do
 
   end
 
+  describe 'PATCH #update' do
+    let(:user) { create(:user) }
+    let(:update_attributes) do
+      { nickname: 'up_nickname',
+       }
+    end
+    let(:cannot_update_attributes) do
+      {nickname: nil}
+    end
+
+    context 'log in' do
+
+      before do
+        login user
+      end
+
+      context 'can save' do
+        it "can updated" do
+          patch :update, params: { id: user.id, user: update_attributes }, session: {}
+          user.reload
+          expect(user.nickname).to eq update_attributes[:nickname]
+        end
+
+        it "redirects the page to user_path(current_user.id)" do
+          patch :update, params: { id: user.id, user: update_attributes }, session: {}
+          user.reload
+          expect(response).to redirect_to(user_path(user.id))
+        end
+      end
+
+      context 'can not save' do
+        it "can not update" do
+          patch :update, params: {id: user.id, user: cannot_update_attributes}
+          user.reload
+          expect(user.nickname).to eq "aaaaa"
+        end
+
+        it "redirects the page to user_path(current_user.id)" do
+          patch :update, params: { id: user.id, user: cannot_update_attributes }, session: {}
+          user.reload
+          expect(response).to redirect_to(user_path(user.id))
+        end
+      end
+
+    end
+
+    context 'not log in' do
+      it "can not update" do
+        patch :update, params: {id: user.id, user: update_attributes}
+        user.reload
+        expect(user.nickname).to eq "aaaaa"
+      end
+
+      it "redirects the page to user_path(current_user.id)" do
+        patch :update, params: { id: user.id, user: update_attributes }, session: {}
+        user.reload
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
+
 end
