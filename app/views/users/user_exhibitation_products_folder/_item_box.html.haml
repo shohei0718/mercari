@@ -1,5 +1,5 @@
 %li
-  = link_to user_item_show_path(current_user.id, item.id),class: "mypage-item-link" do
+  = link_to user_item_show_path(item.id),class: "mypage-item-link" do
     .figure
       = image_tag"#{item.item_images[0]&.image}", alt: ""
     .mypage-item-body
