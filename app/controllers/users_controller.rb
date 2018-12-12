@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   end
 
   def user_item_show
+    @item = Item.find(params[:id])
+    @item_images = @item.item_images(@item.id)
   end
 
   def delete
