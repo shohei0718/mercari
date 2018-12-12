@@ -267,8 +267,8 @@ ActiveRecord::Schema.define(version: 20181206062153) do
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
-    t.integer  "telephone",                                         null: false
-    t.integer  "zip_code",                                          null: false
+    t.text     "telephone",              limit: 65535
+    t.text     "zip_code",               limit: 65535,              null: false
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
     t.integer  "birth_day",                                         null: false
