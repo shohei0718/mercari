@@ -4,37 +4,30 @@
   = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
 .default-container
   %section.item-container
-    %h1 "仮置き"
-    -# %h1 "#{@item.name}"
+    %h1 #{@item.name}
     .item-container__main-content
     .item-container__image
-      %p 仮置き
-      -# = image_tag  "#{@item_images[0]&.image}", alt: "", id: "main-box"
+      = image_tag  "#{@item_images[0]&.image}", alt: "", id: "main-box"
       %ul.image-slide
         %li
-          %p 仮置き
-        -# - @item_images.each do|item|
-        -#   %li
-        -#     =image_tag "#{item.image}",alt:"", class: "slide-box"
+        - @item_images.each do|item|
+          %li
+            =image_tag "#{item.image}",alt:"", class: "slide-box"
 
     %table.item-container__detail
       %tbody
         %tr
           %th 出品者
           %td
-            = link_to "仮置き"
-            -# = link_to "#{@item.user.nickname}"
+            = link_to "#{@item.user.nickname}"
         %tr
           %th カテゴリー
           %td
-            = link_to "仮置き"
-            -# = link_to "#{@item.first_category.first_category}"
+            = link_to "#{@item.first_category.first_category}"
             %br
-            = link_to "仮置き"
-            -# = link_to "\→#{@item.second_category.second_category}"
+            = link_to "\→#{@item.second_category.second_category}"
             %br
-            = link_to "仮置き"
-            -# = link_to "\→#{@item.third_category.third_category}"
+            = link_to "\→#{@item.third_category.third_category}"
         %tr
           %th ブランド
           %td モンブラン
@@ -43,37 +36,30 @@
           %td
         %tr
           %th 商品の状態
-          %td 仮置き
-          -# %td #{@item.condition.condition}
+          %td #{@item.condition.condition}
         %tr
           %th 配送料の負担
-          %td 仮置き
-          -# %td #{@item.delivery_charge.charge}
+          %td #{@item.delivery_charge.charge}
         %tr
           %th 配送の方法
-          %td 仮置き
-          -# %td #{@item.delivery_way.way}
+          %td #{@item.delivery_way.way}
         %tr
           %th 配送元地域
           %td
-            =link_to "仮置き"
-            -# = link_to "#{@item.prefecture.prefecture}"
+            = link_to "#{@item.prefecture.prefecture}"
         %tr
           %th 発送日の目安
-          %td 仮置き
-          -# %td #{@item.delivery_date.date}
+          %td #{@item.delivery_date.date}
     .item-container__price
       %span.item-price
-        \ 仮置き
-        -# \ #{@item.price}
+        \ #{@item.price}
       %span.item-taxIn
         (税込)
       %span.item-tax-include
         \送料込み
     .item-container__discription
       %p
-      \ 仮置き
-      -# \#{@item.description}
+      \#{@item.description}
 
   .listing-item-change-box
     = link_to "", class: "item-info-red" do
@@ -82,8 +68,7 @@
       or
     = link_to "", class: "item-info-gray" do
       出品を一旦停止する
-    = link_to "", class: "item-info-gray" do
-      この商品を削除する
+    = link_to "この商品を削除する", item_path, method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' }, class: "item-info-gray"
   .comment
     .comment__box
       %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
