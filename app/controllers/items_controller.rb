@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_images = @item.item_images(@item.id)
+    @user = current_user
   end
 
   def new
@@ -59,12 +60,30 @@ class ItemsController < ApplicationController
 
   def pay
     Payjp.api_key = 'sk_test_c5be69e2d1ccf9815f894a2d'
+    @user = current_user
+    @item = Item.find(params[:id])
+    @item.update_attribute(:order_status_id, 2 )
 
-    charge = Payjp::Charge.create(
-      amount: 3000,
-      card: params['payjp-token'],
-      currency: 'jpy',
-    )
+    if customer_id = @user.customer_id
+      customer = Payjp::Customer.retrieve(id: customer_id)
+
+      charge = Payjp::Charge.create(
+        amount: params['price'],
+        customer: customer,
+        currency: 'jpy',
+      )
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @user.customer_id = customer.id
+      @user.save!
+
+      charge = Payjp::Charge.create(
+        amount: params['price'],
+        customer: customer,
+        currency: 'jpy',
+      )
+    end
+    redirect_to root_path
   end
 
   private
