@@ -19,6 +19,7 @@
     }
 
     &__image {
+      position: relative;
       float: left;
       width: 300px;
       height: 300px;
@@ -33,6 +34,29 @@
         height: 250px;
         max-height: 300px;
 
+      }
+
+      .sold-out-box {
+        width: 0;
+        height: 0;
+        border-top: 50px solid red;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid red;
+        position: absolute;
+        display: block;
+        content: '';
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        .sold-out-text {
+          z-index: 2;
+          font-size: 25px;
+          color: white;
+          transform:rotate(-45deg);
+          transform:translate(-45px,-45px);
+        }
       }
 
        ul.image-slide {
@@ -112,19 +136,23 @@
       font-size: 16px;
     }
 
-    .buying {
-      background-color: #ea352d;
-      display: block;
-      height: 60px;
-      width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      line-height: 60px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      margin-top: 100px;
-      text-decoration: none;
+    #payjp_checkout_box {
+      margin-top: 30px;
+
+      input[type="button"] {
+        height: 60px;
+        width: 600px;
+        font-size: 20px;
+      }
+    }
+
+    .order-status {
+      margin: 30px auto;
+      font-size: 20px;
+      background-color: gray;
+      height: 50px;
+      line-height: 50px;
+      color: white;
     }
 
     &__discription {
