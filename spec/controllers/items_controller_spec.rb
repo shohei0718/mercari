@@ -77,7 +77,7 @@ describe ItemsController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @article' do
+    it 'assigns @item' do
       expect(assigns(:item)).to eq article
     end
 
