@@ -48,6 +48,16 @@ crumb :profile do
   parent :mypage
 end
 
+crumb :exhibit_items do
+  link "出品した商品-出品中", root_path
+  parent :mypage
+end
+
+crumb :exhibit_item do
+  link "出品商品画面", root_path
+  parent :exhibit_items
+end
+
 # 以下、今後html.hamlに記載
 
 # crumb :first_category do |first_category|
