@@ -1,0 +1,10 @@
+= render partial: "items/header"
+.breads
+  - breadcrumb :exhibit_items
+  = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
+.default-container
+  %main.large-container.clearfix
+    .large-content
+      =render partial: "users/user_exhibitation_products_folder/main_content_exhibitation"
+    =render partial: "mypage-left-side"
+= render partial: "items/footer"
