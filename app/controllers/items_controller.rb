@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_Category, only: [:new, :create, :edit, :update]
 
   def index
@@ -35,9 +35,11 @@ class ItemsController < ApplicationController
   def update
   end
 
+
   def destroy
-    item = Item.find(params[:id])
-    item.destroy if item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      @item.destroy
+    end
     redirect_to user_exhibitation_products_path(current_user.id)
   end
 
