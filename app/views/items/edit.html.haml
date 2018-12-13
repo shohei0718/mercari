@@ -39,10 +39,15 @@
                     %span.form--require 必須
                   %div
                     .select--wrap
-                      = f.select :first_category_id, options_from_collection_for_select(FirstCategory.all, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
-                    #second-select.select--wrap
-                      = f.select :second_category_id, options_from_collection_for_select(SecondCategory.all, :id, :second_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :thirdcategory)}}
+                      = f.select :first_category_id, options_from_collection_for_select(@first, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
+                    #second-select
+                      .select--wrap
+                        = f.select :second_category_id, options_from_collection_for_select(SecondCategory.where(first_category_id: @item.first_category_id), :id, :second_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :thirdcategory)}}
                     #third-select
+                      .select--wrap
+                        - if @item.third_category_id?
+                          = f.select :third_category_id, options_from_collection_for_select(ThirdCategory.where(second_category_id: @item.second_category_id), :id, :third_category),{prompt: '---'}
+
                 .form__group
                   %label
                     商品のサイズ
