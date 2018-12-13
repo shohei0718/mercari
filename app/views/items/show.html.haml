@@ -8,6 +8,9 @@
     .item-container__main-content
     .item-container__image
       = image_tag "#{@item_images[0]&.image}", alt: "", id: "main-box"
+      -if @item.order_status_id == 2
+        .sold-out-box
+          .sold-out-text SOLD
 
       %ul.image-slide
         - @item_images.each do|item|
@@ -57,7 +60,17 @@
         (税込)
       %span.item-tax-include
         \送料込み
-      = link_to "購入画面へ進む", root_path, class: "buying"
+      -if @item.user_id != current_user.id
+        -if @item.order_status_id == 1
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{"data-key" => "pk_test_00ff76d8e072d9b17859bd34", src: "https://checkout.pay.jp", :type => "text/javascript", "data-text" => "商品を購入する", "data-submit-text" => "支払い完了", "data-payjp" => "016e8973300880b74ce3a321e59faa6ed94aa751"}
+            = hidden_field_tag :price, @item.price
+            = hidden_field_tag :user_id, @user.id
+            = hidden_field_tag :customer_id, @user.customer_id
+        -elsif @item.order_status_id == 2
+          .order-status この商品は売却済です
+      -else
+        .no-text
     .item-container__discription
       %p
       \#{@item.description}
