@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index,:show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_Category, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.includes(:item_images).limit(4).order("created_at DESC")
@@ -16,8 +18,7 @@ class ItemsController < ApplicationController
   def new
     @item = current_user.items.new
     4.times{@item.item_images.build}
-    @first = FirstCategory.all
-    @second = SecondCategory.all
+
   end
   def create
     @item = current_user.items.new(item_params)
@@ -34,9 +35,11 @@ class ItemsController < ApplicationController
   def update
   end
 
+
   def destroy
-    item = Item.find(params[:id])
-    item.destroy if item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      @item.destroy
+    end
     redirect_to user_exhibitation_products_path(current_user.id)
   end
 
@@ -97,6 +100,13 @@ class ItemsController < ApplicationController
       :second_category_id, :third_category_id, :brand_id,
       :size_id, :condition_id, :delivery_charge_id, :prefecture_id,
       :delivery_date_id, :order_status_id, :delivery_way_id, item_images_attributes:[:id, :image])
+  end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  def set_Category
+    @first = FirstCategory.all
+    @second = SecondCategory.all
   end
 
 end
