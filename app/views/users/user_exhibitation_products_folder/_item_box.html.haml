@@ -1,0 +1,17 @@
+%li
+  = link_to user_item_show_path(item.id),class: "mypage-item-link" do
+    .figure
+      = image_tag"#{item.item_images[0]&.image}", alt: ""
+    .mypage-item-body
+      .mypage-item-text
+        #{item.name}
+      .mypage-item-info
+        %i.fa.fa-heart.icon
+        .listing-item-count
+          0
+        %i.fa.fa-comment-alt.icon
+        .listing-item-count
+          0
+        .mypage-item-status
+          出品中
+    %i.fa.fa-angle-right.icon
