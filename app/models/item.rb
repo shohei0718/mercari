@@ -13,7 +13,10 @@ class Item < ApplicationRecord
   validates :name, :price, :description, presence: true
   validates :item_images, presence: true, length:{minimum: 1}
   validates :item_images, presence: true, length:{maximum: 4}
-
+  validates_numericality_of :price,
+                            greater_than_or_equal_to: 300,
+                            less__than_or_equal_to: 9999999,
+                            message: "価格は300円から9,999,999円で設定してください"
   has_one :order
   has_one :profit
 
@@ -23,7 +26,7 @@ class Item < ApplicationRecord
 
   belongs_to :first_category
   belongs_to :second_category
-  belongs_to :third_category
+  belongs_to :third_category, optional: true
 
   belongs_to :brand, optional: true
   belongs_to :condition
@@ -31,5 +34,5 @@ class Item < ApplicationRecord
   belongs_to :delivery_date
   belongs_to :delivery_way
   belongs_to :order_status
-  belongs_to :size
+  belongs_to :size, optional: true
 end

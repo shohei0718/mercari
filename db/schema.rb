@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206062153) do
+ActiveRecord::Schema.define(version: 20181212101626) do
 
   create_table "brand_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",        null: false
@@ -160,12 +160,12 @@ ActiveRecord::Schema.define(version: 20181206062153) do
   end
 
   create_table "payment_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "card_number", null: false
-    t.integer  "valid_year",  null: false
-    t.integer  "valid_month", null: false
-    t.integer  "cvc",         null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "card_number", limit: 65535, null: false
+    t.integer  "valid_year",                null: false
+    t.integer  "valid_month",               null: false
+    t.integer  "cvc",                       null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_payment_informations_on_user_id", using: :btree
   end
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20181206062153) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.integer  "prefecture_id"
+    t.string   "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
