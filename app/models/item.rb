@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many   :item_images, inverse_of: :item
+  has_many   :item_images, inverse_of: :item, dependent: :destroy
   accepts_nested_attributes_for :item_images
   has_many   :communications
   has_many   :likes

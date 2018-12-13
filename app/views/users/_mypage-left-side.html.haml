@@ -22,7 +22,7 @@
           出品する
           = fa_icon "angle-right"
       %li
-        =link_to root_path, class: "mypage-nav__list__item" do
+        =link_to user_exhibitation_products_path(current_user.id), class: "mypage-nav__list__item" do
           出品した商品-出品中
           = fa_icon "angle-right"
       %li
