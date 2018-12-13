@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
     else
       customer = Payjp::Customer.create(card: params['payjp-token'])
       @user.customer_id = customer.id
-      @user.save!
+      @user.save
 
       charge = Payjp::Charge.create(
         amount: params['price'],
