@@ -76,36 +76,36 @@
     .item-container__discription
       %p
       \#{@item.description}
-  .comment
-    .comment__box
-      - @item.communications.each do |communication|
-        .comment__box__communication
-          .comment__box__communication__user-icon
-            - if communication.user.user_icon.present?
-              = image_tag communication.user.user_icon
-            - else
-              = image_tag "header-footer_images/member_photo.png"
-              %br
-              - if communication.seller_or_buyer == true
-                %p
-                  出品者
-          .comment__box__communication__message
-            .comment__box__communication__message__name
-              = communication.user.nickname
-            .comment__box__communication__message__text.balloon
-              = communication.message
-
-    .comment__form
-      %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      = form_for [@item, @message] do |f|
-        = f.text_field :message, placeholder: '',class: "form", value: ''
-        = f.number_field :order_status_id, value: "#{@item.order_status_id}", type: "hidden"
-        = f.number_field :user_id, value: "#{@user.id}", type: "hidden"
-        - if @user.id == @item.user_id
-          = f.number_field :seller_or_buyer, value: "1", type: "hidden"
-        - else
-          = f.number_field :seller_or_buyer, value: "", type: "hidden"
-        = f.submit "コメントする", class: 'send'
+  - if user_signed_in?
+    .comment
+      .comment__box
+        - @item.communications.each do |communication|
+          .comment__box__communication
+            .comment__box__communication__user-icon
+              - if communication.user.user_icon.present?
+                = image_tag communication.user.user_icon
+              - else
+                = image_tag "header-footer_images/member_photo.png"
+                %br
+                - if communication.seller_or_buyer == true
+                  %p
+                    出品者
+            .comment__box__communication__message
+              .comment__box__communication__message__name
+                = communication.user.nickname
+              .comment__box__communication__message__text.balloon
+                = communication.message
+      .comment__form
+        %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = form_for [@item, @message] do |f|
+          = f.text_field :message, placeholder: '',class: "form", value: ''
+          = f.number_field :order_status_id, value: "#{@item.order_status_id}", type: "hidden"
+          = f.number_field :user_id, value: "#{@user.id}", type: "hidden"
+          - if @user.id == @item.user_id
+            = f.number_field :seller_or_buyer, value: "1", type: "hidden"
+          - else
+            = f.number_field :seller_or_buyer, value: "", type: "hidden"
+          = f.submit "コメントする", class: 'send'
   .sns-media
     %i.fab.fa-facebook-square
     %i.fab.fa-twitter-square
