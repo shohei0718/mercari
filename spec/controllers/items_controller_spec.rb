@@ -124,8 +124,9 @@ describe ItemsController, type: :controller do
 
     it 'stubbing charge creation' do
 
-      payjp_stub(:charges, :create, params: { amount: 3500, card: 'tok_xxxxx', currency: 'jpy' })
-      Payjp::Charge.create(amount: 3500, card: 'tok_xxxxx', currency: 'jpy')
+      payjp_stub(:charges, :create, params: { amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy' })
+
+      Payjp::Charge.create(amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy')
     end
 
   end
