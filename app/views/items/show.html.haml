@@ -1,6 +1,4 @@
 = render partial: "header"
-= @item.user_id
-= @user.id
 .breads
   - breadcrumb :item_show, @item
   = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
@@ -87,6 +85,10 @@
               = image_tag communication.user.user_icon
             - else
               = image_tag "header-footer_images/member_photo.png"
+              %br
+              - if communication.seller_or_buyer == true
+                %p
+                  出品者
           .comment__box__communication__message
             .comment__box__communication__message__name
               = communication.user.nickname
