@@ -78,7 +78,7 @@ describe ItemsController, type: :controller do
     end
 
     it 'assigns @item' do
-      expect(assigns(:item)).to eq article
+      expect(assigns(:item)).to eq item
     end
 
     it 'renders the :edit template' do
@@ -91,7 +91,7 @@ describe ItemsController, type: :controller do
     let(:update_attributes) do
       {
         name: 'update name',
-        price: 'update price'
+        price: 'update price',
         description: 'update description'
       }
   end
@@ -117,4 +117,17 @@ describe ItemsController, type: :controller do
     end
   end
 
+  describe 'POST#pay' do
+    before do
+      allow(Payjp::Charge).to receive(:create).and_return(PayjpMock.prepare_valid_charge)
+    end
+
+    it 'stubbing charge creation' do
+
+      payjp_stub(:charges, :create, params: { amount: 3500, card: 'tok_xxxxx', currency: 'jpy' })
+      Payjp::Charge.create(amount: 3500, card: 'tok_xxxxx', currency: 'jpy')
+    end
+
+  end
 end
+
