@@ -1,0 +1,103 @@
+= render partial: "items/header"
+.search-main-container.clearfix
+  .l-content.clearfix
+    .search-result-head
+      検索結果 1-48 件
+    .items-box-content
+      - @items.each do |item|
+        .item-box
+          =link_to "/items/#{item.id}" do
+            - @item_images.each do |image|
+              - if image.image.present?
+                - if image.item_id == item.id
+                  = image_tag image.image
+            .item-box-text
+              .text-box
+                %h4
+                  = item.name
+              .price
+                = converting_price(item.price)
+              .price-tax
+                (税込)
+              -# .nice
+              -#   %i.fa.fa-heart
+              -#   %span
+              -#     1
+    .pager
+      = paginate @items
+  .l-side
+    .form_for__wo__ireru
+      .search-sort-wrapper
+        = select_tag 'page[name]', options_for_select([["価格の安い順", "price_asc"], ["価格の高い順", "price_desc"],["出品の古い順","created_asc"],["出品の新しい順","created_desc"],["いいね！の多い順","like_desc"]]), prompt: "並び替え"
+      .search-dropdown-content
+        .search-dropdown-header
+          詳細検索
+        .form-group
+          .label
+            %i.fa.fa-cross
+            %span
+              キーワードを追加する
+          = text_field :page, :keyword, placeholder: "例）値下げ", class: "input_default"
+        .form-group
+          .label
+            %i.fa.fa-list
+            %span
+              カテゴリーを選択する
+          = select_tag 'page[name]', options_for_select([["カテゴリ", "category"]]), prompt: "すべて", class: "input_default__select"
+        .form-group
+          .label
+            %i.fa.fa-tag
+            %span
+              ブランド名から探す
+          = text_field :page, :name, placeholder: "例）シャネル", class: "input_default"
+        .form-group
+          .label
+            %i.fa.fa-square-full
+            %span
+              サイズを指定する
+          = select_tag 'page[name]', options_for_select([["サイズ", "size"]]), prompt: "すべて", class: "input_default__select"
+        .form-group-search-price
+          .label
+            %i.fa.fa-coins
+            %span
+              価格
+          = select_tag 'page[name]', options_for_select([["300 ~ 1000", "300-1000"],["1000 ~ 5000","1000-5000"],["5000 ~ 10000","5000-10000"],["10000 ~ 30000","10000-30000"],["30000 ~ 50000","10000-50000"],["50000 ~","50000-"]]), prompt: "選択してください", class: "input_default__select"
+          = number_field :page, :name, placeholder: "¥Min", class: "input_default__num"
+          .line
+            %span
+              〜
+          = number_field :page, :name, placeholder: "¥Max", class: "input_default__num"
+        .form-group.clearfix
+          .label
+            %i.fa.fa-star
+            %span
+              商品の状態
+          - %w(すべて 新品、未使用 未使用に近い 目立った傷や汚れなし やや傷や汚れあり 傷や汚れあり 全体的に状態が悪い).each do |info|
+            .check-box
+              %label
+                = check_box_tag 'sample_form[product_info][]', info
+                = info
+          .clearfix_box
+        .form-group
+          .label
+            %i.fa.fa-truck
+            %span
+              配送料の負担
+          - %w(すべて 着払い(購入者負担) 送料込み(出品者負担)).each do |info|
+            .check-box
+              %label
+                = check_box_tag 'sample_form[product_info][]', info
+                = info
+          .clearfix_box
+        .form-group
+          .label
+            %i.fa.fa-shopping-cart
+            %span
+              販売状況
+          - %w(すべて 販売中 売り切れ).each do |info|
+            .check-box
+              %label
+                = check_box_tag 'sample_form[product_info][]', info
+                = info
+          .clearfix_box
+= render partial: "items/footer"
