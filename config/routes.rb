@@ -2,12 +2,19 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'items#index'
+
   resources :items do
     resources :communications,only:[:create]
+    member do
+      post 'pay'
+    end
   end
+
   resources :users, only: [:show, :edit, :update] do
     resources :payment_informations, only: [:index, :new, :create, :destroy]
   end
+
+  resources :orders, only: [:show, :create]
 
   match 'secondcategory', to: 'items#secondcategory', via: [:get, :post]
   match 'thirdcategory', to: 'items#thirdcategory', via: [:get, :post]
