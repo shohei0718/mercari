@@ -1,3 +1,7 @@
+.commentmessage{
+  font-weight: 600;
+  font-size:14px;
+}
 .default-container{
   position:relative;
   background-color: $backgroundColor;
@@ -165,11 +169,55 @@
   .comment {
     background-color: white;
     width: 700px;
-    height: 280px;
+    min-height: 280px;
+    height:auto;
     margin: 10px auto;
     padding-top:20px;
 
     &__box {
+      width: 660px;
+      min-height: 0;
+      height:auto;
+      margin: 0 auto;
+      &__communication{
+        width: 660px;
+        height: 120px;
+        margin: 10px 0 30px;
+        display:flex;
+        &__user-icon{
+          width: 60px;
+          height:100%;
+          img{
+            border-radius: 40px;
+            height:40px;
+            width:40px;
+          }
+        }
+        &__message{
+          width:600px;
+          height:100%;
+          &__name{
+            width:600px;
+            height:20px;
+            font-weight: 600;
+            font-size:14px;
+
+          }
+          &__text{
+            width:570px;
+            height:70px;
+            padding:15px;
+            border-radius: 20px;
+            border: 1px solid #eef0f4;
+            background-color: #eef0f4;
+            font-weight: 400;
+          }
+        }
+      }
+
+    }
+
+    &__form {
       width: 660px;
       height: 280px;
       margin: 0 auto;
@@ -317,3 +365,4 @@
     background-color: white;
   }
 }
+

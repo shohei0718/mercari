@@ -94,7 +94,7 @@ describe ItemsController, type: :controller do
         price: 'update price'
         description: 'update description'
       }
-  end
+    end
 
     it 'saves updated item' do
       expect do

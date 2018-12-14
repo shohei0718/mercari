@@ -24,9 +24,4 @@ describe Communication do
       com.valid?
       expect(com.errors[:order_status_id]).to include("を入力してください")
     end
-    it "is invalid without a seller_or_buyer" do
-      com = build(:communication, seller_or_buyer: nil)
-      com.valid?
-      expect(com.errors[:seller_or_buyer]).to include("を入力してください")
-    end
 end

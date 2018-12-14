@@ -1,4 +1,6 @@
 = render partial: "header"
+= @item.user_id
+= @user.id
 .breads
   - breadcrumb :item_show, @item
   = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
@@ -16,7 +18,6 @@
         - @item_images.each do|item|
           %li
             =image_tag "#{item.image}",alt:"", class: "slide-box"
-
     %table.item-container__detail
       %tbody
         %tr
@@ -76,12 +77,29 @@
       \#{@item.description}
   .comment
     .comment__box
+      - @item.communications.each do |communication|
+        .comment__box__communication
+          .comment__box__communication__user-icon
+            - if communication.user.user_icon.present?
+              = image_tag communication.user.user_icon
+            - else
+              = image_tag "header-footer_images/member_photo.png"
+          .comment__box__communication__message
+            .comment__box__communication__message__name
+              = communication.user.nickname
+            .comment__box__communication__message__text.balloon
+              = communication.message
+
+    .comment__form
       %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       = form_for [@item, @message] do |f|
         = f.text_field :message, placeholder: '',class: "form", value: ''
         = f.number_field :order_status_id, value: "#{@item.order_status_id}", type: "hidden"
-        = f.number_field :user_id, value: "#{current_user.id}", type: "hidden"
-        = f.number_field :seller_or_buyer, value: "1", type: "hidden"
+        = f.number_field :user_id, value: "#{@user.id}", type: "hidden"
+        - if @user.id == @item.user_id
+          = f.number_field :seller_or_buyer, value: "1", type: "hidden"
+        - else
+          = f.number_field :seller_or_buyer, value: "", type: "hidden"
         = f.submit "コメントする", class: 'send'
   .sns-media
     %i.fab.fa-facebook-square
