@@ -10,13 +10,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_images = @item.item_images(@item.id)
+    @message = Communication.new
   end
 
   def new
     @item = current_user.items.new
     4.times{@item.item_images.build}
-    @first = FirstCategory.all
-    @second = SecondCategory.all
   end
   def create
     @item = current_user.items.new(item_params)

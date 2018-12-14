@@ -1,0 +1,7 @@
+= form_for [@item, @message] do |f|
+  = f.label :message, style: { 'margin-right' => 8 }
+  = f.text_field :message, placeholder: 'コメント', value: ''
+  = f.number_field :order_status_id, value: "#{@item.order_status_id}"
+  = f.number_field :user_id, value: "#{current_user.id}"
+  = f.number_field :seller_or_buyer, value: "1"
+  = f.submit "コメントする"

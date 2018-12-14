@@ -39,7 +39,7 @@
                     %span.form--require 必須
                   %div
                     .select--wrap
-                      = f.select :first_category_id, options_from_collection_for_select( @first, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
+                      = f.select :first_category_id, options_from_collection_for_select( FirstCategory.all, :id, :first_category),{prompt: '---'}, {data: {remote: true, url: url_for(action: :secondcategory)}}
                     #second-select
                     #third-select
                 .form__group

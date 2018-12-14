@@ -61,16 +61,15 @@
     .item-container__discription
       %p
       \#{@item.description}
-
   .comment
     .comment__box
       %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      .form
-      .send コメントする
-  / 変数が定義でき次第に下記のようにフォームを作成していく
-  /     = form_for @comments do |f|
-  /       =f.text_field :comment, class: 'form-content'
-  /       =f.submit 'コメントする', class: 'form-submit'
+      = form_for [@item, @message] do |f|
+        = f.text_field :message, placeholder: '',class: "form", value: ''
+        = f.number_field :order_status_id, value: "#{@item.order_status_id}", type: "hidden"
+        = f.number_field :user_id, value: "#{current_user.id}", type: "hidden"
+        = f.number_field :seller_or_buyer, value: "1", type: "hidden"
+        = f.submit "コメントする", class: 'send'
   .sns-media
     %i.fab.fa-facebook-square
     %i.fab.fa-twitter-square
