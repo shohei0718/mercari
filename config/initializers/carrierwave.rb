@@ -5,8 +5,8 @@ CarrierWave.configure do |config|
   if Rails.env.production?
     config.storage = :fog
     config.fog_provider = 'fog/aws'
-    config.fog_directory = 'photo-strage-for-chatspace'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/photo-strage-for-chatspace'
+    config.fog_directory = 'photo-strage-for-mercari'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/photo-strage-for-mercari'
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: Rails.application.secrets.aws_access_key_id,
