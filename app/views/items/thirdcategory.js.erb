@@ -1,3 +1,10 @@
-$('#third-select').html(
-  "<div><div class=select--wrap><%= j(select :item, :third_category_id, options_from_collection_for_select(@thirdcategory, :id, :third_category),{prompt: '---'}) %></div></div>"
-);
+if($("#item_second_category_id").val() !== "" ){
+  $('#third-select').html(
+    "<div><div class=select--wrap><%= j(select :item, :third_category_id, options_from_collection_for_select(@thirdcategory, :id, :third_category),{prompt: '---'}) %></div></div>"
+  );
+}else{
+  $('#third-select').html(
+    ""
+  );
+}
+
