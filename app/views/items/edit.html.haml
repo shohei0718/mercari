@@ -13,11 +13,17 @@
               %p 最大4枚までアップロードできます
               = f.fields_for :item_images do |fi|
                 = fi.label :image, class: "sell--upload__drop__box" do
-                  .sell-upload__drop__box__imageview
+                  .sell--upload__drop__box__imageview
                     = fi.file_field :image,class:"file",style:"display:none;"
                     %pre
                       #preview
                         クリックしてファイルをアップロード
+                    -unless fi.object.new_record?
+                      .sell--upload__drop__box__preview
+                        = image_tag fi.object.image, class: "uploadimg"
+                        = fi.label :_destroy, class: "img_del" do
+                          = fi.check_box :_destroy, {}, 1, 0
+                          画像を削除する
             .sell__content
               .form__group
                 %label
