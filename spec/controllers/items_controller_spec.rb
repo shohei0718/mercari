@@ -69,4 +69,66 @@ describe ItemsController, type: :controller do
     end
   end
 
+  describe 'GET #edit' do
+    let(:item) { create(:item) }
+    before { get :edit, params: { id: item.id }, session: {} }
+
+    it 'has a 200 status code' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @item' do
+      expect(assigns(:item)).to eq item
+    end
+
+    it 'renders the :edit template' do
+      expect(response).to render_template :edit
+    end
+  end
+
+  describe 'PATCH #update' do
+    let!(:item) { create(:item) }
+    let(:update_attributes) do
+      {
+        name: 'update name',
+        price: 'update price',
+        description: 'update description'
+      }
+  end
+
+    it 'saves updated item' do
+      expect do
+        patch :update, params: { id: item.id, item: update_attributes }, session: {}
+      end.to change(Item, :count).by(0)
+    end
+
+    it 'updates updated item' do
+      patch :update, params: { id: item.id, item: update_attributes }, session: {}
+      item.reload
+      expect(item.name).to eq update_attributes[:name]
+      expect(item.price).to eq update_attributes[:price]
+      expect(item.description).to eq update_attributes[:description]
+    end
+
+    it 'redirects the :create template' do
+      patch :update, params: { id: item.id, item: update_attributes }, session: {}
+      item = Item.last
+      expect(response).to redirect_to(item_path(item))
+    end
+  end
+
+  describe 'POST#pay' do
+    before do
+      allow(Payjp::Charge).to receive(:create).and_return(PayjpMock.prepare_valid_charge)
+    end
+
+    it 'stubbing charge creation' do
+
+      payjp_stub(:charges, :create, params: { amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy' })
+
+      Payjp::Charge.create(amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy')
+    end
+
+  end
 end
+

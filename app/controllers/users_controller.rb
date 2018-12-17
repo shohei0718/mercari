@@ -21,6 +21,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_exhibitation_products
+    @items = Item.where(user_id: current_user.id)
+  end
+
+  def user_item_show
+    @item = Item.find(params[:id])
+    @item_images = @item.item_images(@item.id)
+  end
+
+  def delete
+  end
+
   def move_to_index
     redirect_to root_path unless user_signed_in?
 
