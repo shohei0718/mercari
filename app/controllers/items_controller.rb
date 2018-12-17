@@ -116,6 +116,13 @@ class ItemsController < ApplicationController
     @first = FirstCategory.all
     @second = SecondCategory.all
   end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  def set_Category
+    @first = FirstCategory.all
+    @second = SecondCategory.all
+  end
 
 end
 
