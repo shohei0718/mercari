@@ -60,24 +60,37 @@ main {
     height: 190px;
     flex: 1;
     position: relative;
-    background: #f5f5f5;
-    border: 1px dashed #ccc;
     text-align: center;
     cursor: pointer;
+    &__imageview{
+      float: left;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      height: 190px;
+      width: 145px;
+      .uploadimg{
+        padding-top: 25px;
+        height: 100px;
+        width: 145px;
+      }
+      .img_del{
+        color: #0099e8;
+        font-weight: 400;
+        cursor: pointer;
+        font-size:14px;
+        text-align: center;
+        position:relative;
+        top:30px;
+        &:hover{
+          opacity: 0.5 ;
+        }
+      }
+    }
     img{
       height:161px;
       width:150px;
       position: relative;
       z-index: 2
-    }
-    .img_del{
-      color: #0099e8;
-      font-weight: 400;
-      cursor: pointer;
-      font-size:14px;
-    }
-    .img_del:hover{
-      opacity: 0.5 ;
     }
   }
   &__drop__box pre {
@@ -312,3 +325,4 @@ label {
   display: block;
   clear: both;
 }
+
