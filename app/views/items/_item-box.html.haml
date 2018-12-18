@@ -1,12 +1,9 @@
 %li.item-box
   =link_to item_path(item.id) do
-    - @item_images.each do |image|
-      - if image.image.present?
-        - if image.item_id == item.id
-          = image_tag image.image
-          -if item.order_status_id == 2
-            .sold-out-box
-              .sold-out-text SOLD
+    = image_tag item.item_images[0].image
+    - if item.order_status_id == 2
+      .sold-out-box
+        .sold-out-text SOLD
     .item-box-text
       .text-box
         %h4

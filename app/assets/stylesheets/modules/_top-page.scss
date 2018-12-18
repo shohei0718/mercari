@@ -139,6 +139,27 @@ button{
         width:213px;
         background-color: white;
         text-align: left;
+          .sold-out-box {
+            width: 0;
+            height: 0;
+            border-top: 50px solid red;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 50px solid red;
+            position: absolute;
+            display: block;
+            content: '';
+            top: 0;
+            left: 0;
+            z-index: 2;
+              .sold-out-text {
+                z-index: 2;
+                font-size: 25px;
+                color: white;
+                transform:rotate(-45deg);
+                transform:translate(-45px,-45px);
+              }
+            }
         a {
           text-decoration: none;
           color: #333333;

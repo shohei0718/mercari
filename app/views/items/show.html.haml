@@ -36,7 +36,7 @@
           %td #{@item.brand}
         %tr
           %th 商品のサイズ
-          %td #{@item.size.size}
+          %td #{@item.size&.size}
         %tr
           %th 商品の状態
           %td #{@item.condition.condition}
