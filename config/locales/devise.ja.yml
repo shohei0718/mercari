@@ -53,8 +53,8 @@ ja:
       not_found: "は見つかりませんでした。"
       not_locked: "ロックされていません。"
       not_saved:
-        one: "エラーにより、この %{resource} を保存できません："
-        other: "%{count} 個のエラーにより、この %{resource} を保存できません："
+        one: "エラーにより、このユーザーを登録できません"
+        other: "%{count} 個のエラーにより、このユーザーを登録できません"
   activerecord:
     attributes:
       user:

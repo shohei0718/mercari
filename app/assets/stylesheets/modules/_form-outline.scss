@@ -1,0 +1,18 @@
+input[type="email"]:focus{
+  outline: 0;
+}
+input[type="number"]:focus{
+  outline: 0;
+}
+input[type="password"]:focus{
+  outline: 0;
+}
+input[type="text"]:focus{
+  outline: 0;
+}
+select{
+  outline: none;
+}
+textarea{
+  outline: none;
+}
