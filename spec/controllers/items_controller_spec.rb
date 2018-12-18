@@ -2,12 +2,6 @@ require 'rails_helper'
 
 describe ItemsController, type: :controller do
 
-  before(:each) do
-    @request.env ||= {}
-    user = "mercari"
-    pass = "2018"
-    @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pass)
-  end
 
   describe 'GET #index' do
     # 正常なレスポンスか？
@@ -78,7 +72,7 @@ describe ItemsController, type: :controller do
     end
 
     it 'assigns @item' do
-      expect(assigns(:item)).to eq article
+      expect(assigns(:item)).to eq item
     end
 
     it 'renders the :edit template' do
@@ -91,7 +85,7 @@ describe ItemsController, type: :controller do
     let(:update_attributes) do
       {
         name: 'update name',
-        price: 'update price'
+        price: 'update price',
         description: 'update description'
       }
   end
@@ -116,5 +110,48 @@ describe ItemsController, type: :controller do
       expect(response).to redirect_to(item_path(item))
     end
   end
+  describe 'delete #destroy' do
+    let(:user) { create(:user) }
+    before do
+      @item = create(:item, user_id: user.id)
+    end
 
+    context 'log in' do
+      before do
+        sign_in user
+        @item.user_id == user.id
+      end
+      it 'リクエストは302 リダイレクトとなること' do
+        delete :destroy, id: @item.id
+        expect(response.status).to eq 302
+      end
+
+      it 'データベースから要求されたアイテムが削除されること' do
+        expect do
+          delete :destroy, params: { id: @item.id }, session: {}
+        end.to change(Item,:count).by(-1)
+      end
+
+      it '削除後に指定したページにリダイレクトすること' do
+        delete :destroy, params: { id: @item.id }, session: {}
+        expect(response).to redirect_to("http://test.host/users/user_exhibitation_products/#{user.id}")
+      end
+    end
+  end
+
+
+  describe 'POST#pay' do
+    before do
+      allow(Payjp::Charge).to receive(:create).and_return(PayjpMock.prepare_valid_charge)
+    end
+
+    it 'stubbing charge creation' do
+
+      payjp_stub(:charges, :create, params: { amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy' })
+
+      Payjp::Charge.create(amount: 3500, customer: 'cus_fe1beb3e434431c4c51c4b8137a4', currency: 'jpy')
+    end
+
+  end
 end
+
