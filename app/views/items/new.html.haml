@@ -13,7 +13,7 @@
               %p 最大4枚までアップロードできます
               = f.fields_for :item_images do |fi|
                 = fi.label :image, class: "sell--upload__drop__box" do
-                  .sell-upload__drop__box__imageview
+                  .sell--upload__drop__box__imageview
                     = fi.file_field :image,class:"file",style:"display:none;"
                     %pre
                       #preview
