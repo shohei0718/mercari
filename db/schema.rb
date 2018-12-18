@@ -160,12 +160,12 @@ ActiveRecord::Schema.define(version: 20181212101626) do
   end
 
   create_table "payment_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "card_number", limit: 65535, null: false
-    t.integer  "valid_year",                null: false
-    t.integer  "valid_month",               null: false
-    t.integer  "cvc",                       null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "card_number", null: false
+    t.integer  "valid_year",  null: false
+    t.integer  "valid_month", null: false
+    t.integer  "cvc",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_payment_informations_on_user_id", using: :btree
   end

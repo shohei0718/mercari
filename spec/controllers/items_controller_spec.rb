@@ -139,7 +139,6 @@ describe ItemsController, type: :controller do
     end
   end
 
-
   describe 'POST#pay' do
     before do
       allow(Payjp::Charge).to receive(:create).and_return(PayjpMock.prepare_valid_charge)
