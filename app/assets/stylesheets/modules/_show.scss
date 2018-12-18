@@ -2,7 +2,6 @@
   position:relative;
   background-color: $backgroundColor;
   @include clearfix();
-  padding-top: 10px;
 
   .item-container {
     background-color: white;
