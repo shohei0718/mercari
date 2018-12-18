@@ -33,10 +33,10 @@
             = link_to "\→#{@item.third_category.third_category}"
         %tr
           %th ブランド
-          %td モンブラン
+          %td #{@item.brand}
         %tr
           %th 商品のサイズ
-          %td
+          %td #{@item.size.size}
         %tr
           %th 商品の状態
           %td #{@item.condition.condition}
@@ -55,7 +55,7 @@
           %td #{@item.delivery_date.date}
     .item-container__price
       %span.item-price
-        \ #{@item.price}
+        \ #{converting_price(@item.price)}
       %span.item-taxIn
         (税込)
       %span.item-tax-include
