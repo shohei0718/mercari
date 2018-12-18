@@ -13,7 +13,7 @@ ja:
     address                : 番地
     zip_code               : 郵便番号
     telephone              : 電話番号
-    birth_year             : 生年月日
-    birth_month            : 生年月日
-    birth_day              : 生年月日
+    birth_year             : 生まれた年
+    birth_month            : 生まれた月
+    birth_day              : 生まれた日
     prefecture             : 都道府県

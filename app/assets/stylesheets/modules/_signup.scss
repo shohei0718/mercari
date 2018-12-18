@@ -107,7 +107,7 @@
     min-height:1750px;
     height:auto;
     background-color: white;
-    padding:64px 0 30px 0;
+    padding:64px 0 10px 0;
     margin-bottom: 1px;
 
     &__field--top{
@@ -144,6 +144,24 @@
       font-weight: 600;
       font-size:14px;
       margin: 0 auto;
+    }
+    #error_explanation{
+      text-align: center;
+      color:red;
+      font-weight: 600;
+      border-radius: 5px;
+      border: 2px solid red;
+      margin:0 100px 100px 100px;
+      padding:10px 25px 10px 25px;
+      background-color: #FFEDEB;
+      h2{
+        font-weight: 600;
+        font-size:18px;
+        margin-bottom: 8px;
+        }
+      li{
+        text-align: left;
+      }
     }
   }
 }

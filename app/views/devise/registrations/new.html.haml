@@ -34,23 +34,23 @@
         %span.form-require
           必須
         %br/
-        = f.text_field :last_name,style:"margin-bottom:5px"
+        = f.text_field :last_name,style:"margin-bottom:5px",placeholder:"例）山田"
         %br/
-        = f.text_field :first_name
+        = f.text_field :first_name,placeholder:"例）太郎"
       .sign-up-main__form__field--name
         = f.label :お名前カナ
         %span.form-require
           必須
         %br/
-        = f.text_field :last_name_kana,style:"margin-bottom:5px"
+        = f.text_field :last_name_kana,style:"margin-bottom:5px",placeholder:"例）ヤマダ"
         %br/
-        = f.text_field :first_name_kana
+        = f.text_field :first_name_kana,placeholder:"例）タロウ"
       .sign-up-main__form__field--name
         = f.label :郵便番号
         %span.form-require
           必須
         %br/
-        = f.number_field :zip_code,maxlength:7
+        = f.text_field :zip_code,maxlength:7,placeholder:"例）1234567"
       .sign-up-main__form__field
         = f.label :都道府県
         %span.form-require
@@ -63,23 +63,23 @@
         %span.form-require
           必須
         %br/
-        = f.text_field :city
+        = f.text_field :city,placeholder:"例）横浜市緑区"
       .sign-up-main__form__field
         = f.label :番地
         %span.form-require
           必須
         %br/
-        = f.text_field :address
+        = f.text_field :address,placeholder:"例）青山1-1-1"
       .sign-up-main__form__field
         = f.label :建物
         %br/
-        = f.text_field :building
+        = f.text_field :building,placeholder:"例）柳ビル103"
       .sign-up-main__form__field
         = f.label :電話番号
         %span.form-require
           必須
         %br/
-        = f.number_field :telephone
+        = f.text_field :telephone,placeholder:"例）09012345678"
       .sign-up-main__form__field--birth
         = f.label :生年月日,class:"birth-info"
         %span.form-require
