@@ -57,19 +57,3 @@ crumb :exhibit_item do
   link "出品商品画面", root_path
   parent :exhibit_items
 end
-
-# 以下、今後html.hamlに記載
-
-# crumb :first_category do |first_category|
-#   link "first_category.first_category", first_categories_path
-#   parent :categories
-# end
-
-# .breads
-#   - breadcrumb :pay_info
-#   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
-
-# .breads
-#   - breadcrumbs :card_info
-#   = breadcrumbs separator: "#{content_tag(:i, '', :class=>'fa fa-caret-right')}"
-

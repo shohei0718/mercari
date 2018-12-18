@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @item_images = @item.item_images(@item.id)
     @user = current_user
   end
@@ -30,9 +29,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    (4 - @item.item_images.size).times{@item.item_images.new}
   end
 
   def update
+    if @item.user_id == current_user.id
+      if @item.update(item_params)
+        redirect_to user_item_show_path(@item)
+      else
+        (4 - @item.item_images.size).times{@item.item_images.new}
+        render :edit
+      end
+    end
   end
 
 
@@ -99,7 +107,14 @@ class ItemsController < ApplicationController
       :name, :price, :description, :first_category_id,
       :second_category_id, :third_category_id, :brand_id,
       :size_id, :condition_id, :delivery_charge_id, :prefecture_id,
-      :delivery_date_id, :order_status_id, :delivery_way_id, item_images_attributes:[:id, :image])
+      :delivery_date_id, :order_status_id, :delivery_way_id, item_images_attributes:[:id, :image, :_destroy])
+  end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  def set_Category
+    @first = FirstCategory.all
+    @second = SecondCategory.all
   end
   def set_item
     @item = Item.find(params[:id])

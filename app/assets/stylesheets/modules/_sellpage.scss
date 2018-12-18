@@ -1,3 +1,9 @@
+$bordercolor: #eee;
+$lightblue: #0099e8;
+$formborder: #ccc;
+$white: #fff;
+$red: #ea352d;
+$filefield: #f5f5f5;
 body {
   position: relative;
   min-height: 100%;
@@ -13,7 +19,7 @@ main {
 .container {
   width: 700px;
   margin: 0 auto;
-  background: #fff;
+  background: $white;
 }
 .sell {
   &__container__inner h2 {
@@ -26,7 +32,7 @@ main {
     text-align: center;
   }
   &__form {
-    border-top: 1px solid #eee;
+    border-top: 1px solid $bordercolor;
   }
 }
 
@@ -34,7 +40,7 @@ main {
   &__box {
     width: 620px;
     padding: 40px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $bordercolor;
   }
   &__box h3 {
     font-weight: bold;
@@ -60,24 +66,37 @@ main {
     height: 190px;
     flex: 1;
     position: relative;
-    background: #f5f5f5;
-    border: 1px dashed #ccc;
     text-align: center;
     cursor: pointer;
+    &__imageview{
+      float: left;
+      background: $filefield;
+      border: 1px dashed $formborder;
+      height: 190px;
+      width: 145px;
+      .uploadimg{
+        padding-top: 25px;
+        height: 100px;
+        width: 145px;
+      }
+      .img_del{
+        color: $lightblue;
+        font-weight: 400;
+        cursor: pointer;
+        font-size:14px;
+        text-align: center;
+        position:relative;
+        top:30px;
+        &:hover{
+          opacity: 0.5 ;
+        }
+      }
+    }
     img{
       height:161px;
       width:150px;
       position: relative;
       z-index: 2
-    }
-    .img_del{
-      color: #0099e8;
-      font-weight: 400;
-      cursor: pointer;
-      font-size:14px;
-    }
-    .img_del:hover{
-      opacity: 0.5 ;
     }
   }
   &__drop__box pre {
@@ -102,7 +121,7 @@ main {
 }
 .sell__content {
   padding: 40px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid $bordercolor;
 }
 
 .form__group {
@@ -122,7 +141,7 @@ main {
     margin: 5px 0 5px 0;
     padding: 10px 0 0 10px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid $formborder;
     background: 0;
     font-size: 16px;
     line-height: 1.5;
@@ -142,8 +161,8 @@ main {
 .input__default {
   padding: 10px 16px 8px;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 1px solid $formborder;
+  background: $white;
   line-height: 1.5;
   font-size: 16px;
 }
@@ -158,8 +177,8 @@ label {
   max-width: 100%;
   min-height: 104px;
   padding: 10px;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 1px solid $formborder;
+  background: $white;
   font-size: 16px;
   line-height: 1.5;
   margin: 8px 0 0;
@@ -176,7 +195,7 @@ label {
 
 .select--wrap {
   position: relative;
-  background: #fff;
+  background: $white;
 }
 .select__default {
   position: relative;
@@ -184,7 +203,7 @@ label {
   height: 48px;
   padding: 0 16px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid $formborder;
   background: 0;
   font-size: 16px;
   line-height: 1.5;
@@ -199,7 +218,7 @@ label {
   }
   & li {
     padding: 24px 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $formborder;
   }
   & .form__group .l-left {
     width: 50%;
@@ -228,7 +247,7 @@ label {
   word-wrap: break-word;
 }
 .sell__content p a {
-  color: #0099e8;
+  color: $lightblue;
   text-decoration: none;
   display:inline;
   word-wrap: break-word;
@@ -262,14 +281,14 @@ label {
 }
 
 .btn--red {
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
+  background: $red;
+  border: 1px solid $red;
+  color: $white;
 }
 .btn--gray {
   background: #aaa;
   border: 1px solid #aaa;
-  color: #fff;
+  color: $white;
   display: block;
   width: 100%;
   line-height: 48px;
@@ -288,11 +307,11 @@ label {
   text-align: center;
 }
 .form--require {
-  background: #ea352d;
+  background: $red;
   margin: 0 0 0 8px;
   padding: 2px 4px;
   border-radius: 2px;
-  color: #fff;
+  color: $white;
   font-size: 12px;
   vertical-align: top;
 }
@@ -301,8 +320,8 @@ label {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #0099e8;
-  color: #fff;
+  background: $lightblue;
+  color: $white;
   line-height: 14px;
   font-size: 12px;
   text-align: center;
@@ -312,3 +331,4 @@ label {
   display: block;
   clear: both;
 }
+
