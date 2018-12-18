@@ -4,6 +4,9 @@
       - if image.image.present?
         - if image.item_id == item.id
           = image_tag image.image
+          -if item.order_status_id == 2
+            .sold-out-box
+              .sold-out-text SOLD
     .item-box-text
       .text-box
         %h4
