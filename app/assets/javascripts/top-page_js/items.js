@@ -21,12 +21,7 @@ $(document).ready(function () {
        find_img.nextAll().remove();
        find_img.remove();
     }
-    var imgHTML =  `<div class="sell--upload__drop__box__preview">
-                  <img alt="" class="uploadimg">
-                    <a class="img_del">
-                    画像を削除する
-                    </a>
-                </div>`;
+    var imgHTML =  '<div class="sell--upload__drop__box__preview"> <img alt="" class="uploadimg"> <a class="img_del"> 画像を削除する </a> </div>';
     view_box.append(imgHTML);
     filereader.onload = function() {
       view_box.find('img').attr('src', filereader.result);
