@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items do
+    resources :communications,only:[:create]
     member do
       post 'pay'
     end

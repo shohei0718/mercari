@@ -11,12 +11,14 @@ class ItemsController < ApplicationController
 
   def show
     @item_images = @item.item_images(@item.id)
+    @message = Communication.new
     @user = current_user
   end
 
   def new
     @item = current_user.items.new
     4.times{@item.item_images.build}
+
 
   end
   def create
